@@ -1,0 +1,272 @@
+guiao trabalho 
+1. Recolha de Informação sobre o Gene MYC:
+
+Objetivo: Obter uma compreensão profunda do gene MYC, sua função, estrutura e contexto biológico.
+
+Ações:
+
+Pesquisa Bibliográfica:
+
+Use o PubMed (https://pubmed.ncbi.nlm.nih.gov/) para pesquisar artigos científicos sobre o gene MYC.
+
+Foque em artigos de revisão (reviews) e artigos recentes para obter uma visão geral atualizada.
+
+Anote informações cruciais sobre:
+
+Função do MYC na célula
+
+Estrutura da proteína MYC
+
+Regulação da expressão do MYC
+
+O papel do MYC no desenvolvimento de doenças (câncer)
+
+Interações com outras proteínas
+
+Bancos de Dados:
+
+NCBI Gene (https://www.ncbi.nlm.nih.gov/gene/): Obtenha informações sobre a sequência do gene MYC, variantes genéticas, etc.
+
+UniProt (https://www.uniprot.org/): Acesse informações sobre a proteína MYC, sua estrutura, função, modificações pós-traducionais, etc.
+
+PDB (Protein Data Bank) (https://www.rcsb.org/): Encontre estruturas 3D da proteína MYC ou de domínios da proteína.
+
+Entregas:
+
+Notas detalhadas sobre a função, estrutura e contexto biológico do gene MYC.
+
+Lista de IDs de acesso de sequências de proteínas MYC em diferentes organismos (para a análise filogenética).
+
+2. Identificação dos Membros do Grupo:
+
+Objetivo: Formar um grupo de trabalho colaborativo e definir as responsabilidades de cada membro.
+
+Ações:
+
+Definir os membros do grupo.
+
+Distribuir as tarefas entre os membros, considerando as habilidades e interesses de cada um.
+
+Estabelecer um cronograma e reuniões regulares para acompanhar o progresso.
+
+Entregas:
+
+Lista dos membros do grupo e suas responsabilidades.
+
+Cronograma do projeto.
+
+3. Análise Filogenética:
+
+Objetivo: Explorar sequências de proteínas homólogas e gerar uma árvore filogenética para compreender o contexto evolutivo do gene MYC.
+
+Ações:
+
+Obtenção de Sequências Homólogas:
+
+Use o BLASTP (https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=Proteins) no NCBI para pesquisar sequências de proteínas homólogas ao MYC em diferentes organismos.
+
+Use a sequência da proteína humana MYC como consulta (query).
+
+Selecione um número representativo de sequências de diferentes grupos taxonômicos (vertebrados, invertebrados, plantas, fungos) para obter uma visão geral ampla da evolução do MYC.
+
+Anote os IDs de acesso de cada sequência homóloga.
+
+Alinhamento Múltiplo de Sequências:
+
+Use o Clustal Omega (https://www.ebi.ac.uk/Tools/msa/clustalo/) ou o MUSCLE para alinhar as sequências homólogas.
+
+Ajuste os parâmetros de alinhamento (gap penalties) para obter um alinhamento de alta qualidade.
+
+Visualize o alinhamento para identificar regiões conservadas e variáveis.
+
+Construção da Árvore Filogenética:
+
+Use o software MEGA (https://www.megasoftware.net/) ou PhyML para construir a árvore filogenética.
+
+Escolha um método de construção de árvore (Neighbor-Joining, Maximum Likelihood).
+
+Escolha um modelo de evolução molecular (JTT, WAG) apropriado para proteínas.
+
+Realize um teste de bootstrap para avaliar a robustez da árvore.
+
+Visualização e Análise da Árvore:
+
+Visualize a árvore filogenética usando o MEGA ou um visualizador de árvores online (como iTOL: https://itol.embl.de/).
+
+Identifique os grupos taxonômicos na árvore e analise as relações evolutivas entre as sequências de MYC.
+
+Interprete a árvore no contexto da evolução do gene MYC.
+
+Entregas:
+
+Arquivo de alinhamento de sequências (formato FASTA ou Clustal).
+
+Arquivo da árvore filogenética (formato Newick).
+
+Imagem da árvore filogenética visualizada.
+
+Interpretação da árvore filogenética.
+
+4. Elaboração do Relatório:
+
+Objetivo: Documentar todo o processo de análise e apresentar os resultados de forma clara e concisa.
+
+Estrutura do Relatório:
+
+Resumo (Abstract):
+
+4 a 5 frases resumindo o trabalho e os principais resultados.
+
+Escreva o resumo após a conclusão do relatório.
+
+Introdução e Motivação Biológica:
+
+Apresente o gene MYC, sua função e importância biológica.
+
+Discuta a motivação para o estudo do gene MYC e a relevância da análise filogenética.
+
+Ferramentas Bioinformáticas Utilizadas:
+
+Descreva brevemente as ferramentas bioinformáticas utilizadas (BLAST, Clustal Omega, MEGA, etc.).
+
+Explique o propósito de cada ferramenta na análise.
+
+Principais Resultados:
+
+Apresente os principais resultados da análise filogenética (árvore filogenética, regiões conservadas e variáveis nas sequências de MYC).
+
+Inclua figuras e tabelas para ilustrar os resultados.
+
+Discussão:
+
+Discuta os resultados mais interessantes e relevantes da análise filogenética.
+
+Compare seus resultados com os de outros estudos.
+
+Discuta as principais dificuldades encontradas durante a análise e como foram superadas.
+
+Conclusão:
+
+Resuma as principais conclusões do estudo.
+
+Discuta as implicações dos resultados e as possíveis direções para pesquisas futuras.
+
+Entregas:
+
+Relatório completo em formato PDF ou Word.
+
+5. Produção do Site (Firebase, AI Studio):
+
+Objetivo: Criar um site interativo para apresentar os resultados do projeto de forma visualmente atraente e acessível.
+
+Ações:
+
+Planejamento do Site:
+
+Defina a estrutura do site (páginas, navegação).
+
+Crie um wireframe ou mockup do site.
+
+Escolha um design atraente e profissional.
+
+Desenvolvimento do Site:
+
+Use o Firebase para hospedar o site e gerenciar o banco de dados (se necessário).
+
+Use o AI Studio para gerar conteúdo para o site (textos, imagens).
+
+Implemente as páginas do site (HTML, CSS, JavaScript).
+
+Incorpore a visualização da estrutura 3D da proteína MYC (usando Mol*, NGL Viewer ou 3Dmol.js).
+
+Apresente a árvore filogenética de forma interativa (usando uma biblioteca JavaScript como D3.js).
+
+Inclua texto explicativo e legendas para cada visualização.
+
+Testes e Implantação:
+
+Teste o site em diferentes navegadores e dispositivos.
+
+Corrija quaisquer erros ou problemas encontrados.
+
+Implante o site no Firebase.
+
+Entregas:
+
+Site funcional e interativo hospedado no Firebase.
+
+Código fonte do site.
+
+6. Produção do PowerPoint (Para Incentivar a Ida ao Site):
+
+Objetivo: Criar uma apresentação concisa e visualmente atraente para incentivar a visita ao site.
+
+Ações:
+
+Planejamento do PowerPoint:
+
+Defina os principais pontos que você deseja apresentar.
+
+Escolha um design atraente e profissional.
+
+Use imagens de alta qualidade.
+
+Criação dos Slides:
+
+Slide de Título: Título do projeto, nomes dos membros do grupo, instituição.
+
+Slide de Introdução: Apresente o gene MYC e sua importância.
+
+Slide de Objetivos: Descreva os objetivos do projeto.
+
+Slide de Metodologia: Apresente brevemente as ferramentas e métodos utilizados.
+
+Slide de Resultados: Destaque os principais resultados (árvore filogenética, estrutura 3D).
+
+Slide do Site: Apresente o site e incentive a visita.
+
+Slide de Conclusão: Resuma as principais conclusões do projeto.
+
+Slide de Agradecimentos: Agradeça às pessoas e instituições que apoiaram o projeto.
+
+Ensaios:
+
+Ensaiar a apresentação para garantir que ela flua bem e que você esteja dentro do tempo limite.
+
+Entregas:
+
+Apresentação PowerPoint completa e visualmente atraente.
+
+Ferramentas Bioinformáticas Recomendadas:
+
+BLAST: Para pesquisa de sequências homólogas.
+
+Clustal Omega/MUSCLE: Para alinhamento múltiplo de sequências.
+
+MEGA/PhyML: Para construção de árvores filogenéticas.
+
+iTOL: Para visualização de árvores filogenéticas.
+
+PyMOL/ChimeraX/NGL Viewer: Para visualização de estruturas 3D.
+
+Firebase: Para hospedagem do site.
+
+AI Studio: Para geração de conteúdo para o site.
+
+D3.js: Para visualização interativa de dados no site.
+
+Dicas:
+
+Mantenha a organização e documente todas as etapas do projeto.
+
+Comunique-se regularmente com os membros do grupo.
+
+Use as ferramentas bioinformáticas de forma eficiente.
+
+Crie visualizações claras e concisas.
+
+Teste o site e a apresentação em diferentes dispositivos.
+
+Seja criativo e procure apresentar os resultados de forma inovadora.
+
+Espero que este guia detalhado seja útil para o seu projeto! Se você tiver alguma dúvida ou precisar de ajuda com alguma etapa específica, me diga.

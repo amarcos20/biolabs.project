@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYC.com</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- NGL Viewer -->
+    <script src="https://unpkg.com/ngl@latest/dist/ngl.js"></script>
+    <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header & Navegação -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">MYC<span>.com</span></a>
+                <div class="menu-toggle">☰</div>
+                <ul class="nav-links">
+                    <li><a href="#inicio">MYC</a></li>
+                    <li><a href="#visualizador">Visualizador 3D</a></li>
+                    <li><a href="#sobre">MYC2YOU</a></li>
+                    <li><a href="#contato">Conclusões</a></li>
+                    <li><a href="#" class="btn">Relatório</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção Hero -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Visualizador da <span style="color: var(--secondary);">Proteína c-MYC</span></h1>
+                <p>Explore a estrutura tridimensional da proteína MYC (1NKP) com nosso visualizador molecular interativo.</p>
+                <a href="#visualizador" class="btn">Explorar estrutura</a>
+                <a href="#sobre" class="btn btn-secondary" style="margin-left: 15px;">Saiba mais</a>
+            </div>
+        </div>
+        <div class="hero-shape"></div>
+    </section>
+
+    <!-- Seção Visualizador -->
+    <section class="section visualizer" id="visualizador">
+        <div class="container">
+            <div class="section-header">
+                <h2>Visualizador Interativo</h2>
+                <p>Explore a estrutura molecular da proteína MYC (1NKP) em 3D e descubra os elementos chave desta importante
+                    proteína</p>
+            </div>
+            <div class="visualizer-container">
+                <div class="visualizer-header">
+                    <h3>MYC Protein Structure - 1NKP</h3>
+                    <p>Visualizador baseado em NGL Viewer</p>
+                </div>
+                <!-- Quick Controls -->
+                <div class="quick-controls">
+                    <h4>Controles de visualização:</h4>
+                    <div class="control-buttons">
+                        <button class="control-button" id="cartoon-view">
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                                fill="none">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                            Cartoon
+                        </button>
+                        <button class="control-button" id="surface-view">
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                                fill="none">
+                                <circle cx="12" cy="12" r="10"></circle>
+                            </svg>
+                            Superfície
+                        </button>
+                        <button class="control-button" id="ball-stick-view">
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                                fill="none">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                                </path>
+                            </svg>
+                            Bolas e Bastões
+                        </button>
+                        </button>
+                        <button class="control-button" id="reset-view">
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                                fill="none">
+                                <path d="M23 4v6h-6"></path>
+                                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                            </svg>
+                            Resetar Visão
+                        </button>
+                    </div>
+                </div>
+                <!-- Viewer Window -->
+                <div class="viewer-window" id="ngl-viewer"></div>
+            </div>
+
+            <!-- Info Panels -->
+            <div class="info-panels" id="sobre">
+                <div class="info-panel">
+                    <h3>
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        Sobre a Proteína MYC
+                    </h3>
+                    <p>A proteína MYC é um fator de transcrição que regula a expressão de muitos genes. Está envolvida em
+                        processos celulares cruciais como crescimento, proliferação e apoptose. Mutações ou desregulação da
+                        MYC estão associadas a diversos tipos de cânceres humanos.</p>
+                </div>
+                <div class="info-panel">
+                    <h3>
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg>
+                        Estrutura 1NKP
+                    </h3>
+                    <p>O código PDB 1NKP representa a estrutura cristalográfica do complexo MYC-MAX ligado ao DNA. Este
+                        complexo forma um dímero do tipo básico-hélice-alça-hélice (bHLH) que se liga a sequências específicas
+                        de DNA chamadas E-boxes (CACGTG).</p>
+                </div>
+                <div class="info-panel">
+                    <h3>
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path
+                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                            </path>
+                        </svg>
+                        Como Usar o Visualizador
+                    </h3>
+                    <p>Use os controles para alternar entre diferentes representações da estrutura. Para navegar: arraste para
+                        girar, use a roda do mouse para zoom, e shift+clique para mover. As diferentes visualizações permitem
+                        analisar aspectos distintos da estrutura molecular.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">MYC<span>Viewer</span></a>
+                    <p>Uma ferramenta de visualização de estruturas proteicas 3D desenvolvida para auxiliar na compreensão da
+                        proteína MYC e sua interação molecular.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                                3.14-.35 2.83 0 .66-.74-.25-1.98-.25-2.82 0-1.3 1.17-2.1 2.43-2.1h.04c1.26 0 2.28.8 2.43 2.1 0 1.02-.31 1.98-.25 2.82.66.66 2.83 0 2.83-.66V12">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.66-2.43 4.8 4.8 0 0 0-1.5-.34 4.44 4.44 0 0 0-7 3.37A13.33 13.33 0 0 1 1 11.5 13.12 13.12 0 0 1 6 9.31v.7a4.44 4.44 0 0 0 3.7 4.37 4.48 4.48 0 0 1-2.02.08 4.5 4.5 0 0 0 4.22 3.12 8.8 8.8 0 0 1-5.33 1.87A8.8 8.8 0 0 1 2 18.08V22">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#visualizador">Visualizador</a></li>
+                        <li><a href="#sobre">Sobre MYC</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Inscreva-se</h3>
+                    <p>Receba atualizações sobre novas funcionalidades e pesquisas.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu email" required>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 MYC Viewer | Universidade do Porto. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link para o arquivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
