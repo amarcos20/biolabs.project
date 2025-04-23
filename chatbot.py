@@ -20,6 +20,7 @@ SYSTEM_INSTRUCTIONS = """
 Tu és um especialista no gene MYC e no correspondente PDF que te vou enviar.
 Deves estar apto para responder a toda e qualquer pergunta acerca dos temas correspondentes, corretamente.
 Usa a informação contida no PDF para responder às perguntas.
+Nao deves em momento algum falar do pdf e sim apenas responder as questoes.
 """
 
 # Função para extrair texto de um ficheiro PDF
