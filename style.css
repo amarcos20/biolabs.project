@@ -133,6 +133,7 @@
   }
   
   /* Seção Hero */
+
   .hero {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7)), url('molecule-background.jpg') center/cover no-repeat;
     min-height: 100vh;
@@ -590,3 +591,75 @@
       height: 400px;
     }
   }
+/* Seção Chatbot */
+.chatbot {
+  margin-top: -300px;
+  background-color: var(--light); /* Cor de fundo mais clara */
+}
+
+#chatbot-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  border: 1px solid var(--border-color);
+  background-color: var(--light);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+#chat-log {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: scroll;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+#chat-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid var(--border-color);
+}
+
+#user-input {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+#send-button {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: var(--light);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(15, 59, 130, 0.3);
+  margin-left: 10px;
+}
+
+#send-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(15, 59, 130, 0.4);
+}
+
+.user-message {
+  text-align: right;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.bot-message {
+  text-align: left;
+  margin-bottom: 10px;
+  color: var(--text);
+}
