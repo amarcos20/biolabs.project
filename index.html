@@ -25,10 +25,9 @@
                 <div class="menu-toggle">☰</div>
                 <ul class="nav-links">
                     <li><a href="#inicio">MYC</a></li>
+                    <li><a href="#MYC2YOU">MYC2YOU</a></li>
                     <li><a href="#visualizador">Visualizador 3D</a></li>
-                    <li><a href="#sobre">MYC2YOU</a></li>
-                    <li><a href="#contato">Conclusões</a></li>
-                    <li><a href="#" class="btn">Relatório</a></li>
+                    <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
         </div>
@@ -41,10 +40,29 @@
                 <h1>Visualizador da <span style="color: var(--secondary);">Proteína c-MYC</span></h1>
                 <p>Explore a estrutura tridimensional da proteína MYC (1NKP) com nosso visualizador molecular interativo.</p>
                 <a href="#visualizador" class="btn">Explorar estrutura</a>
-                <a href="#sobre" class="btn btn-secondary" style="margin-left: 15px;">Saiba mais</a>
+                <a href="#MYC2YOU" class="btn btn-secondary" style="margin-left: 15px;">Saiba mais</a>
             </div>
         </div>
         <div class="hero-shape"></div>
+    </section>
+    
+    <!-- Seção Chatbot -->
+    <section class="section chatbot" id="MYC2YOU">
+        <div class="container">
+            <div class="section-header">
+                <h2>MYC2YOU</h2>
+                <p>Pergunte ao nosso assistente virtual sobre o gene MYC</p>
+            </div>
+            <div id="chatbot-container">
+                <div id="chat-log">
+                    <!-- As mensagens do chat aparecem aqui -->
+                </div>
+                <div id="chat-input">
+                    <input type="text" id="user-input" placeholder="Escreva a sua mensagem...">
+                    <button id="send-button">Enviar</button>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Seção Visualizador -->
@@ -139,10 +157,10 @@
                             <circle cx="12" cy="12" r="3"></circle>
                             <path
                                 d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
-                            </path>
-                        </svg>
-                        Como Usar o Visualizador
-                    </h3>
+                                </path>
+                            </svg>
+                            Como Usar o Visualizador
+                        </h3>
                     <p>Use os controles para alternar entre diferentes representações da estrutura. Para navegar: arraste para
                         girar, use a roda do mouse para zoom, e shift+clique para mover. As diferentes visualizações permitem
                         analisar aspectos distintos da estrutura molecular.</p>
@@ -197,7 +215,7 @@
                     <ul>
                         <li><a href="#inicio">Início</a></li>
                         <li><a href="#visualizador">Visualizador</a></li>
-                        <li><a href="#sobre">Sobre MYC</a></li>
+                        <li><a href="#MYC2YOU">Sobre MYC2YOU</a></li>
                         <li><a href="#contato">Contato</a></li>
                     </ul>
                 </div>
@@ -216,8 +234,136 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script>
+        // Toggle menu mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Inicializa o visualizador NGL
+        const stage = new NGL.Stage("ngl-viewer", {
+            backgroundColor: "white"
+        });
+        let component;
+
+        // Ajusta o tamanho ao redimensionar
+        window.addEventListener("resize", function() {
+            stage.handleResize();
+        });
+
+        // Carrega a estrutura PDB da proteína MYC
+        stage.loadFile("https://files.rcsb.org/download/1NKP.pdb").then(function(loadedComponent) {
+            component = loadedComponent;
+            // Adiciona representação inicial
+            component.addRepresentation("cartoon", {
+                color: "chainname"
+            });
+            component.autoView();
+        });
+
+        // Adiciona funcionalidade aos botões de controle
+        document.getElementById("cartoon-view").addEventListener("click", function() {
+            if (component) {
+                component.removeAllRepresentations();
+                component.addRepresentation("cartoon", {
+                    color: "chainname"
+                });
+            }
+        });
+
+        document.getElementById("surface-view").addEventListener("click", function() {
+            if (component) {
+                component.removeAllRepresentations();
+                component.addRepresentation("surface", {
+                    opacity: 0.7,
+                    colorScheme: "electrostatic"
+                });
+            }
+        });
+
+        document.getElementById("ball-stick-view").addEventListener("click", function() {
+            if (component) {
+                component.removeAllRepresentations();
+                component.addRepresentation("ball+stick", {
+                    color: "element"
+                });
+            }
+        });
+
+        document.getElementById("reset-view").addEventListener("click", function() {
+            if (component) {
+                component.autoView();
+            }
+        });
+    </script>
+   
+    <script>
+        const chatLog = document.getElementById('chat-log');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        sendButton.addEventListener('click', sendMessage);
+
+        userInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (message !== '') {
+                addUserMessage(message);
+
+                fetch('http://127.0.0.1:5000/chat', { // ***Certifica-te de que isto está correto!***
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: message })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erro HTTP: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    addBotMessage(data.response);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    addBotMessage('Não foi possível obter a resposta. Verifique a consola.');
+                });
+
+                userInput.value = '';
+            }
+        }
+
+        function addUserMessage(message) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('user-message');
+            messageElement.textContent = message;
+            chatLog.appendChild(messageElement);
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+
+        function addBotMessage(message) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('bot-message');
+            messageElement.textContent = message;
+            chatLog.appendChild(messageElement);
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+    </script>
     <!-- Link para o arquivo JavaScript -->
     <script src="script.js"></script>
 </body>
+
+</html>
 
 </html>
