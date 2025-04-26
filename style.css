@@ -1,811 +1,799 @@
+/* style.css - Versão Limpa e Organizada */
+
 :root {
-    --primary: #0F3B82;
-    /* Azul U.Porto */
-    --secondary: #F58634;
-    /* Laranja para destaque */
-    --dark: #1a1a2e;
-    --light: #ffffff;
-    --gray: #f8f9fa;
-    --text: #333333;
-    --light-blue: #E6F3FF;
-    --light-orange: #FFF1E6;
-    --border-color: #e0e0e0;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  body {
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-  
-  .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-  
-  /* Header & Navegação */
-  header {
-    background-color: rgba(255, 255, 255, 0.95);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-  }
-  
-  .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo span {
-    color: var(--secondary);
-  }
-  
-  .nav-links {
-    display: flex;
-    list-style: none;
-  }
-  
-  .nav-links li {
-    margin-left: 30px;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: var(--text);
-    font-weight: 500;
-    transition: color 0.3s;
-    position: relative;
-  }
-  
-  .nav-links a:hover {
-    color: var(--primary);
-  }
-  
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary);
-    transition: width 0.3s ease;
-  }
-  
-  .nav-links a:hover::after {
-    width: 100%;
-  }
-  
-  .btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background: linear-gradient(45deg, var(--primary), #1B5DB9);
-    color: var(--light);
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(15, 59, 130, 0.3);
-  }
-  
-  .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(15, 59, 130, 0.4);
-  }
-  
-  .btn-secondary {
-    background: linear-gradient(45deg, var(--secondary), #FF9F5B);
-    box-shadow: 0 4px 15px rgba(245, 134, 52, 0.3);
-  }
-  
-  .btn-secondary:hover {
-    box-shadow: 0 8px 25px rgba(245, 134, 52, 0.4);
-  }
-  
-  .menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-  }
-  
-  /* Seção Hero */
-
-  .hero {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7)), url('molecule-background.jpg') center/cover no-repeat;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .hero-content {
-    width: 50%;
-    animation: fadeInLeft 1s ease;
-    padding-top: 80px;
-    margin-left: 4cm;
-  }
-  
-  .hero h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-    line-height: 1.2;
-    color: var(--primary);
-  }
-  
-  .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: #555;
-  }
-  
-  .hero-image {
-    width: 45%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    animation: float 6s ease-in-out infinite;
-    position: relative;
-    left: -70px;
-  }
-  
-  .hero-shape {
-    position: absolute;
-    bottom: -100px;
-    left: -100px;
-    width: 300px;
-    height: 300px;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    border-radius: 50%;
-    opacity: 0.1;
-    z-index: -1;
-  }
-  
-  /* Seção Visualizador */
-  .section {
-    padding: 100px 0;
-  }
-  
-  .visualizer {
-    background-color: var(--gray);
-  }
-  
-  .section-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-  
-  .section-header h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    position: relative;
-    display: inline-block;
-    color: var(--primary);
-  }
-  
-  .section-header h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 3px;
-    background: linear-gradient(to right, var(--primary), var(--secondary));
-  }
-  
-  .section-header p {
-    font-size: 1.1rem;
-    color: #666;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
-  .visualizer-container {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-  }
-  
-  .visualizer-header {
-    background-color: var(--primary);
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .visualizer-header h3 {
-    font-weight: 600;
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-  }
-  
-  .visualizer-header p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-  }
-  
-  /* Viewer Window */
-  .viewer-window {
-    height: 600px;
-    width: 100%;
-    background-color: var(--gray);
-  }
-  
-  /* Quick Controls */
-  .quick-controls {
-    padding: 15px 20px;
-    border-bottom: 1px solid var(--border-color);
-    background-color: #fdfdfd;
-  }
-  
-  .quick-controls h4 {
-    font-size: 0.9em;
-    color: #666;
-    margin-bottom: 10px;
-    text-align: center;
-    font-weight: 500;
-  }
-  
-  .control-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-  
-  .control-button {
-    background-color: #f0f0f0;
-    color: var(--primary);
-    border: 1px solid var(--border-color);
-    padding: 8px 12px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.85em;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .control-button:hover {
-    background-color: var(--secondary);
-    color: white;
-    border-color: var(--secondary);
-    transform: translateY(-2px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .control-button svg {
-    width: 16px;
-    height: 16px;
-  }
-  
-  /* Info Panels */
-  .info-panels {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 40px;
-  }
-  
-  .info-panel {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    padding: 25px;
-    transition: all 0.3s ease;
-  }
-  
-  .info-panel:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .info-panel h3 {
-    color: var(--primary);
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .info-panel p {
-    color: #666;
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-  
-  /* Footer */
-  footer {
-    background-color: var(--dark);
-    color: white;
-    padding: 60px 0 30px;
-  }
-  
-  .footer-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 30px;
-  }
-  
-  .footer-logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 20px;
-    display: inline-block;
-  }
-  
-  .footer-logo span {
-    color: var(--secondary);
-  }
-  
-  .footer-about p {
-    margin-bottom: 20px;
-    color: #bbb;
-  }
-  
-  .social-links {
-    display: flex;
-  }
-  
-  .social-links a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    margin-right: 10px;
-    transition: all 0.3s;
-  }
-  
-  .social-links a:hover {
-    background-color: var(--primary);
-    transform: translateY(-3px);
-  }
-  
-  .footer-links h3,
-  .footer-newsletter h3 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
-  }
-  
-  .footer-links h3::after,
-  .footer-newsletter h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 2px;
-    background-color: var(--secondary);
-  }
-  
-  .footer-links ul {
-    list-style: none;
-  }
-  
-  .footer-links li {
-    margin-bottom: 10px;
-  }
-  
-  .footer-links a {
-    color: #bbb;
-    text-decoration: none;
-    transition: all 0.3s;
-  }
-  
-  .footer-links a:hover {
-    color: var(--secondary);
-    padding-left: 5px;
-  }
-  
-  .footer-newsletter p {
-    color: #bbb;
-    margin-bottom: 20px;
-  }
-  
-  .newsletter-form {
-    display: flex;
-  }
-  
-  .newsletter-form input {
-    flex: 1;
-    padding: 12px 15px;
-    border: none;
-    border-radius: 30px 0 0 30px;
-    font-size: 0.9rem;
-  }
-  
-  .newsletter-form button {
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    color: white;
-    border: none;
-    padding: 0 20px;
-    border-radius: 0 30px 30px 0;
-    cursor: pointer;
-  }
-  
-  .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 40px;
-    padding-top: 20px;
-    text-align: center;
-    color: #bbb;
-    font-size: 0.9rem;
-  }
-  
-  /* Animações */
-  @keyframes fadeInLeft {
-    from {
-      opacity: 0;
-      transform: translateX(-50px);
-    }
-  
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-  
-    50% {
-      transform: translateY(-20px);
-    }
-  
-    100% {
-      transform: translateY(0px);
-    }
-  }
-  
-  /* Media Queries para Responsividade */
-  @media (max-width: 992px) {
-    .hero-content {
-      width: 60%;
-    }
-  
-    .info-panels {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  
-    .footer-content {
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    body {
-      font-size: 0.9rem;
-    }
-  
-    .menu-toggle {
-      display: block;
-    }
-  
-    .nav-links {
-      position: fixed;
-      top: 80px;
-      left: 0;
-      background-color: white;
-      width: 100%;
-      height: 0;
-      overflow: hidden;
-      flex-direction: column;
-      align-items: center;
-      transition: height 0.3s ease;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    }
-  
-    .nav-links.active {
-      height: auto;
-      padding: 20px 0;
-    }
-  
-    .nav-links li {
-      margin: 15px 0;
-    }
-  
-    .hero-content {
-      width: 300%;
-      max-width: 600px;
-      margin-left: 20px;
-      animation: fadeInLeft 1s ease;
-      padding-top: 80px;
-    }
-  
-    .hero h1 {
-      font-size: 2.5rem;
-    }
-  
-    .hero p {
-      font-size: 1rem;
-    }
-  
-    .hero-image {
-      display: none;
-    }
-  
-    .info-panels {
-      grid-template-columns: 1fr;
-    }
-  
-    .section-header h2 {
-      font-size: 2rem;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .footer-content {
-      grid-template-columns: 1fr;
-    }
-  
-    .hero h1 {
-      font-size: 2rem;
-    }
-  
-    .viewer-window {
-      height: 400px;
-    }
-  }
-/* Seção Chatbot */
-.chatbot {
-  margin-top: -300px;
-  background-color: var(--light); /* Cor de fundo mais clara */
+  --primary: #0F3B82;      /* Azul U.Porto */
+  --secondary: #F58634;     /* Laranja para destaque */
+  --dark: #1a1a2e;
+  --light: #ffffff;
+  --gray: #f8f9fa;
+  --text: #333333;
+  --light-blue: #E6F3FF;   /* Para mensagens do user */
+  --light-orange: #FFF1E6; /* Não usado atualmente, mas definido */
+  --border-color: #e0e0e0;
 }
 
-#chatbot-container {
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-  border: 1px solid var(--border-color);
-  background-color: var(--light);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
+/* --- Reset Básico & Estilos Globais --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth; /* Adiciona scroll suave */
 }
 
-#chat-log {
-  flex-grow: 1;
-  padding: 10px;
-  overflow-y: scroll;
-  font-size: 0.95rem;
+body {
   color: var(--text);
   line-height: 1.6;
+  overflow-x: hidden;
+  background-color: var(--light); /* Fundo base */
 }
 
-#chat-input {
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+}
+a:hover {
+  color: var(--secondary);
+}
+
+/* --- Header & Navegação --- */
+header {
+  background-color: rgba(255, 255, 255, 0.95);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+nav {
   display: flex;
-  padding: 10px;
-  border-top: 1px solid var(--border-color);
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0; /* Ligeiramente menos padding */
 }
 
-#user-input {
-  flex-grow: 1;
-  padding: 12px 15px;
-  border: 1px solid var(--border-color);
-  border-radius: 30px;
-  font-size: 0.9rem;
+.logo {
+  font-size: 1.7rem; /* Ajuste ligeiro */
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo span {
+  color: var(--secondary);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 35px; /* Um pouco mais de espaço */
+}
+
+.nav-links a {
+  text-decoration: none;
   color: var(--text);
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+  padding-bottom: 5px; /* Espaço para a linha */
 }
 
-#send-button {
-  background: linear-gradient(45deg, var(--primary), var(--secondary));
-  color: var(--light);
-  border: none;
-  padding: 12px 20px;
-  border-radius: 30px;
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; /* Colado ao texto + padding-bottom */
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Botão de Menu Mobile */
+.menu-toggle {
+  display: none; /* Escondido por defeito */
   cursor: pointer;
-  font-size: 0.9rem;
-  transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(15, 59, 130, 0.3);
-  margin-left: 10px;
+  font-size: 1.8rem; /* Tamanho maior */
+  color: var(--primary);
+  background: none;
+  border: none;
 }
 
-#send-button:hover {
+/* --- Botões Genéricos --- */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(45deg, var(--primary), #1B5DB9);
+  color: var(--light);
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(15, 59, 130, 0.3);
+  text-align: center;
+}
+
+.btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(15, 59, 130, 0.4);
 }
 
-.user-message {
-  text-align: right;
-  margin-bottom: 10px;
+.btn-secondary {
+  background: linear-gradient(45deg, var(--secondary), #FF9F5B);
+  box-shadow: 0 4px 15px rgba(245, 134, 52, 0.3);
+}
+
+.btn-secondary:hover {
+  box-shadow: 0 8px 25px rgba(245, 134, 52, 0.4);
+}
+
+/* --- Seção Hero --- */
+.hero {
+  /* Imagem de fundo opcional - descomentar se tiver a imagem */
+  /* background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7)), url('images/molecule-background.jpg') center/cover no-repeat; */
+  background: linear-gradient(135deg, var(--light-blue), var(--light)); /* Alternativa sem imagem */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px; /* Espaço para o header fixo */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 600px; /* Limita largura do texto */
+  /* width: 50%; -> Removido para centralizar melhor em telas menores */
+  margin-left: 0; /* Removido margin-left fixo */
+  animation: fadeInLeft 1s ease;
+  z-index: 1; /* Garante que fica sobre a forma */
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem); /* Tamanho responsivo */
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.2;
   color: var(--primary);
 }
 
-.bot-message {
-  text-align: left;
-  margin-bottom: 10px;
-  color: var(--text);
+.hero p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem); /* Tamanho responsivo */
+  margin-bottom: 35px; /* Mais espaço antes dos botões */
+  color: #555;
+  max-width: 500px; /* Limita largura do parágrafo */
 }
-/* --- Estilos Adicionais/Ajustados para o Chatbot --- */
 
-/* Container Principal do Chatbot (já existente, verificar) */
+.hero .btn {
+  margin-right: 15px;
+  margin-bottom: 10px; /* Espaço em telas pequenas */
+}
+
+
+/* Forma decorativa no Hero (Opcional) */
+.hero-shape {
+  position: absolute;
+  bottom: -150px; /* Ajustado */
+  left: -150px;  /* Ajustado */
+  width: 400px;   /* Maior */
+  height: 400px;  /* Maior */
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  border-radius: 50%;
+  opacity: 0.08; /* Mais subtil */
+  z-index: 0;
+  animation: float 8s ease-in-out infinite alternate; /* Animação mais suave */
+}
+
+/* --- Estilos Gerais de Seção --- */
+.section {
+  padding: 80px 0; /* Padding padrão */
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px; /* Espaço padrão */
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 2.5rem); /* Responsivo */
+  font-weight: 700;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+  color: var(--primary);
+}
+
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; /* Mais perto */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px; /* Menor */
+  height: 3px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+
+.section-header p {
+  font-size: clamp(0.95rem, 2vw, 1.1rem); /* Responsivo */
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* --- Seção Visualizador --- */
+.visualizer {
+  background-color: var(--gray);
+}
+
+.visualizer-container {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08); /* Sombra mais suave */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  border: 1px solid var(--border-color);
+}
+
+.visualizer-header {
+  background: linear-gradient(45deg, var(--primary), #1B5DB9); /* Gradiente */
+  color: white;
+  padding: 18px 20px; /* Ajustado */
+  text-align: center;
+}
+
+.visualizer-header h3 {
+  font-weight: 600;
+  font-size: 1.4rem; /* Ajustado */
+  margin-bottom: 5px;
+}
+
+.visualizer-header p {
+  font-size: 0.85rem; /* Ajustado */
+  opacity: 0.9;
+}
+
+/* Viewer Window */
+.viewer-window {
+  height: 550px; /* Ligeiramente menor */
+  width: 100%;
+  background-color: #ffffff; /* Fundo branco para contraste */
+  position: relative; /* Para mensagens de erro */
+}
+/* Estilo para mensagem de erro no NGL */
+.viewer-window p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #dc3545; /* Cor de erro */
+}
+
+
+/* Quick Controls NGL */
+.quick-controls {
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border-color);
+  background-color: #fdfdfd;
+}
+
+.quick-controls h4 {
+  font-size: 0.9em;
+  color: #555; /* Mais escuro */
+  margin-bottom: 12px;
+  text-align: center;
+  font-weight: 600; /* Mais peso */
+}
+
+.control-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.control-button {
+  background-color: var(--light);
+  color: var(--primary);
+  border: 1px solid var(--border-color);
+  padding: 8px 15px; /* Mais padding horizontal */
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85em;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Mais espaço para o ícone */
+}
+
+.control-button:hover {
+  background-color: var(--secondary);
+  color: white;
+  border-color: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(245, 134, 52, 0.2); /* Sombra laranja */
+}
+
+.control-button svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2; /* Garante espessura */
+}
+
+/* Info Panels (Abaixo do Visualizador) */
+.info-panels {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); -> Layout responsivo automático */
+  grid-template-columns: repeat(3, 1fr); /* Mantém 3 colunas */
+  gap: 25px; /* Mais espaço */
+  margin-top: 50px; /* Mais espaço */
+}
+
+.info-panel {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  padding: 30px; /* Mais padding */
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  display: flex; /* Para alinhar ícone e texto */
+  flex-direction: column;
+}
+
+.info-panel:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.info-panel h3 {
+  color: var(--primary);
+  font-size: 1.25rem; /* Ajustado */
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Mais espaço */
+  font-weight: 600;
+}
+.info-panel h3 svg {
+    flex-shrink: 0; /* Impede que o ícone encolha */
+}
+
+.info-panel p {
+  color: #555; /* Tom mais escuro */
+  font-size: 0.9rem; /* Ligeiramente menor */
+  line-height: 1.7; /* Mais espaçamento */
+}
+
+
+/* --- Seção Chatbot --- */
+.section.chatbot {
+  padding-top: 60px; /* Espaço acima */
+  padding-bottom: 60px; /* Espaço abaixo */
+  background-color: var(--light); /* Fundo claro */
+  /* margin-top: -300px; -> Removido, pode causar sobreposição inesperada */
+}
+
+/* Container Principal do Chatbot */
 #chatbot-container {
   width: 100%;
-  max-width: 700px; /* Ajusta conforme necessário */
+  max-width: 700px;
   margin: 0 auto;
   background-color: var(--light);
   border: 1px solid var(--border-color);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07); /* Sombra mais pronunciada */
+  border-radius: 12px; /* Maior raio */
   display: flex;
   flex-direction: column;
-  padding: 0; /* Remover padding geral se as secções internas tiverem */
-  overflow: hidden; /* Garante que os cantos arredondados funcionam */
-  height: 60vh; /* Altura fixa para o container */
-  max-height: 500px; /* Limite máximo de altura */
+  padding: 0; /* Padding removido, gerenciado por filhos */
+  overflow: hidden;
+  height: 65vh; /* Altura relativa à viewport */
+  max-height: 600px; /* Limite máximo */
+  min-height: 400px; /* Altura mínima */
 }
 
-/* Área de Log de Mensagens (já existente, verificar) */
+/* Área de Log de Mensagens */
 #chat-log {
   flex-grow: 1;
-  padding: 15px; /* Adiciona padding interno */
-  overflow-y: auto; /* Mantém scroll */
+  padding: 20px; /* Mais padding */
+  overflow-y: auto;
   font-size: 0.95rem;
   line-height: 1.5;
-  background-color: #fdfdfd; /* Fundo ligeiramente diferente */
+  background-color: #fdfdfd;
+  display: flex; /* Para alinhar mensagens */
+  flex-direction: column; /* Mensagens empilhadas */
 }
 
-/* Estilo base para mensagens (Adicionado para controle geral) */
+/* Estilo Base para Mensagens (User e Bot) */
 .message {
-    margin-bottom: 12px;
-    padding: 10px 15px;
-    border-radius: 18px;
-    max-width: 85%;
-    word-wrap: break-word;
+  margin-bottom: 12px;
+  padding: 10px 18px; /* Mais padding horizontal */
+  border-radius: 20px; /* Mais arredondado */
+  max-width: 80%; /* Limita largura */
+  word-wrap: break-word;
+  line-height: 1.45;
+}
+.message p { /* Remove margem padrão do parágrafo */
+    margin: 0;
 }
 
-/* Mensagens do Utilizador (já existente, verificar) */
+/* Mensagens do Utilizador */
 .user-message {
-  background-color: var(--light-blue); /* Usando variável de cor clara */
+  background-color: var(--light-blue);
   color: var(--primary);
   margin-left: auto; /* Alinha à direita */
-  border-bottom-right-radius: 5px; /* Canto diferenciado */
-  text-align: right; /* Alinha texto à direita */
+  border-bottom-right-radius: 5px;
+  align-self: flex-end; /* Garante alinhamento */
 }
 
-/* Mensagens do Bot (já existente, verificar) */
+/* Mensagens do Bot */
 .bot-message {
-  background-color: var(--gray); /* Usando variável cinza claro */
+  background-color: var(--gray);
   color: var(--text);
   margin-right: auto; /* Alinha à esquerda */
-  border-bottom-left-radius: 5px; /* Canto diferenciado */
-  text-align: left; /* Alinha texto à esquerda */
+  border-bottom-left-radius: 5px;
+  align-self: flex-start; /* Garante alinhamento */
 }
 
 /* Estilos para links dentro das mensagens do bot */
 .bot-message a {
-  color: var(--secondary); /* Cor laranja para links */
+  color: var(--secondary);
   text-decoration: underline;
+  font-weight: 500; /* Destaca link */
 }
 .bot-message a:hover {
   text-decoration: none;
+  opacity: 0.8;
 }
 
+/* Estilo para mensagem "a pensar..." */
+.bot-message i { /* Se usar <p><i>...</i></p> */
+    color: #777;
+    font-size: 0.9em;
+}
 
-/* Nova Seção para Botões de Ação Rápida */
+/* Seção para Botões de Ação Rápida */
 #quick-actions-myc {
-    padding: 10px 15px;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color); /* Linha em baixo também */
-    background-color: #f8f9fa; /* Fundo ligeiramente diferente */
-    display: flex;
-    flex-wrap: wrap; /* Permite que os botões quebrem linha */
-    gap: 8px; /* Espaçamento entre botões */
-    justify-content: center; /* Centraliza os botões se houver espaço */
+  padding: 12px 15px;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  background-color: #f8f9fa;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
 }
 
-/* Estilo para os Botões de Ação Rápida */
+/* Botões de Ação Rápida */
 .quick-action-button-myc {
-    padding: 6px 14px;
-    border: 1px solid var(--secondary); /* Borda laranja */
-    background-color: var(--light);
-    color: var(--secondary); /* Texto laranja */
-    border-radius: 20px; /* Cantos arredondados */
-    cursor: pointer;
-    font-size: 0.85em; /* Tamanho de letra um pouco menor */
-    font-weight: 500;
-    transition: all 0.2s ease;
+  padding: 7px 15px; /* Ajustado */
+  border: 1px solid var(--secondary);
+  background-color: var(--light);
+  color: var(--secondary);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85em;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .quick-action-button-myc:hover {
-    background-color: var(--secondary); /* Fundo laranja ao passar o rato */
-    color: var(--light); /* Texto branco */
-    transform: translateY(-2px);
-    box-shadow: 0 2px 4px rgba(245, 134, 52, 0.3);
+  background-color: var(--secondary);
+  color: var(--light);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(245, 134, 52, 0.25);
 }
 
-/* Área de Input (já existente, verificar) */
+/* Área de Input de Texto */
 #chat-input {
   display: flex;
+  align-items: center; /* Alinha input e botão verticalmente */
   padding: 15px;
-  background-color: #f8f9fa; /* Mesmo fundo dos botões rápidos */
+  background-color: #f8f9fa;
 }
 
 #user-input {
   flex-grow: 1;
-  padding: 10px 15px; /* Padding interno */
-  border: 1px solid #ccc; /* Borda mais suave */
-  border-radius: 20px; /* Cantos arredondados */
-  margin-right: 10px; /* Espaço antes do botão */
-  font-size: 0.9rem;
+  padding: 10px 18px; /* Mais padding */
+  border: 1px solid #ccc;
+  border-radius: 25px; /* Mais arredondado */
+  margin-right: 10px;
+  font-size: 0.95rem; /* Maior */
+  line-height: 1.4; /* Ajusta altura da linha */
+  outline: none; /* Remove outline padrão */
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 #user-input:focus {
-  outline: none;
-  border-color: var(--primary); /* Destaca a borda ao focar */
-  box-shadow: 0 0 0 2px rgba(15, 59, 130, 0.2); /* Sombra suave ao focar */
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 59, 130, 0.15); /* Sombra suave no foco */
 }
 
-
+/* Botão Enviar */
 #send-button {
-  /* Mantém o gradiente ou simplifica */
-  /* background: linear-gradient(45deg, var(--primary), var(--secondary)); */
-  background-color: var(--primary); /* Cor sólida primária */
+  background-color: var(--primary);
   color: var(--light);
   border: none;
-  padding: 10px 20px; /* Ajusta padding */
-  border-radius: 20px; /* Cantos arredondados */
+  padding: 10px 22px; /* Ajustado */
+  border-radius: 25px; /* Combina com input */
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.95rem; /* Combina com input */
   font-weight: 600;
-  transition: all 0.3s;
-  /* box-shadow: 0 4px 15px rgba(15, 59, 130, 0.3); */ /* Sombra pode ser removida/ajustada */
+  transition: all 0.2s ease;
+  flex-shrink: 0; /* Impede que encolha */
 }
 
 #send-button:hover {
-  background-color: var(--secondary); /* Laranja ao passar o rato */
+  background-color: var(--secondary);
   transform: translateY(-2px);
-  /* box-shadow: 0 6px 20px rgba(245, 134, 52, 0.4); */
+  box-shadow: 0 4px 10px rgba(245, 134, 52, 0.3);
+}
+#send-button:disabled { /* Estilo opcional para botão desativado */
+    background-color: #a0cfff;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
-/* Ajuste para a secção chatbot não ficar tão colada em cima */
-.section.chatbot {
-    padding-top: 60px; /* Adiciona algum espaço em cima */
-    /* margin-top: -300px; */ /* Remove ou ajusta esta margem negativa se causar problemas */
+/* --- Footer --- */
+footer {
+  background-color: var(--dark);
+  color: rgba(255, 255, 255, 0.7); /* Cor de texto mais suave */
+  padding: 60px 0 30px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Layout mais responsivo */
+  gap: 40px; /* Mais espaço */
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 15px; /* Menos espaço */
+  display: inline-block;
+}
+
+.footer-logo span {
+  color: var(--secondary);
+}
+
+.footer-about p,
+.footer-newsletter p {
+  margin-bottom: 20px;
+  font-size: 0.9rem; /* Ligeiramente menor */
+}
+
+.social-links {
+  display: flex;
+  gap: 12px; /* Espaço entre ícones */
+}
+
+.social-links a {
+  width: 38px; /* Menor */
+  height: 38px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s;
+  text-decoration: none; /* Garante que não há sublinhado */
+}
+.social-links a svg {
+    width: 18px; /* Tamanho do ícone */
+    height: 18px;
+}
+
+.social-links a:hover {
+  background-color: var(--primary);
+  transform: translateY(-3px);
+}
+
+.footer-links h3,
+.footer-newsletter h3 {
+  font-size: 1.15rem; /* Ajustado */
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+  color: white; /* Cor branca para títulos */
+  font-weight: 600;
+}
+
+.footer-links h3::after,
+.footer-newsletter h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 35px; /* Menor */
+  height: 2px;
+  background-color: var(--secondary);
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px; /* Mais espaço */
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7); /* Mesmo tom do parágrafo */
+  text-decoration: none;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: var(--secondary);
+  padding-left: 5px;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 10px; /* Espaço */
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 10px 15px; /* Ajustado */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borda subtil */
+  background-color: rgba(255, 255, 255, 0.05); /* Fundo muito subtil */
+  border-radius: 30px 0 0 30px;
+  font-size: 0.9rem;
+  color: white; /* Texto branco */
+  outline: none;
+}
+.newsletter-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-form button {
+  background: var(--primary); /* Sem gradiente */
+  color: white;
+  border: none;
+  padding: 0 20px;
+  border-radius: 0 30px 30px 0;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+.newsletter-form button:hover {
+    background-color: var(--secondary);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 40px;
+  padding-top: 25px; /* Mais espaço */
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6); /* Mais suave */
+  font-size: 0.85rem; /* Menor */
+}
+
+/* --- Animações --- */
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(-5deg); } /* Adiciona rotação */
+  50% { transform: translateY(-15px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(-5deg); }
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* Telas Médias (Tablets) */
+@media (max-width: 992px) {
+  .container { width: 95%; } /* Usa mais espaço */
+  .hero-content { max-width: none; width: 90%; margin: 0 auto; text-align: center; } /* Centraliza texto no hero */
+  .hero .btn { margin-right: 10px; }
+  .info-panels { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } /* Layout responsivo */
+  .footer-content { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+}
+
+/* Telas Pequenas (Móveis) */
+@media (max-width: 768px) {
+  body { font-size: 1rem; } /* Base font size para mobile */
+
+  /* Ajustes Navegação Mobile */
+  .menu-toggle { display: block; }
+  .nav-links {
+    position: absolute; /* Mudar para absolute para não empurrar conteúdo */
+    top: 70px; /* Altura do header aprox. */
+    left: 0;
+    background-color: white;
+    width: 100%;
+    height: auto;
+    max-height: 0; /* Começa fechado */
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    transition: max-height 0.4s ease-out, box-shadow 0.3s ease; /* Transição suave */
+    box-shadow: none; /* Sem sombra quando fechado */
+    border-top: 1px solid var(--border-color);
+  }
+  .nav-links.active {
+    max-height: 500px; /* Altura suficiente para os links */
+    padding: 20px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  .nav-links li {
+    margin: 15px 0;
+    width: 100%;
+    text-align: center;
+  }
+  .nav-links a {
+      display: block; /* Ocupa toda a largura */
+      padding: 10px 0;
+  }
+  .nav-links a::after { display: none; } /* Remove linha sublinhada no mobile */
+
+
+  .hero { min-height: 80vh; } /* Altura menor no mobile */
+  .hero-content { padding-top: 60px; }
+  .hero h1 { font-size: clamp(2rem, 6vw, 2.5rem); }
+  .hero p { font-size: clamp(0.9rem, 3vw, 1rem); }
+  .hero-image { display: none; } /* Esconde imagem se houver */
+  .hero-shape { width: 250px; height: 250px; bottom: -120px; left: -120px; } /* Menor */
+
+  .section { padding: 60px 0; }
+  .section-header h2 { font-size: clamp(1.8rem, 5vw, 2rem); }
+  .section-header p { font-size: clamp(0.9rem, 2.5vw, 1rem); }
+
+  .visualizer-container { border-radius: 8px; }
+  .viewer-window { height: 450px; } /* Altura ajustada */
+  .info-panels { grid-template-columns: 1fr; gap: 20px; } /* Uma coluna */
+  .info-panel { padding: 25px; }
+
+  #chatbot-container { height: 70vh; max-height: none; min-height: 350px; border-radius: 8px; }
+  #chat-log { padding: 15px; }
+  .message { max-width: 90%; }
+  #chat-input { padding: 12px; }
+  #user-input { padding: 8px 15px; font-size: 0.9rem; }
+  #send-button { padding: 8px 18px; font-size: 0.9rem; }
+  #quick-actions-myc { padding: 10px; }
+  .quick-action-button-myc { font-size: 0.8rem; padding: 6px 12px; }
+
+
+  .footer-content { grid-template-columns: 1fr; gap: 35px; text-align: center; }
+  .footer-about, .footer-links ul, .footer-newsletter form { align-items: center; justify-content: center; text-align: center; }
+  .footer-links h3::after, .footer-newsletter h3::after { left: 50%; transform: translateX(-50%); }
+  .social-links { justify-content: center; }
+  .newsletter-form { flex-direction: column; gap: 10px; max-width: 300px; margin: 0 auto; }
+  .newsletter-form input, .newsletter-form button { border-radius: 20px; width: 100%; text-align: center; }
 }
