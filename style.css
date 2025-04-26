@@ -663,3 +663,149 @@
   margin-bottom: 10px;
   color: var(--text);
 }
+/* --- Estilos Adicionais/Ajustados para o Chatbot --- */
+
+/* Container Principal do Chatbot (já existente, verificar) */
+#chatbot-container {
+  width: 100%;
+  max-width: 700px; /* Ajusta conforme necessário */
+  margin: 0 auto;
+  background-color: var(--light);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 0; /* Remover padding geral se as secções internas tiverem */
+  overflow: hidden; /* Garante que os cantos arredondados funcionam */
+  height: 60vh; /* Altura fixa para o container */
+  max-height: 500px; /* Limite máximo de altura */
+}
+
+/* Área de Log de Mensagens (já existente, verificar) */
+#chat-log {
+  flex-grow: 1;
+  padding: 15px; /* Adiciona padding interno */
+  overflow-y: auto; /* Mantém scroll */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  background-color: #fdfdfd; /* Fundo ligeiramente diferente */
+}
+
+/* Estilo base para mensagens (Adicionado para controle geral) */
+.message {
+    margin-bottom: 12px;
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 85%;
+    word-wrap: break-word;
+}
+
+/* Mensagens do Utilizador (já existente, verificar) */
+.user-message {
+  background-color: var(--light-blue); /* Usando variável de cor clara */
+  color: var(--primary);
+  margin-left: auto; /* Alinha à direita */
+  border-bottom-right-radius: 5px; /* Canto diferenciado */
+  text-align: right; /* Alinha texto à direita */
+}
+
+/* Mensagens do Bot (já existente, verificar) */
+.bot-message {
+  background-color: var(--gray); /* Usando variável cinza claro */
+  color: var(--text);
+  margin-right: auto; /* Alinha à esquerda */
+  border-bottom-left-radius: 5px; /* Canto diferenciado */
+  text-align: left; /* Alinha texto à esquerda */
+}
+
+/* Estilos para links dentro das mensagens do bot */
+.bot-message a {
+  color: var(--secondary); /* Cor laranja para links */
+  text-decoration: underline;
+}
+.bot-message a:hover {
+  text-decoration: none;
+}
+
+
+/* Nova Seção para Botões de Ação Rápida */
+#quick-actions-myc {
+    padding: 10px 15px;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color); /* Linha em baixo também */
+    background-color: #f8f9fa; /* Fundo ligeiramente diferente */
+    display: flex;
+    flex-wrap: wrap; /* Permite que os botões quebrem linha */
+    gap: 8px; /* Espaçamento entre botões */
+    justify-content: center; /* Centraliza os botões se houver espaço */
+}
+
+/* Estilo para os Botões de Ação Rápida */
+.quick-action-button-myc {
+    padding: 6px 14px;
+    border: 1px solid var(--secondary); /* Borda laranja */
+    background-color: var(--light);
+    color: var(--secondary); /* Texto laranja */
+    border-radius: 20px; /* Cantos arredondados */
+    cursor: pointer;
+    font-size: 0.85em; /* Tamanho de letra um pouco menor */
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.quick-action-button-myc:hover {
+    background-color: var(--secondary); /* Fundo laranja ao passar o rato */
+    color: var(--light); /* Texto branco */
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(245, 134, 52, 0.3);
+}
+
+/* Área de Input (já existente, verificar) */
+#chat-input {
+  display: flex;
+  padding: 15px;
+  background-color: #f8f9fa; /* Mesmo fundo dos botões rápidos */
+}
+
+#user-input {
+  flex-grow: 1;
+  padding: 10px 15px; /* Padding interno */
+  border: 1px solid #ccc; /* Borda mais suave */
+  border-radius: 20px; /* Cantos arredondados */
+  margin-right: 10px; /* Espaço antes do botão */
+  font-size: 0.9rem;
+}
+#user-input:focus {
+  outline: none;
+  border-color: var(--primary); /* Destaca a borda ao focar */
+  box-shadow: 0 0 0 2px rgba(15, 59, 130, 0.2); /* Sombra suave ao focar */
+}
+
+
+#send-button {
+  /* Mantém o gradiente ou simplifica */
+  /* background: linear-gradient(45deg, var(--primary), var(--secondary)); */
+  background-color: var(--primary); /* Cor sólida primária */
+  color: var(--light);
+  border: none;
+  padding: 10px 20px; /* Ajusta padding */
+  border-radius: 20px; /* Cantos arredondados */
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  /* box-shadow: 0 4px 15px rgba(15, 59, 130, 0.3); */ /* Sombra pode ser removida/ajustada */
+}
+
+#send-button:hover {
+  background-color: var(--secondary); /* Laranja ao passar o rato */
+  transform: translateY(-2px);
+  /* box-shadow: 0 6px 20px rgba(245, 134, 52, 0.4); */
+}
+
+/* Ajuste para a secção chatbot não ficar tão colada em cima */
+.section.chatbot {
+    padding-top: 60px; /* Adiciona algum espaço em cima */
+    /* margin-top: -300px; */ /* Remove ou ajusta esta margem negativa se causar problemas */
+}
