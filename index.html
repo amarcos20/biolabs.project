@@ -13,7 +13,7 @@
     <!-- NGL Viewer -->
     <script src="https://unpkg.com/ngl@latest/dist/ngl.js"></script>
     <!-- Link para o arquivo CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Certifica-te que o nome do ficheiro CSS está correto -->
 </head>
 
 <body>
@@ -27,7 +27,7 @@
                     <li><a href="#inicio">MYC</a></li>
                     <li><a href="#MYC2YOU">MYC2YOU</a></li>
                     <li><a href="#visualizador">Visualizador 3D</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#contato">Contato</a></li> <!-- Ajusta se não houver seção de contato -->
                 </ul>
             </nav>
         </div>
@@ -40,12 +40,12 @@
                 <h1>Visualizador da <span style="color: var(--secondary);">Proteína c-MYC</span></h1>
                 <p>Explore a estrutura tridimensional da proteína MYC (1NKP) com nosso visualizador molecular interativo.</p>
                 <a href="#visualizador" class="btn">Explorar estrutura</a>
-                <a href="#MYC2YOU" class="btn btn-secondary" style="margin-left: 15px;">Saiba mais</a>
+                <a href="#MYC2YOU" class="btn btn-secondary" style="margin-left: 15px;">Converse com MYC2YOU</a>
             </div>
         </div>
         <div class="hero-shape"></div>
     </section>
-    
+
     <!-- Seção Chatbot -->
     <section class="section chatbot" id="MYC2YOU">
         <div class="container">
@@ -53,12 +53,26 @@
                 <h2>MYC2YOU</h2>
                 <p>Pergunte ao nosso assistente virtual sobre o gene MYC</p>
             </div>
+            <!-- Container do Chatbot -->
             <div id="chatbot-container">
+                <!-- Área de Mensagens -->
                 <div id="chat-log">
                     <!-- As mensagens do chat aparecem aqui -->
                 </div>
+
+                <!-- Botões de Ação Rápida (Adicionado) -->
+                <div id="quick-actions-myc">
+                    <button class="quick-action-button-myc" data-action="função">Função</button>
+                    <button class="quick-action-button-myc" data-action="câncer">Câncer</button>
+                    <button class="quick-action-button-myc" data-action="estrutura 3d">Estrutura 3D</button>
+                    <button class="quick-action-button-myc" data-action="sequencia">Sequência</button>
+                    <button class="quick-action-button-myc" data-action="descoberta">Descoberta</button>
+                    <button class="quick-action-button-myc" data-action="terapia">Terapia</button>
+                </div>
+
+                <!-- Área de Input -->
                 <div id="chat-input">
-                    <input type="text" id="user-input" placeholder="Escreva a sua mensagem...">
+                    <input type="text" id="user-input" placeholder="Escreva a sua pergunta sobre MYC..." autocomplete="off">
                     <button id="send-button">Enviar</button>
                 </div>
             </div>
@@ -70,17 +84,16 @@
         <div class="container">
             <div class="section-header">
                 <h2>Visualizador Interativo</h2>
-                <p>Explore a estrutura molecular da proteína MYC (1NKP) em 3D e descubra os elementos chave desta importante
-                    proteína</p>
+                <p>Explore a estrutura molecular da proteína MYC (1NKP) em 3D.</p>
             </div>
             <div class="visualizer-container">
                 <div class="visualizer-header">
-                    <h3>MYC Protein Structure - 1NKP</h3>
+                    <h3>Estrutura da Proteína MYC - 1NKP</h3>
                     <p>Visualizador baseado em NGL Viewer</p>
                 </div>
                 <!-- Quick Controls -->
                 <div class="quick-controls">
-                    <h4>Controles de visualização:</h4>
+                     <h4>Controles de visualização:</h4>
                     <div class="control-buttons">
                         <button class="control-button" id="cartoon-view">
                             <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
@@ -105,8 +118,7 @@
                                     d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
                                 </path>
                             </svg>
-                            Bolas e Bastões
-                        </button>
+                            Bolas/Bastões
                         </button>
                         <button class="control-button" id="reset-view">
                             <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
@@ -124,7 +136,8 @@
 
             <!-- Info Panels -->
             <div class="info-panels" id="sobre">
-                <div class="info-panel">
+                <!-- ... (conteúdo dos painéis de informação mantido) ... -->
+                 <div class="info-panel">
                     <h3>
                         <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
                             fill="none">
@@ -162,8 +175,7 @@
                             Como Usar o Visualizador
                         </h3>
                     <p>Use os controles para alternar entre diferentes representações da estrutura. Para navegar: arraste para
-                        girar, use a roda do mouse para zoom, e shift+clique para mover. As diferentes visualizações permitem
-                        analisar aspectos distintos da estrutura molecular.</p>
+                        girar, use a roda do mouse para zoom, e shift+clique para mover.</p>
                 </div>
             </div>
         </div>
@@ -171,199 +183,134 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
+         <!-- ... (conteúdo do footer mantido) ... -->
+         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <a href="#" class="footer-logo">MYC<span>Viewer</span></a>
-                    <p>Uma ferramenta de visualização de estruturas proteicas 3D desenvolvida para auxiliar na compreensão da
-                        proteína MYC e sua interação molecular.</p>
+                    <a href="#" class="footer-logo">MYC<span>.com</span></a> <!-- Ajustado o nome aqui -->
+                    <p>Uma ferramenta interativa para explorar o gene MYC, sua estrutura proteica e obter informações através do chatbot MYC2YOU.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="GitHub">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                </path>
-                                3.14-.35 2.83 0 .66-.74-.25-1.98-.25-2.82 0-1.3 1.17-2.1 2.43-2.1h.04c1.26 0 2.28.8 2.43 2.1 0 1.02-.31 1.98-.25 2.82.66.66 2.83 0 2.83-.66V12">
-                                </path>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Twitter">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.66-2.43 4.8 4.8 0 0 0-1.5-.34 4.44 4.44 0 0 0-7 3.37A13.33 13.33 0 0 1 1 11.5 13.12 13.12 0 0 1 6 9.31v.7a4.44 4.44 0 0 0 3.7 4.37 4.48 4.48 0 0 1-2.02.08 4.5 4.5 0 0 0 4.22 3.12 8.8 8.8 0 0 1-5.33 1.87A8.8 8.8 0 0 1 2 18.08V22">
-                                </path>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
+                        <!-- Adiciona links reais se aplicável -->
+                        <a href="#" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
                     </div>
                 </div>
                 <div class="footer-links">
                     <h3>Links Rápidos</h3>
                     <ul>
                         <li><a href="#inicio">Início</a></li>
-                        <li><a href="#visualizador">Visualizador</a></li>
-                        <li><a href="#MYC2YOU">Sobre MYC2YOU</a></li>
-                        <li><a href="#contato">Contato</a></li>
+                         <li><a href="#MYC2YOU">MYC2YOU</a></li>
+                        <li><a href="#visualizador">Visualizador 3D</a></li>
+                        <!-- <li><a href="#contato">Contato</a></li> -->
                     </ul>
                 </div>
                 <div class="footer-newsletter">
                     <h3>Inscreva-se</h3>
-                    <p>Receba atualizações sobre novas funcionalidades e pesquisas.</p>
-                    <form class="newsletter-form">
+                    <p>Receba atualizações (funcionalidade simulada).</p>
+                    <form class="newsletter-form" onsubmit="alert('Inscrição simulada!'); return false;">
                         <input type="email" placeholder="Seu email" required>
                         <button type="submit">Enviar</button>
                     </form>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 MYC Viewer | Universidade do Porto. Todos os direitos reservados.</p>
+                <p>© 2024 MYC.com | Projeto Académico. Todos os direitos reservados.</p> <!-- Atualizado o ano e texto -->
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script>
-        // Toggle menu mobile
+        // --- Script do Menu Mobile ---
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Inicializa o visualizador NGL
-        const stage = new NGL.Stage("ngl-viewer", {
-            backgroundColor: "white"
-        });
-        let component;
-
-        // Ajusta o tamanho ao redimensionar
-        window.addEventListener("resize", function() {
-            stage.handleResize();
-        });
-
-        // Carrega a estrutura PDB da proteína MYC
-        stage.loadFile("https://files.rcsb.org/download/1NKP.pdb").then(function(loadedComponent) {
-            component = loadedComponent;
-            // Adiciona representação inicial
-            component.addRepresentation("cartoon", {
-                color: "chainname"
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
             });
-            component.autoView();
-        });
-
-        // Adiciona funcionalidade aos botões de controle
-        document.getElementById("cartoon-view").addEventListener("click", function() {
-            if (component) {
-                component.removeAllRepresentations();
-                component.addRepresentation("cartoon", {
-                    color: "chainname"
-                });
-            }
-        });
-
-        document.getElementById("surface-view").addEventListener("click", function() {
-            if (component) {
-                component.removeAllRepresentations();
-                component.addRepresentation("surface", {
-                    opacity: 0.7,
-                    colorScheme: "electrostatic"
-                });
-            }
-        });
-
-        document.getElementById("ball-stick-view").addEventListener("click", function() {
-            if (component) {
-                component.removeAllRepresentations();
-                component.addRepresentation("ball+stick", {
-                    color: "element"
-                });
-            }
-        });
-
-        document.getElementById("reset-view").addEventListener("click", function() {
-            if (component) {
-                component.autoView();
-            }
-        });
-    </script>
-   
-    <script>
-        const chatLog = document.getElementById('chat-log');
-        const userInput = document.getElementById('user-input');
-        const sendButton = document.getElementById('send-button');
-
-        sendButton.addEventListener('click', sendMessage);
-
-        userInput.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        });
-
-        function sendMessage() {
-            const message = userInput.value.trim();
-            if (message !== '') {
-                addUserMessage(message);
-
-                fetch('http://127.0.0.1:5000/chat', { // ***Certifica-te de que isto está correto!***
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ message: message })
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Erro HTTP: ${response.status}`);
+             // Fecha o menu ao clicar num link (útil em mobile)
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                         navLinks.classList.remove('active');
                     }
-                    return response.json();
-                })
-                .then(data => {
-                    addBotMessage(data.response);
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                    addBotMessage('Não foi possível obter a resposta. Verifique a consola.');
                 });
-
-                userInput.value = '';
-            }
+            });
         }
 
-        function addUserMessage(message) {
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('user-message');
-            messageElement.textContent = message;
-            chatLog.appendChild(messageElement);
-            chatLog.scrollTop = chatLog.scrollHeight;
+        // --- Script do NGL Viewer ---
+        try {
+            const stage = new NGL.Stage("ngl-viewer", {
+                backgroundColor: "white"
+            });
+            let componentNGL; // Renomeado para evitar conflito de nome
+
+            // Ajusta o tamanho ao redimensionar
+            window.addEventListener("resize", function() {
+                stage.handleResize();
+            });
+
+            // Carrega a estrutura PDB
+            stage.loadFile("rcsb://1NKP").then(function(loadedComponent) { // Usando rcsb:// para simplificar
+                componentNGL = loadedComponent;
+                // Representação inicial
+                componentNGL.addRepresentation("cartoon", {
+                    color: "chainindex" // Cor por cadeia funciona bem para Myc/Max/DNA
+                });
+                componentNGL.autoView();
+            }).catch(error => {
+                console.error("Erro ao carregar PDB com NGL:", error);
+                const viewerDiv = document.getElementById("ngl-viewer");
+                if(viewerDiv) viewerDiv.innerHTML = "<p style='padding:20px; color: red;'>Erro ao carregar visualizador 3D. Verifique a consola.</p>";
+            });
+
+            // Botões de controle do NGL
+            document.getElementById("cartoon-view")?.addEventListener("click", function() {
+                if (componentNGL) {
+                    componentNGL.removeAllRepresentations();
+                    componentNGL.addRepresentation("cartoon", { color: "chainindex" });
+                }
+            });
+
+            document.getElementById("surface-view")?.addEventListener("click", function() {
+                if (componentNGL) {
+                    componentNGL.removeAllRepresentations();
+                    componentNGL.addRepresentation("surface", {
+                        //opacity: 0.7, // Opacidade pode dificultar ver o interior
+                        colorScheme: "chainindex" // Ou 'electrostatic' se preferir
+                    });
+                }
+            });
+
+            document.getElementById("ball-stick-view")?.addEventListener("click", function() {
+                if (componentNGL) {
+                    componentNGL.removeAllRepresentations();
+                    componentNGL.addRepresentation("ball+stick", { color: "element" });
+                }
+            });
+
+            document.getElementById("reset-view")?.addEventListener("click", function() {
+                if (componentNGL) {
+                    componentNGL.autoView();
+                }
+            });
+        } catch (e) {
+             console.error("Erro ao inicializar NGL ou seus controles:", e);
+             const viewerDiv = document.getElementById("ngl-viewer");
+             if(viewerDiv) viewerDiv.innerHTML = "<p style='padding:20px; color: red;'>Erro ao carregar visualizador 3D.</p>";
         }
 
-        function addBotMessage(message) {
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('bot-message');
-            messageElement.textContent = message;
-            chatLog.appendChild(messageElement);
-            chatLog.scrollTop = chatLog.scrollHeight;
-        }
     </script>
-    <!-- Link para o arquivo JavaScript -->
-    <script src="script.js"></script>
+
+    <!-- ********************************************** -->
+    <!-- REMOVIDO o script <script> que fazia o fetch   -->
+    <!-- ********************************************** -->
+
+    <!-- Link para o arquivo JavaScript DO CHATBOT (Colocar no final) -->
+    <script src="chatbot.js"></script> <!-- Certifica-te que este ficheiro existe e está correto -->
+
+    <!-- Script JS geral (se houver mais, pode ficar aqui ou num ficheiro separado como script.js) -->
+    <!-- <script src="script.js"></script> -->
+
 </body>
-
-</html>
-
 </html>
