@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 addMessage(`A estrutura 3D resolvida (ex: PDB **1NKP**) foca-se no domínio C-terminal **bHLH-Zip** de MYC dimerizado com **MAX** e ligado ao DNA (E-box).\n` +
                            `- O domínio **bHLH-Zip** permite a dimerização e ligação ao DNA.\n` +
                            `- A região N-terminal (TAD), importante para a função, é largamente desordenada.\n` +
-                           `Veja no PDB: https://www.rcsb.org/structure/1NKP`, 'bot');
+                           `Vê na secção abaixo`, 'bot');
                 break;
 
             case 'dominios':
@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
             case '1nkp':
                  addMessage(`**1NKP** é o código no **PDB (Protein Data Bank)** para a estrutura 3D do complexo formado pelos domínios bHLH-Zip das proteínas humanas **c-Myc** e **Max**, ligados a um fragmento de DNA contendo a sequência **E-box (CACGTG)**.\n` +
                             `Esta estrutura mostra como Myc/Max reconhecem e se ligam ao DNA.\n` +
-                            `Veja aqui: https://www.rcsb.org/structure/1NKP`, 'bot');
+                            `Podes encontrar na secção abaixo !`, 'bot');
                  break;
 
             case 'ligação 1nkp':
