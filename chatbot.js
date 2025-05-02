@@ -159,8 +159,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             `Fontes: Gene Ontology, PubMed`, 'bot');
                 break;
 
-            case 'câncer':
-            case 'cancer':
+            case 'cancro':
+            case 'cancro':
             case 'doenças':
             case 'doencas':
                 addMessage(`MYC é um potente **oncogene**, desregulado em muitos cancros (amplificação, translocação, sobre-expressão).\n` +
