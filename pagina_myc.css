@@ -1,0 +1,453 @@
+/* style.css - Versão Limpa e Organizada */
+:root {
+    --primary: #0F3B82;
+    /* Azul U.Porto */
+    --secondary: #F58634;
+    /* Laranja para destaque */
+    --dark: #1a1a2e;
+    --light: #ffffff;
+    --gray: #f8f9fa;
+    --text: #333333;
+    --light-blue: #E6F3FF;
+    /* Para mensagens do user */
+    --light-orange: #FFF1E6;
+    /* Não usado atualmente, mas definido */
+    --border-color: #e0e0e0;
+}
+
+/* --- Reset Básico & Estilos Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    /* Adiciona scroll suave */
+}
+
+body {
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-color: var(--light);
+    /* Fundo base */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+a:hover {
+    color: var(--secondary);
+}
+
+/* --- Header & Navegação --- */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    /* Ligeiramente menos padding */
+}
+
+.logo {
+    font-size: 1.7rem;
+    /* Ajuste ligeiro */
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo span {
+    color: var(--secondary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 35px;
+    /* Um pouco mais de espaço */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+    /* Espaço para a linha */
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    /* Colado ao texto + padding-bottom */
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Botão de Menu Mobile */
+.menu-toggle {
+    display: none;
+    /* Escondido por defeito */
+    cursor: pointer;
+    font-size: 1.8rem;
+    /* Tamanho maior */
+    color: var(--primary);
+    background: none;
+    border: none;
+}
+
+/* --- Botões Genéricos --- */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, var(--primary), #1B5DB9);
+    color: var(--light);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(15, 59, 130, 0.3);
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(15, 59, 130, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, var(--secondary), #FF9F5B);
+    box-shadow: 0 4px 15px rgba(245, 134, 52, 0.3);
+}
+
+.btn-secondary:hover {
+    box-shadow: 0 8px 25px rgba(245, 134, 52, 0.4);
+}
+
+/* --- Seção Hero --- */
+.hero {
+    /* Imagem de fundo opcional - descomentar se tiver a imagem */
+    /* background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7)), url('images/molecule-background.jpg') center/cover no-repeat; */
+    background: linear-gradient(135deg, var(--light-blue), var(--light));
+    /* Alternativa sem imagem */
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    /* Espaço para o header fixo */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: var(--primary);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+    color: #555;
+    max-width: 700px;
+}
+
+/* --- Estilos Gerais de Seção --- */
+.section {
+    padding: 80px 0;
+    /* Padding padrão */
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+    /* Espaço padrão */
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    color: var(--primary);
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    /* Mais perto */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    /* Menor */
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    border-radius: 2px;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--dark);
+    color: rgba(255, 255, 255, 0.7);
+    /* Cor de texto mais suave */
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Layout mais responsivo */
+    gap: 40px;
+    /* Mais espaço */
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 15px;
+    /* Menos espaço */
+    display: inline-block;
+}
+
+.footer-logo span {
+    color: var(--secondary);
+}
+
+.footer-about p,
+.footer-newsletter p {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    /* Ligeiramente menor */
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    /* Espaço entre ícones */
+}
+
+.social-links a {
+    width: 38px;
+    /* Menor */
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s;
+    text-decoration: none;
+    /* Garante que não há sublinhado */
+}
+
+.social-links a svg {
+    width: 18px;
+    /* Tamanho do ícone */
+    height: 18px;
+}
+
+.social-links a:hover {
+    background-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.footer-links h3,
+.footer-newsletter h3 {
+    font-size: 1.15rem;
+    /* Ajustado */
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    color: white;
+    /* Cor branca para títulos */
+    font-weight: 600;
+}
+
+.footer-links h3::after,
+.footer-newsletter h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35px;
+    /* Menor */
+    height: 2px;
+    background-color: var(--secondary);
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+    /* Mais espaço */
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    /* Mesmo tom do parágrafo */
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: var(--secondary);
+    padding-left: 5px;
+}
+
+.newsletter-form {
+    display: flex;
+    margin-top: 10px;
+    /* Espaço */
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 10px 15px;
+    /* Ajustado */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Borda subtil */
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Fundo muito subtil */
+    border-radius: 30px 0 0 30px;
+    font-size: 0.9rem;
+    color: white;
+    /* Texto branco */
+    outline: none;
+}
+
+.newsletter-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-form button {
+    background: var(--primary);
+    /* Sem gradiente */
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+    background-color: var(--secondary);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 40px;
+    padding-top: 25px;
+    /* Mais espaço */
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    /* Mais suave */
+    font-size: 0.85rem;
+    /* Menor */
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* Telas Médias (Tablets) */
+@media (max-width: 992px) {
+    .container {
+        width: 95%;
+    }
+    /* Usa mais espaço */
+}
+
+/* Telas Pequenas (Móveis) */
+@media (max-width: 768px) {
+    body {
+        font-size: 1rem;
+    }
+    /* Base font size para mobile */
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .section-header p {
+        font-size: 1rem;
+    }
+
+    .footer-content {
+        text-align: center;
+    }
+}
