@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Estudos sobre o Gene MYC</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    /* Estilos para o header (menu principal) */
+    header {
+      width: 100%;
+      background-color: #f9f9f9;
+      padding: 10px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    nav.container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    a.logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin: 0 10px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #555;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .nav-links li a:hover {
+      background-color: #eee;
+    }
+
+    /* Estilos para o carrossel */
+    .carousel-container {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+    }
+
+    .carousel {
+      display: flex;
+      height: 100%;
+      animation: slide 12s infinite;
+    }
+
+    /* Estilos específicos para cada slide com imagem de fundo transparente */
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative; /* Adicionando position relative */
+      color: #333;           /* Definindo uma cor padrão para o texto */
+    }
+
+    .slide::before {  /* pseudo-elemento para a imagem de fundo */
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.3;  /* transparencia */
+        z-index: -1;  /* para ficar atras do conteúdo */
+    }
+
+    /* Estilos individuais para cada slide */
+    .slide:nth-child(1)::before {
+        background-image: url('imagem1.jpeg');
+    }
+
+    .slide:nth-child(2)::before {
+        background-image: url('imagem2.jpeg');
+    }
+
+    .slide:nth-child(3)::before {
+        background-image: url('imagem3.jpeg');
+    }
+
+    .slide h2 {
+      /*color: #333;  Removendo a cor do texto */
+      text-shadow: none;
+      opacity: 1;
+      margin-bottom: 15px;
+    }
+
+    .slide p {
+      /*color: #555;  Removendo a cor do texto */
+      text-shadow: none;
+      opacity: 1;
+      font-size: 16px;
+      max-width: 80%;
+    }
+
+    .slide a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: rgba(0, 119, 204, 0.7);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+      opacity: 1;
+    }
+
+    .slide a:hover {
+      background: rgba(0, 95, 163, 0.7);
+    }
+
+    @keyframes slide {
+      0%   { transform: translateX(0%);   }
+      33%  { transform: translateX(0%);   }
+      36%  { transform: translateX(-100%);}
+      66%  { transform: translateX(-100%);}
+      69%  { transform: translateX(-200%);}
+      100% { transform: translateX(-200%);}
+    }
+
+    /* Estilos para o conteúdo principal */
+    .main-content {
+      width: 100%;
+      padding-top: 20px;
+    }
+
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    h1, h2, h3 {
+        color: #2e64fe;
+    }
+
+    a {
+        color: #0077cc;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .section {
+        padding: 30px 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .section:last-child {
+        border-bottom: none;
+    }
+
+    .section-header {
+        margin-bottom: 20px;
+    }
+
+    ul {
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+    footer {
+        width: 100%;
+        background-color: #f9f9f9;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .footer-content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .footer-about, .footer-links, .footer-newsletter {
+      margin-bottom: 20px;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links ul li {
+      margin-bottom: 5px;
+    }
+
+    .footer-links h3, .footer-newsletter h3 {
+      margin-bottom: 10px;
+    }
+  </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pagina_myc.css">
+
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="#" class="logo">Gene<span>Info</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>  <!-- Adicionado o link para index.html -->
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#function">Function</a></li>
+        <li><a href="#related_conditions">Related Conditions</a></li>
+        <li><a href="#other_names">Other Names</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<div class="carousel-container">
+  <div class="carousel">
+    <div class="slide">
+      <h2>Estudo 1: Papel do MYC no Cancro</h2>
+      <p>Investigação sobre como o MYC regula a proliferação celular em tumores sólidos.</p>
+      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1234567/" target="_blank">Ler Estudo</a>
+    </div>
+    <div class="slide">
+      <h2>Estudo 2: Inibição de MYC como Terapia</h2>
+      <p>Estudo recente sobre estratégias para bloquear a atividade do gene MYC.</p>
+      <a href="https://www.nature.com/articles/s41586-021-03423-5" target="_blank">Ler Estudo</a>
+    </div>
+    <div class="slide">
+      <h2>Estudo 3: MYC e Metabolismo Celular</h2>
+      <p>Relação entre MYC e o controlo do metabolismo em células cancerígenas.</p>
+      <a href="https://www.sciencedirect.com/science/article/pii/S0006291X21009876" target="_blank">Ler Estudo</a>
+    </div>
+  </div>
+</div>
+
+<div class="main-content">
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>MYC Gene Overview</h1>
+            <p>Comprehensive information about the MYC proto-oncogene, its function, regulation, and relevance to cancer. This information is intended for educational purposes and is not a substitute for professional medical advice.  Content is modeled after the MedlinePlus format.</p>
+        </div>
+    </section>
+
+    <section id="summary" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>MYC Gene Summary</h2>
+            </div>
+            <div>
+                <p>The MYC gene provides instructions for making a protein called c-Myc. This protein is a transcription factor, meaning it binds to specific regions of DNA and helps control the activity of genes. The c-Myc protein plays a critical role in cell growth, division (proliferation), and programmed cell death (apoptosis). It is also involved in the production of ribosomes, which are cellular structures that make proteins.</p>
+                <p>The MYC gene is a proto-oncogene, which means that it has the potential to become an oncogene, a gene that can cause cancer, if it is mutated or abnormally expressed.  Normally, MYC is tightly regulated, but when dysregulated, it can drive uncontrolled cell growth and division, leading to tumor formation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="function" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>MYC Gene Function</h2>
+            </div>
+            <div>
+                <p>The c-Myc protein influences several important cellular processes:</p>
+                <ul>
+                    <li><strong>Cell Cycle Progression:</strong>  Promotes the transition from the G1 to S phase of the cell cycle, leading to cell division.</li>
+                    <li><strong>Apoptosis:</strong> Can induce apoptosis, particularly in the absence of growth factors or survival signals.</li>
+                    <li><strong>Metabolism:</strong> Regulates genes involved in glucose metabolism, glutamine metabolism, and other metabolic pathways.</li>
+                    <li><strong>Ribosome Biogenesis:</strong> Increases the production of ribosomes, enhancing the cell's ability to synthesize proteins.</li>
+                </ul>
+                <p>Because of its broad effects, MYC dysregulation can have profound consequences for cell behavior and contribute to the development of cancer.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="related_conditions" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Conditions Related to MYC Gene Mutations</h2>
+            </div>
+            <div>
+                <p>Changes in the MYC gene are associated with a variety of cancers, including:</p>
+                <ul>
+                    <li><strong>Burkitt Lymphoma:</strong>  Often caused by a translocation that places the MYC gene under the control of a highly active promoter, leading to overexpression.</li>
+                    <li><strong>Breast Cancer:</strong>  MYC amplification and overexpression are frequently observed in breast cancer, contributing to cell proliferation and tumor growth.</li>
+                    <li><strong>Lung Cancer:</strong> MYC dysregulation is implicated in the development and progression of lung cancer.</li>
+                    <li><strong>Other Cancers:</strong>  Changes in MYC are also seen in colon cancer, ovarian cancer, and other types of cancer.</li>
+                </ul>
+                <p>These changes can include gene amplification (increased copies of the gene), translocations (rearrangements of the gene's location), and increased expression of the MYC protein.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="other_names" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Other Names for the MYC Gene</h2>
+            </div>
+            <div>
+                <ul>
+                    <li>c-Myc</li>
+                    <li>v-myc avian myelocytomatosis viral oncogene homolog</li>
+                    <li>MYC proto-oncogene, bHLH transcription factor</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="references" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>References and Further Reading</h2>
+            </div>
+            <div>
+                <ul>
+                    <li>UniProt: <a href="https://www.uniprot.org/uniprot/P01106" target="_blank">https://www.uniprot.org/uniprot/P01106</a></li>
+                    <li>Human Protein Atlas: <a href="https://www.proteinatlas.org/ENSG00000136997-MYC" target="_blank">https://www.proteinatlas.org/ENSG00000136997-MYC</a></li>
+                    <li>NCBI Gene: <a href="https://www.ncbi.nlm.nih.gov/gene/4609" target="_blank">https://www.ncbi.nlm.nih.gov/gene/4609</a></li>
+                    <li>MedlinePlus:  (Consider linking to the analogous MedlinePlus page if it exists)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <a href="#" class="footer-logo">Gene<span>Info</span></a>
+                <p>Your go-to resource for comprehensive gene information. Content is for informational purposes only and does not constitute medical advice. Consult with a healthcare professional for any health concerns.</p>
+                <div class="social-links">
+                    <!-- Social Icons Here -->
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#summary">Summary</a></li>
+                    <li><a href="#function">Function</a></li>
+                    <li><a href="#related_conditions">Related Conditions</a></li>
+                    <li><a href="#other_names">Other Names</a></li>
+                    <li><a href="#references">References</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Subscribe</h3>
+                <p>Stay updated with the latest gene research and information.</p>
+                <form class="newsletter-form" onsubmit="alert('Subscription simulated!'); return false;">
+                    <input type="email" placeholder="Your Email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 GeneInfo. All rights reserved.
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>
