@@ -1,7 +1,7 @@
 /* style.css - Versão Limpa e Organizada */
 :root {
-  --primary: #0F3B82;      /* Azul U.Porto */
-  --secondary: #F58634;     /* Laranja para destaque */
+  --primary: #4e29b4;      /* Azul U.Porto */
+  --secondary: #963ee9;     /* Laranja para destaque */
   --dark: #1a1a2e;
   --light: #ffffff;
   --gray: #f8f9fa;
@@ -141,7 +141,7 @@ nav {
 }
 
 .btn-secondary {
-  background: linear-gradient(45deg, var(--secondary), #FF9F5B);
+  background: linear-gradient(45deg, var(--secondary), #963ee9);
   box-shadow: 0 4px 15px rgba(245, 134, 52, 0.3);
 }
 
@@ -292,7 +292,7 @@ nav {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #dc3545; /* Cor de erro */
+    color: #13cf3c; /* Cor de erro */
 }
 
 
