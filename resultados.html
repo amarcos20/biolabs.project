@@ -295,7 +295,11 @@
             h1 { font-size: 1.9rem; }
             h2 { font-size: 1.5rem; }
             h3 { font-size: 1.2rem; }
-           /*Mobile Menu Styles */
+        .conclusoes-section{
+            padding: 5px;
+            font-size:10px;
+        }
+            /*Mobile Menu Styles */
             .menu-toggle {
                  display: none;
             }
@@ -306,14 +310,14 @@
             }
 
             header .container {
-                 display: flex;  /* Flexbox for logo centering */
+                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
 
             }
           body {
-                padding-top: 0 !important; /* Remove space from top*/
+                padding-top: 0 !important;
             }
              header .logo {
               font-size: 1.7em;
@@ -330,7 +334,7 @@
                     box-shadow: var(--shadow-medium);
                 }
                 .menu-toggle {
-                 display: none !important;  /* Hide hamburger icon */
+                 display: none !important;
                 }
 
             .footer-content { flex-direction: column; text-align: center; align-items: center; }
@@ -415,7 +419,6 @@
                                 # cd RAxML-8.2.12
                                 # ./configure
                                 # make -j $(nproc)
-                                # make -j $(nproc)
                                 # sudo cp raxmlHPC-PTHREADS /usr/local/bin/
 
                                 # Verify installation (basic check)
@@ -477,54 +480,129 @@
                     <p><em>(Detalhes sobre o fluxo de trabalho)</em></p>
                 </div>
             </section>
-            <!-- === FIM DA SECÇÃO PIPELINE === -->
+  <!-- === SECÇÃO RESULTADOS FINAIS === -->
+        <section id="resultados-finais" class="section">
+        <div class="section-header">
+            <h2>Resultados Finais</h2>
+        </div>
+        <div>
+        <p>Descoberta de Motifs:</p>
+        <!-- Descoberta de Motifs -->
+         <button class="collapsible">Motifs</button>
+          <div class="content">
+            <p>A análise Prosite revelou a seguinte assinatura conservada:</p>
+         <div style="overflow-x: auto; border: 1px solid var(--border-color); border-radius: 5px; padding: 10px; background-color: var(--light-gray);">
+             <pre style="font-family: monospace; white-space: pre-wrap; color: var(--text-color); font-size: 0.9rem; margin: 0;">
+                      <code>  Resultados do ScanProsite:
+    NP_001136266-2
+DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
+    NP_001422710-1 
+DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
+    PNJ76225-1        
+DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSI
+    XP_004047574-1         
+DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
+    NP_001166917-2        
+DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
+    NP_034979-3         
+DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSI
+    ACQ76904-1              
+DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
+    XP_003256251-2          
+DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
+    XP_021798305-1        
+DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
+    NP_002458-2           
+VKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
+                                </code>
+                            </pre>
+                     </div>
+              </div>
 
+                    <!-- ARVORE FILOGENETICA-->
 
-            <!-- === SECÇÃO RESULTADOS FINAIS === -->
-            <section id="resultados-finais" class="section">
-                <div class="section-header">
-                    <h2>Resultados Finais</h2>
-                </div>
-                <div>
-                    <p>Apresentação dos principais achados da análise realizada sobre o gene MYC.</p>
-                    <!-- Adicionar conteúdo específico dos resultados -->
-                    <!-- Pode incluir tabelas, gráficos (como imagens ou usando bibliotecas JS), listas, etc. -->
-                    <h3>Descoberta de motifs</h3>
-                    <p>Descrição detalhada do resultado X...</p>
+                        
 
-                    <h3>ARVORE FILOGENETICA</h3>
-                    <p>Análise comparativa Y...</p>
+     <button class="collapsible">ARVORE FILOGENETICA</button>
+       <div class="content">
+        <p>A árvore filogenética demonstra as relações evolutivas entre as sequências MYC analisadas em diferentes espécies.</p>
+        <div style="text-align: center; border: 1px solid var(--border-color); border-radius: 5px; padding: 10px; background-color: var(--light-gray);">
+            <img src="phylo.jpg" alt="Árvore Filogenética MYC" style="max-width: 100%; height: auto;">
+             <p style="font-size: 0.9em; color: var(--text-light); margin-top: 5px;">Representação das relações evolutivas do gene MYC</p>
+                                </div>
+                        </div>
 
-                    <!-- Exemplo de como poderia adicionar uma imagem de um gráfico -->
-                    <!--
-                    <div style="text-align: center; margin: 20px 0;">
-                        <img src="grafico_resultados.png" alt="Gráfico de Resultados da Análise MYC" style="max-width: 100%; height: auto; border: 1px solid var(--border-color);">
-                        <p style="font-size: 0.9em; color: var(--text-light); margin-top: 5px;">Legenda do gráfico.</p>
-                    </div>
-                    -->
                 </div>
             </section>
-            <!-- === FIM DA SECÇÃO RESULTADOS FINAIS === -->
-
+    
 
             <!-- === SECÇÃO CONCLUSÕES === -->
-            <section id="conclusoes" class="section">
+            <section id="conclusoes" class="conclusoes-section section">
                 <div class="section-header">
                     <h2>Conclusões</h2>
                 </div>
                 <div>
-                    <p>Discussão dos resultados obtidos, interpretação dos achados e implicações no contexto do estudo do gene MYC.</p>
-                    <!-- Adicionar conteúdo específico das conclusões -->
-                    <ul>
-                        <li>Sumário dos principais resultados.</li>
-                        <li>Discussão sobre a significância dos achados.</li>
-                        <li>Limitações do estudo.</li>
-                        <li>Perspetivas futuras e próximos passos.</li>
-                    </ul>
-                </div>
-            </section>
-            <!-- === FIM DA SECÇÃO CONCLUSÕES === -->
+                    <h3>Análise de Motifs:</h3>
+    
+ <strong>1. Significado Funcional:</strong> A sequência conservada na proteína MYC é provavelmente crucial para sua função, podendo estar envolvida na ligação ao DNA, interação com outras proteínas (como MAX ou MIZ-1) e sujeita a modificações pós-traducionais que regulam sua atividade.
+                    <p></p>
+<strong>2. Conservação Evolutiva:</strong> A presença dessa sequência em várias espécies indica uma origem evolutiva comum e uma função essencial conservada da proteína MYC ao longo da evolução.
+                    <p></p>
+ <strong>3. Implicações para a Investigação:</strong> Essa região é um alvo promissor para o desenvolvimento de fármacos, pode ser usada em estudos de mutações com impacto funcional relevante, e serve como base para desenhar experiências focadas em ligações ao DNA.
+        </p>
 
+        <div class="section">
+            <h3>Análise Árvore Filogenética:</h3>
+            
+            <div class="subsection">
+                <p><strong>I. Composição Geral da Árvore Filogenética</strong></p>
+                <p>Foco em Mamíferos: Todas as espécies listadas na árvore são mamíferos, o que permite examinar a homologia e a conservação da proteína MYC dentro deste grupo.</p>
+                <p>Grupo Externo: Mus musculus (rato) é o mais distante do resto das espécies, sugerindo que é o grupo externo (outgroup) ou a espécie mais divergentemente relacionada.</p>
+            </div>
+            
+            <div class="subsection">
+                <p><strong>II. Relações Evolutivas entre Primatas: Homologia da Proteína MYC</strong></p>
+                <p>Agrupamento de Primatas: O agrupamento geral de primatas sugere que a proteína MYC dentro deste grupo evoluiu de um ancestral comum, conservando as características desta proteína nos primatas e demonstrando uma relação filogenética mais recente.</p>
+                
+                <p>Grandes Primatas (Hominidae):</p>
+                <p>Pan troglodytes (Chimpanzé) e Homo sapiens (Humano) são as espécies mais intimamente relacionadas na árvore, o que está de acordo com o conhecimento atual da evolução dos primatas. A forte semelhança nesses genes sugere que são uma função conservada. Há alto suporte (87) para essa relação.</p>
+                <p>Gorilla gorilla (Gorila) está mais distantemente relacionado com humanos e chimpanzés, mas ainda forma um clado (grupo) com eles, demonstrando que se relacionam e conservam a proteina do gene MYC mas que já estão mais divergentes.</p>
+                
+                <p>Outros Primatas:</p>
+                <p>Pongo abelii (Orangotango de Sumatra), Macaca mulatta (Macaco Rhesus) e Papio anubis (Babuíno Anubis) formam um clado de primatas separado e a uma menor divergencia. A divisão entre orangotango e macaco/babuíno é consistente com a filogenia dos primatas e que esta presente a proteina do gene MYC como homologa aos outros mamilos.</p>
+                
+                <p>Mamíferos Não Primatas:</p>
+                <p>Nomascus leucogenys (Gibão) agrupa-se com sequências de primatas, indicando uma conservação superior com membros de espécies primatas. <span class="italic">Felis catus</span> (Gato Doméstico) e Sus scrofa (Javali) são as espécies mais distantemente relacionadas a seguir. Isto reflete as suas posições evolutivas como carnívoros e artiodáctilos, respetivamente o gene MYC que é conservado demonstra que a relação filogenetica é evoluitivamente superior, o que faz com que exista uma superioridade e conservação filogenetica entre especies com conservação no gene e proteina MYC</p>
+            </div>
+            
+            <div class="subsection">
+                <p><strong>III. Distâncias Genéticas e Divergência Evolutiva: Taxas de Mutação da Proteína MYC</strong></p>
+                <p>Comprimentos dos Ramos: Os comprimentos dos ramos representam a quantidade estimada de mudança evolutiva (distância genética) entre as espécies. Ramos mais longos indicam mais mudança, a proteina MYC demonstra um alto grau de alterações evolutivas.</p>
+                <p>O ramo relativamente longo que conduz a Mus musculus indica uma maior quantidade de divergência evolutiva das outras espécies, apresentando que o gene é homologo aos outros mamilos mesmo que a proteina MYC seja menos conservada, face ao grande espaço de tempo para a especiação genética e divergente destes diferentes mamilos.</p>
+                
+                <p>Valores Numéricos nos Ramos:</p>
+                <p>Os valores "0.006", "0.015", "0.021", "0.017", "0.023" e "0.050"  representam os comprimentos dos ramos, que são uma estimativa da divergência evolutiva e do grau da proteina a demonstrar o gene MYC presente.</p>
+                <p>A legenda "0.01" indica a escala, provavelmente para a comparação evolutiva do Gene no geral.</p>
+            </div>
+            
+            <div class="subsection">
+                <p><strong>IV. Suporte Estatístico (Bootstrap): Confiabilidade da Conservação</strong></p>
+                <p>Suporte do Nó: Os números nos nós (ex: "35", "63", "55", "100", "99", "79", "87")  representam valores de bootstrap. Os valores de bootstrap são uma medida do suporte estatístico para cada ramo na árvore. Valores de bootstrap mais altos (próximos de 100) indicam um suporte mais forte.</p>
+                
+                <p>Clados Fortemente Apoiados:</p>
+                <p>O valor de bootstrap de "100" sugere um suporte muito forte para o clado que contém as espécies primatas. Implica que esta relação evolutiva é altamente confiável em relação a conservação da proteina do gene MYC em primatas.</p>
+                
+                <p>Clados com Suporte Mais Fraco:</p>
+                <p>O valor baixo de 35 nos macacos indica que não há um suporte forte no gene.</p>
+            </div>
+            
+            <div class="subsection">
+                <p><strong>V. Codificação de Cores : Marcadores Visuais da Evolução</strong></p>
+                <p>PSão usadas cores diferentes, tal que a cor mais escura mostra uma espécie mais antiga (rato) em comparação com os outros mamíferos, demonstrando os diferentes graus de homologa e conservação ao nivel da proteina do gene MYC.</p>
+            </div>
+        </div>
+    
+ </section>
         </div> <!-- Fim .container (conteúdo principal) -->
     </div> <!-- Fim .main-content -->
 
@@ -574,9 +652,10 @@
                var content = this.nextElementSibling;
                if (content.style.maxHeight){
                    content.style.maxHeight = null;
+              
                } else {
                    content.style.maxHeight = content.scrollHeight + "px";
-               }
+                }
            });
        }
    </script>
