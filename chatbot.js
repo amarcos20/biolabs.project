@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             default:
-                addMessage(`Desculpe, não reconheço "${userMessage}". Tente um dos botões ou pergunte sobre: tamanho, localização, sequência, função, câncer, exões, descoberta, importância, estrutura 3D, domínios, regulação, terapia, 1NKP.`, 'bot');
+                addMessage(`Foca-te num dos botões ou pergunte sobre: tamanho, localização, sequência, função, câncer, exões, descoberta, importância, estrutura 3D, domínios, regulação, terapia, 1NKP e desta maneira eu posso ajudar-te`, 'bot');
                 break;
         }
     }
