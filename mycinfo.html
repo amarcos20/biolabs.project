@@ -8,313 +8,347 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <style>
-        /* === CONFIGURAÇÕES GLOBAIS E VARIÁVEIS === */
-        :root {
-          --primary-color: #0F3B82; /* Azul escuro */
-          --secondary-color: #7e34f5; /* Laranja */
-          --text-color: #333333; /* Cinza escuro para texto */
-          --text-light: #666666; /* Cinza mais claro */
-          --background-color: #ffffff; /* Branco */
-          --light-gray: #f8f9fa; /* Cinza muito claro */
-          --border-color: #dee2e6; /* Cinza para bordas */
-          --shadow-light: 0 1px 3px rgba(0,0,0,0.05);
-          --shadow-medium: 0 4px 6px rgba(0,0,0,0.08);
-        }
+    /* === CONFIGURAÇÕES GLOBAIS E VARIÁVEIS === */
+            :root {
+            --primary-color: #0F3B82; /* Azul escuro */
+            --secondary-color: #7e34f5; /* Laranja */
+            --text-color: #333333; /* Cinza escuro para texto */
+            --text-light: #666666; /* Cinza mais claro */
+            --background-color: #ffffff; /* Branco */
+            --light-gray: #f8f9fa; /* Cinza muito claro */
+            --border-color: #dee2e6; /* Cinza para bordas */
+            --shadow-light: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-medium: 0 4px 6px rgba(0,0,0,0.08);
+            }
 
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            }
 
-        html {
-            scroll-behavior: smooth;
-        }
+            html {
+                scroll-behavior: smooth;
+            }
 
-        body {
-          font-family: 'Poppins', Arial, sans-serif;
-          background-color: var(--background-color);
-          color: var(--text-color);
-          line-height: 1.65;
-          font-size: 16px;
-          overflow-x: hidden;
-        }
+            body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.65;
+            font-size: 16px;
+            overflow-x: hidden;
+            }
 
-        .container {
-          max-width: 1140px;
-          margin: 0 auto;
-          padding: 0 20px;
-        }
+            .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+            }
 
-        h1, h2, h3, h4, h5, h6 {
-            color: var(--primary-color);
-            margin-bottom: 0.7em;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        h1 { font-size: 2.3rem; }
-        h2 { font-size: 1.8rem; } /* Título da secção principal (summary) */
-        h3 { font-size: 1.4rem; } /* Usado para títulos dentro das secções */
-        h4 { font-size: 1.1rem; margin-top: 1em; }
+            h1, h2, h3, h4, h5, h6 {
+                color: var(--primary-color);
+                margin-bottom: 0.7em;
+                font-weight: 600;
+                line-height: 1.3;
+            }
+            h1 { font-size: 2.3rem; }
+            h2 { font-size: 1.8rem; } /* Título da secção principal (summary) */
+            h3 { font-size: 1.4rem; } /* Usado para títulos dentro das secções */
+            h4 { font-size: 1.1rem; margin-top: 1em; }
 
-        p {
-            color: var(--text-light);
-            margin-bottom: 1.1em;
-        }
+            p {
+                color: var(--text-light);
+                margin-bottom: 1.1em;
+            }
 
-        a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        a:hover {
-            color: #7e34f5;
-            text-decoration: underline;
-        }
+            a {
+                color: var(--secondary-color);
+                text-decoration: none;
+                transition: color 0.2s ease;
+            }
+            a:hover {
+                color: #7e34f5;
+                text-decoration: underline;
+            }
 
-        ul, ol {
-            padding-left: 25px;
-            margin-bottom: 1em;
-        }
-        li { margin-bottom: 0.5em; }
+            ul, ol {
+                padding-left: 25px;
+                margin-bottom: 1em;
+            }
+            li { margin-bottom: 0.5em; }
 
-        strong { font-weight: 600; color: var(--text-color);}
+            strong { font-weight: 600; color: var(--text-color);}
 
-        table {
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 25px 0;
+                border: 1px solid var(--border-color);
+            }
+            th, td {
+                border: 1px solid var(--border-color);
+                padding: 12px 15px;
+                text-align: left;
+                vertical-align: top;
+            }
+            th {
+                background-color: var(--light-gray);
+                font-weight: 600;
+                color: var(--primary-color);
+            }
+
+            /* === ESTILOS DO CABEÇALHO === */
+            header {
             width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            border: 1px solid var(--border-color);
-        }
-        th, td {
-            border: 1px solid var(--border-color);
-            padding: 12px 15px;
-            text-align: left;
-            vertical-align: top;
-        }
-        th {
-            background-color: var(--light-gray);
-            font-weight: 600;
+            padding: 12px 0;
+            background-color: var(--background-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-medium);
+            }
+
+            header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            }
+
+            header .logo {
+            font-size: 1.7em;
+            font-weight: 700;
             color: var(--primary-color);
-        }
+            text-decoration: none;
+            }
+            header .logo span {
+                color: var(--secondary-color);
+                font-weight: 500;
+            }
 
-        /* === ESTILOS DO CABEÇALHO === */
-        header {
-          width: 100%;
-          padding: 12px 0;
-          background-color: var(--background-color);
-          position: sticky;
-          top: 0;
-          z-index: 1000;
-          border-bottom: 1px solid var(--border-color);
-          box-shadow: var(--shadow-medium);
-        }
+            header .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Espaçamento ajustado para menos links */
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            }
 
-        header .container {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        header .logo {
-          font-size: 1.7em;
-          font-weight: 700;
-          color: var(--primary-color);
-          text-decoration: none;
-        }
-        header .logo span {
-            color: var(--secondary-color);
+            header .nav-links a {
+            color: var(--text-light);
             font-weight: 500;
-        }
+            padding: 8px 15px; /* Padding aumentado */
+            border-radius: 4px;
+            text-decoration: none;
+            transition: color 0.2s ease, background-color 0.2s ease;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+            }
 
-        header .nav-links {
-          list-style: none;
-          display: flex;
-          align-items: center;
-          gap: 15px; /* Espaçamento ajustado para menos links */
-          flex-wrap: wrap;
-          justify-content: flex-end;
-        }
-
-        header .nav-links a {
-          color: var(--text-light);
-          font-weight: 500;
-          padding: 8px 15px; /* Padding aumentado */
-          border-radius: 4px;
-          text-decoration: none;
-          transition: color 0.2s ease, background-color 0.2s ease;
-          border-bottom: 2px solid transparent;
-          white-space: nowrap;
-        }
-
-        header .nav-links a:hover {
-          color: var(--primary-color);
-          background-color: var(--light-gray);
-          text-decoration: none;
-        }
-
-        /* === ESTILOS DO CARROSSEL === */
-        /* (Mantidos como antes) */
-        .carousel-container {
-          position: relative;
-          width: 100%;
-          height: 75vh;
-          overflow: hidden;
-          background-color: #222;
-        }
-        .carousel { display: flex; width: 300%; height: 100%; transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
-        .slide { min-width: 33.3333%; width: 33.3333%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 5%; position: relative; color: white; box-sizing: border-box; }
-        .slide::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; z-index: 1; filter: brightness(0.55); }
-        .slide-content { position: relative; z-index: 2; max-width: 800px; }
-        .slide:nth-child(1)::before { background-image: url('imagem1.jpeg'); }
-        .slide:nth-child(2)::before { background-image: url('imagem2.jpeg'); }
-        .slide:nth-child(3)::before { background-image: url('imagem3.jpeg'); }
-        .slide h2 { font-size: calc(1.8rem + 1vw); margin-bottom: 20px; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); font-weight: 700; color: white; line-height: 1.2; }
-        .slide p { font-size: calc(0.95rem + 0.2vw); max-width: 90%; margin-bottom: 30px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); color: rgba(255, 255, 255, 0.9); }
-        .slide a.button-link { display: inline-block; padding: 14px 30px; background-color: var(--secondary-color); color: white; text-decoration: none; border-radius: 50px; transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; font-weight: 600; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); border: none; }
-        .slide a.button-link:hover { transform: translateY(-3px) scale(1.03); background-color: #d96d1a; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); text-decoration: none; }
-        .carousel-nav { position: absolute; top: 50%; left: 0; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); z-index: 10; padding: 0 25px; pointer-events: none; }
-        .carousel-nav button { background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.8); border: none; font-size: 2.5rem; padding: 5px 12px; cursor: pointer; transition: background 0.3s ease, color 0.3s ease; border-radius: 50%; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; line-height: 1; pointer-events: all; }
-        .carousel-nav button:hover { background: rgba(0,0,0,0.5); color: white; }
-
-        /* === ESTILOS DO CONTEÚDO PRINCIPAL === */
-        .main-content {
-          padding-top: 50px;
-          padding-bottom: 50px;
-        }
-
-        /* Estilo para as secções originais (dentro dos details) */
-        .section {
-            padding: 30px 0; /* Padding reduzido pois está dentro de details */
-            border-bottom: 1px solid var(--border-color);
-        }
-         /* Remover borda da última secção dentro de um details */
-        details > .section:last-of-type {
-             border-bottom: none;
-             padding-bottom: 10px; /* Menos padding no fundo */
-        }
-
-        .section-header {
-            margin-bottom: 20px; /* Reduzido */
-        }
-         .section-header h3 { /* Ajustar se necessário */
-            font-size: 1.4rem;
-         }
-
-
-        /* === ESTILOS PARA DETAILS/SUMMARY (Caixas Colapsáveis) === */
-        details {
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            margin-bottom: 25px; /* Espaço entre as caixas principais */
-            background-color: #fff; /* Fundo branco para destaque */
-             overflow: hidden; /* Para conter bordas arredondadas */
-        }
-
-        summary {
-            padding: 15px 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1.5rem; /* Tamanho do título principal da caixa */
+            header .nav-links a:hover {
             color: var(--primary-color);
             background-color: var(--light-gray);
-            border-bottom: 1px solid var(--border-color);
-            list-style: none; /* Remove o marcador padrão */
+            text-decoration: none;
+            }
+
+            /* === ESTILOS DO CARROSSEL === */
+            /* (Mantidos como antes) */
+            .carousel-container {
             position: relative;
-            transition: background-color 0.2s ease;
-        }
-        summary:hover {
-            background-color: #e9ecef; /* Cinza um pouco mais escuro no hover */
-        }
+            width: 100%;
+            height: 75vh;
+            overflow: hidden;
+            background-color: #222;
+            }
+            .carousel { display: flex; width: 300%; height: 100%; transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+            .slide { min-width: 33.3333%; width: 33.3333%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 5%; position: relative; color: white; box-sizing: border-box; }
+            .slide::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; z-index: 1; filter: brightness(0.55); }
+            .slide-content { position: relative; z-index: 2; max-width: 800px; }
+            .slide:nth-child(1)::before { background-image: url('imagem1.jpeg'); }
+            .slide:nth-child(2)::before { background-image: url('imagem2.jpeg'); }
+            .slide:nth-child(3)::before { background-image: url('imagem3.jpeg'); }
+            .slide h2 { font-size: calc(1.8rem + 1vw); margin-bottom: 20px; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); font-weight: 700; color: white; line-height: 1.2; }
+            .slide p { font-size: calc(0.95rem + 0.2vw); max-width: 90%; margin-bottom: 30px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); color: rgba(255, 255, 255, 0.9); }
+            .slide a.button-link { display: inline-block; padding: 14px 30px; background-color: var(--secondary-color); color: white; text-decoration: none; border-radius: 50px; transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; font-weight: 600; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); border: none; }
+            .slide a.button-link:hover { transform: translateY(-3px) scale(1.03); background-color: #d96d1a; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); text-decoration: none; }
+            .carousel-nav { position: absolute; top: 50%; left: 0; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); z-index: 10; padding: 0 25px; pointer-events: none; }
+            .carousel-nav button { background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.8); border: none; font-size: 2.5rem; padding: 5px 12px; cursor: pointer; transition: background 0.3s ease, color 0.3s ease; border-radius: 50%; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; line-height: 1; pointer-events: all; }
+            .carousel-nav button:hover { background: rgba(0,0,0,0.5); color: white; }
 
-        /* Adiciona um ícone (seta) e o anima */
-        summary::after {
-            content: '\25BC'; /* Código unicode para seta para baixo */
-            font-size: 0.9em;
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%) rotate(0deg);
-            transition: transform 0.3s ease;
-            color: var(--secondary-color);
-        }
+            /* === ESTILOS DO CONTEÚDO PRINCIPAL === */
+            .main-content {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            }
 
-        details[open] > summary::after {
-            transform: translateY(-50%) rotate(180deg); /* Gira a seta quando aberto */
-        }
+            /* Estilo para as secções originais (dentro dos details) */
+            .section {
+                padding: 30px 0; /* Padding reduzido pois está dentro de details */
+                border-bottom: 1px solid var(--border-color);
+            }
+            /* Remover borda da última secção dentro de um details */
+            details > .section:last-of-type {
+                border-bottom: none;
+                padding-bottom: 10px; /* Menos padding no fundo */
+            }
 
-        /* Remove o marcador padrão no Webkit/Blink (Chrome, Safari) */
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        /* Conteúdo dentro do details (as secções originais) */
-        .details-content {
-            padding: 0px 20px 10px 20px; /* Padding interno para o conteúdo */
-        }
+            .section-header {
+                margin-bottom: 20px; /* Reduzido */
+            }
+            .section-header h3 { /* Ajustar se necessário */
+                font-size: 1.4rem;
+            }
 
 
-        /* Estilo para lista de detalhes (mantido) */
-        .details-list { list-style: none; padding-left: 0; }
-        .details-list li { margin-bottom: 10px; }
-        .details-list strong { color: var(--primary-color); min-width: 150px; display: inline-block; }
+            /* === ESTILOS PARA DETAILS/SUMMARY (Caixas Colapsáveis) === */
+            details {
+                border: 1px solid var(--border-color);
+                border-radius: 5px;
+                margin-bottom: 25px; /* Espaço entre as caixas principais */
+                background-color: #fff; /* Fundo branco para destaque */
+                overflow: hidden; /* Para conter bordas arredondadas */
+            }
+
+            summary {
+                padding: 15px 20px;
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 1.5rem; /* Tamanho do título principal da caixa */
+                color: var(--primary-color);
+                background-color: var(--light-gray);
+                border-bottom: 1px solid var(--border-color);
+                list-style: none; /* Remove o marcador padrão */
+                position: relative;
+                transition: background-color 0.2s ease;
+            }
+            summary:hover {
+                background-color: #e9ecef; /* Cinza um pouco mais escuro no hover */
+            }
+
+            /* Adiciona um ícone (seta) e o anima */
+            summary::after {
+                content: '\25BC'; /* Código unicode para seta para baixo */
+                font-size: 0.9em;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%) rotate(0deg);
+                transition: transform 0.3s ease;
+                color: var(--secondary-color);
+            }
+
+            details[open] > summary::after {
+                transform: translateY(-50%) rotate(180deg); /* Gira a seta quando aberto */
+            }
+
+            /* Remove o marcador padrão no Webkit/Blink (Chrome, Safari) */
+            summary::-webkit-details-marker {
+                display: none;
+            }
+
+            /* Conteúdo dentro do details (as secções originais) */
+            .details-content {
+                padding: 0px 20px 10px 20px; /* Padding interno para o conteúdo */
+            }
 
 
-        /* === ESTILOS DO RODAPÉ === */
-        /* (Mantidos como antes, incluindo ícones sociais) */
-        footer { background-color: var(--light-gray); padding: 50px 0 30px 0; border-top: 1px solid var(--border-color); margin-top: 40px; }
-        .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; padding-bottom: 30px; margin-bottom: 30px; border-bottom: 1px solid var(--border-color); }
-        .footer-about, .footer-links, .footer-newsletter { flex: 1; min-width: 250px; }
-        footer .footer-logo { font-size: 1.5em; font-weight: 700; color: var(--primary-color); text-decoration: none; display: block; margin-bottom: 15px; }
-        footer .footer-logo span { color: var(--secondary-color); font-weight: 500; }
-        footer h3 { font-size: 1.2rem; color: var(--primary-color); margin-bottom: 15px; font-weight: 600; }
-        footer p { font-size: 0.95rem; color: var(--text-light); }
-        footer ul { list-style: none; padding-left: 0; }
-        footer li { margin-bottom: 8px; }
-        footer li a { color: var(--text-light); text-decoration: none; }
-        footer li a:hover { color: var(--primary-color); text-decoration: underline; padding-left: 4px; }
-        .newsletter-form { display: flex; margin-top: 15px; }
-        .newsletter-form input[type="email"] { flex-grow: 1; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 4px 0 0 4px; outline: none; font-size: 0.95rem; font-family: inherit; }
-        .newsletter-form button { padding: 10px 15px; border: none; background-color: var(--secondary-color); color: white; cursor: pointer; border-radius: 0 4px 4px 0; transition: background-color 0.2s ease; font-weight: 500; font-family: inherit; }
-        .newsletter-form button:hover { background-color: #d96d1a; }
-        .footer-bottom { text-align: center; font-size: 0.9rem; color: var(--text-light); }
-        .social-links { margin-top: 20px; text-align: left; }
-        .social-links a { display: inline-block; margin-right: 15px; color: var(--primary-color); font-size: 1.8rem; transition: color 0.2s ease, transform 0.2s ease; text-decoration: none; }
-        .social-links a:last-child { margin-right: 0; }
-        .social-links a:hover { color: var(--secondary-color); transform: scale(1.1); text-decoration: none; }
-        .social-links a:hover i { text-decoration: none; }
+            /* Estilo para lista de detalhes (mantido) */
+            .details-list { list-style: none; padding-left: 0; }
+            .details-list li { margin-bottom: 10px; }
+            .details-list strong { color: var(--primary-color); min-width: 150px; display: inline-block; }
 
-        /* === MEDIA QUERIES BÁSICAS === */
-        @media (max-width: 992px) {
-             header .nav-links { gap: 10px; justify-content: center; } /* Aumentar gap com menos links */
-             header .nav-links a { padding: 8px 12px; }
-        }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 1.9rem; }
-            h2 { font-size: 1.5rem; } /* Título da secção principal (summary) */
-            h3 { font-size: 1.2rem; } /* Títulos dentro das secções */
-            summary { font-size: 1.3rem; } /* Tamanho do título da caixa principal */
+            /* === ESTILOS DO RODAPÉ === */
+            /* (Mantidos como antes, incluindo ícones sociais) */
+            footer { background-color: var(--light-gray); padding: 50px 0 30px 0; border-top: 1px solid var(--border-color); margin-top: 40px; }
+            .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; padding-bottom: 30px; margin-bottom: 30px; border-bottom: 1px solid var(--border-color); }
+            .footer-about, .footer-links, .footer-newsletter { flex: 1; min-width: 250px; }
+            footer .footer-logo { font-size: 1.5em; font-weight: 700; color: var(--primary-color); text-decoration: none; display: block; margin-bottom: 15px; }
+            footer .footer-logo span { color: var(--secondary-color); font-weight: 500; }
+            footer h3 { font-size: 1.2rem; color: var(--primary-color); margin-bottom: 15px; font-weight: 600; }
+            footer p { font-size: 0.95rem; color: var(--text-light); }
+            footer ul { list-style: none; padding-left: 0; }
+            footer li { margin-bottom: 8px; }
+            footer li a { color: var(--text-light); text-decoration: none; }
+            footer li a:hover { color: var(--primary-color); text-decoration: underline; padding-left: 4px; }
+            .newsletter-form { display: flex; margin-top: 15px; }
+            .newsletter-form input[type="email"] { flex-grow: 1; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 4px 0 0 4px; outline: none; font-size: 0.95rem; font-family: inherit; }
+            .newsletter-form button { padding: 10px 15px; border: none; background-color: var(--secondary-color); color: white; cursor: pointer; border-radius: 0 4px 4px 0; transition: background-color 0.2s ease; font-weight: 500; font-family: inherit; }
+            .newsletter-form button:hover { background-color: #d96d1a; }
+            .footer-bottom { text-align: center; font-size: 0.9rem; color: var(--text-light); }
+            .social-links { margin-top: 20px; text-align: left; }
+            .social-links a { display: inline-block; margin-right: 15px; color: var(--primary-color); font-size: 1.8rem; transition: color 0.2s ease, transform 0.2s ease; text-decoration: none; }
+            .social-links a:last-child { margin-right: 0; }
+            .social-links a:hover { color: var(--secondary-color); transform: scale(1.1); text-decoration: none; }
+            .social-links a:hover i { text-decoration: none; }
 
-            header .container { flex-direction: column; gap: 10px; }
+            /* === MEDIA QUERIES BÁSICAS === */
+            @media (max-width: 992px) {
+                header .nav-links { gap: 10px; justify-content: center; } /* Aumentar gap com menos links */
+                header .nav-links a { padding: 8px 12px; }
+            }
 
-            .carousel-container { height: 60vh; }
-            .slide h2 { font-size: 1.6rem; }
-            .slide p { font-size: 0.9rem; }
-            .carousel-nav button { font-size: 1.8rem; width: 40px; height: 40px; padding: 4px 8px;}
-            .carousel-nav { padding: 0 15px;}
+            @media (max-width: 768px) {
+            /*Mobile Menu Styles */
+                .menu-toggle {
+                    display: none;
+                }
 
-            .footer-content { flex-direction: column; text-align: center; align-items: center; }
-            footer .footer-logo { display: inline-block; }
-            .social-links { text-align: center; }
-        }
+                header .nav-links {
+                    position: absolute;
+                    top: 70px;
+                    right: 0; /* Stick to the right */
+                    left: auto; /* Override default left: 0 */
+                    width: auto;   /* Adjust width as needed */
+                    background-color: var(--background-color); /* Color for visibility */
+                    display: none;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    padding: 10px;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                }
+
+                header .nav-links.active {
+                    display: flex; /* Show when active class is present */
+                }
+                header .nav-links a {
+                    color: var(--primary-color); /* Set link color */
+                    padding: 10px;
+                    display: block;
+                    text-align: left; /* Align text */
+                }
+
+            .menu-toggle {
+                    display: block;  /* Show hamburger icon */
+                    font-size: 2rem;
+                    cursor: pointer;
+                    color: var(--primary-color);
+                }
+
+                h1 { font-size: 1.9rem; }
+                h2 { font-size: 1.5rem; } /* Título da secção principal (summary) */
+                h3 { font-size: 1.2rem; } /* Títulos dentro das secções */
+                summary { font-size: 1.3rem; } /* Tamanho do título da caixa principal */
+
+                header .container { flex-direction: column; gap: 10px; }
+
+                .carousel-container { height: 60vh; }
+                .slide h2 { font-size: 1.6rem; }
+                .slide p { font-size: 0.9rem; }
+                .carousel-nav button { font-size: 1.8rem; width: 40px; height: 40px; padding: 4px 8px;}
+                .carousel-nav { padding: 0 15px;}
+
+                .footer-content { flex-direction: column; text-align: center; align-items: center; }
+                footer .footer-logo { display: inline-block; }
+                .social-links { text-align: center; }
+            }
 
     </style>
-</head>
-<body>
-
+    </head>
+    <body>
     <!-- === CABEÇALHO === -->
     <header>
         <div class="container">
