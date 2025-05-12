@@ -297,6 +297,14 @@
             h1 { font-size: 1.9rem; }
             h2 { font-size: 1.5rem; }
             h3 { font-size: 1.2rem; }
+             header {
+               display: none;  /* Completely remove the header */
+             }
+
+               /*Style the body */
+            body {
+                padding-top: 0; /* Remove space from top*/
+            }
 
             header .container { flex-direction: column; gap: 10px; }
 
@@ -352,27 +360,27 @@
                             <code>
                                 #!/bin/bash
                                 # MYC Gene Analysis Pipeline with Installation Section and Python Integration Discussion
-                                
+
                                 # -----------------------------------------------------------------------------
                                 # INSTALLATION (Example - Adapt to your system and package manager)
                                 # -----------------------------------------------------------------------------
-                                
+
                                 echo "--- INSTALLATION ---"
-                                
+
                                 # Check if conda is installed. If not, provide instructions.
                                 if ! command -v conda &> /dev/null; then
                                   echo "Conda not found. Please install Conda (e.g., Miniconda or Anaconda) before proceeding."
                                   echo "Follow instructions at: https://docs.conda.io/en/latest/miniconda.html"
                                   exit 1
                                 fi
-                                
+
                                 # Create a dedicated conda environment
                                 conda create -n myc_env -y
                                 conda activate myc_env
-                                
+
                                 # Install bioinformatics tools using bioconda (if available)
                                 conda install -c conda-forge -y blast-ncbi clustalo iqtree
-                                
+
                                 # Alternative: Install RAxML (often needs manual compilation)
                                 # (Instructions to compile RAxML would go here if bioconda isn't used)
                                 # ... Example for Debian-based systems ...
@@ -382,49 +390,50 @@
                                 # cd RAxML-8.2.12
                                 # ./configure
                                 # make -j $(nproc)
+                                # make -j $(nproc)
                                 # sudo cp raxmlHPC-PTHREADS /usr/local/bin/
-                                
+
                                 # Verify installation (basic check)
                                 if ! command -v blastp &> /dev/null || ! command -v clustalo &> /dev/null || ! command -v iqtree &> /dev/null; then
                                   echo "One or more required tools are not installed correctly.  Check the installation steps."
                                   exit 1
                                 fi
-                                
+
                                 echo "--- INSTALLATION COMPLETE ---"
                                 echo ""
-                                
+
                                 # -----------------------------------------------------------------------------
                                 # ANALYSIS
                                 # -----------------------------------------------------------------------------
-                                
+
                                 echo "--- ANALYSIS ---"
-                                
+
                                 # Set up environment
                                 mkdir -p myc_analysis
                                 cd myc_analysis
-                                
+
                                 # 2. Get MYC protein sequence (replace with actual accession or FASTA file)
                                 wget -O myc_sequence.fasta "https://www.uniprot.org/uniprotkb/P01106/fasta"
-                                
+
                                 # 3. BLASTp search
                                 blastp -query myc_sequence.fasta -db nr -out blast_results.txt -evalue 0.01 -num_threads 8 -max_target_seqs 20
-                                
+
                                 # 4. Extract sequence IDs (requires a Python script for robust parsing)
                                 # (See Python section below)
                                 echo "Running Python script to extract sequence IDs..."
                                 python extract_ids.py blast_results.txt > sequence_ids.txt
-                                
+
                                 # 5. Download sequences (replace with a Python script to fetch sequences from NCBI/UniProt)
                                 # Requires a Python script to download sequences from NCBI/UniProt
                                 python download_sequences.py sequence_ids.txt > aligned_sequences.fasta
-                                
+
                                 # 6. MSA
                                 clustalo -i aligned_sequences.fasta -o myc_msa.fasta --force
-                                
+
                                 # 7. Tree building (choose either IQ-TREE or RAxML)
                                 iqtree -s myc_msa.fasta -m LG+G4 -bb 1000
                                 # raxmlHPC-PTHREADS -T 8 -f a -x 12345 -p 12345 -m GTRGAMMA -n result -s myc_msa.fasta
-                                
+
                                 echo "--- ANALYSIS COMPLETE ---"
                                 echo "Pipeline finished. Check results in myc_analysis directory."
 
@@ -519,6 +528,9 @@
                         <li><a href="#pipeline">Pipeline</a></li>
                         <li><a href="#resultados-finais">Resultados Finais</a></li>
                         <li><a href="#conclusoes">Conclusões</a></li>
+                    </ul>
+                    <!-- === FIM DA NAVEGAÇÃO DO RODAPÉ ATUALIZADA === -->
+                </div>
             </div>
             <div class="footer-bottom">
                 <p style="margin-bottom: 5px; font-size: 0.85em;">Desenvolvido por Afonso Marcos,Pedro Afonso, Afonso Silva.</p>
