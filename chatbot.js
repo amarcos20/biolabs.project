@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             default:
-                addMessage(`Foca-te num dos botões ou pergunte sobre: tamanho, localização, sequência, função, câncer, exões, descoberta, importância, estrutura 3D, domínios, regulação, terapia, 1NKP e desta maneira eu posso ajudar-te`, 'bot');
+                addMessage(`Foca-te num dos botões ou pergunte sobre: tamanho, localização, sequência, função, cancro, exões, descoberta, importância, estrutura 3D, domínios/motifs, regulação, terapia, 1NKP e desta maneira eu posso ajudar-te`, 'bot');
                 break;
         }
     }
