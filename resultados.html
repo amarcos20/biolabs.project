@@ -3,33 +3,36 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Resultados - Análise do Gene MYC</title> <!-- Título da Nova Página -->
+    <title>MYC.info - Análise Genómica</title>
+    <meta name="description" content="Explore a análise genómica do gene MYC. Descubra árvores filogenéticas, motifs conservados e o nosso pipeline de automação." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <style>
-        /* === CONFIGURAÇÕES GLOBAIS E VARIÁVEIS - NOVA PALETA DE CORES === */
+       /* === CONFIGURAÇÕES GLOBAIS E VARIÁVEIS === */
         :root {
-          --primary-color: #4e29b4;   /* Roxo Principal (NOVO) */
-          --secondary-color: #7e34f5; /* Roxo Secundário (NOVO) */
-          --primary-hover-color: #3a1f8a; /* Roxo Principal mais escuro para hover */
-          --secondary-hover-color: #6a1ddf; /* Roxo Secundário mais escuro para hover */
-          --dark: #1a1a2e;
-          --text-color: #333333;     /* Mantido */
-          --text-light: #666666;   /* Mantido */
-          --background-color: #ffffff; /* Mantido */
-          --light-gray: #f8f9fa;     /* Mantido */
-          --border-color: #dee2e6;   /* Mantido */
-          --shadow-light: 0 1px 3px rgba(0,0,0,0.05);
-          --shadow-medium: 0 4px 6px rgba(0,0,0,0.08);
+            --primary-color: #4e29b4;      /* Azul U.Porto */
+            --secondary-color: #7e34f5;
+            --dark: #1a1a2e;
+            --text-color: #333333; /* Cinza escuro para texto */
+            --text-light: #666666; /* Cinza mais claro */
+            --background-color: #ffffff; /* Branco */
+            --light-gray: #f8f9fa; /* Cinza muito claro */
+            --border-color: #dee2e6; /* Cinza para bordas */
+            --shadow-light: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-medium: 0 4px 6px rgba(0,0,0,0.08);
         }
-
         * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         html {
@@ -37,43 +40,43 @@
         }
 
         body {
-          font-family: 'Poppins', Arial, sans-serif;
-          background-color: var(--background-color);
-          color: var(--text-color);
-          line-height: 1.65;
-          font-size: 16px;
-          overflow-x: hidden;
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.65;
+            font-size: 16px;
+            overflow-x: hidden;
         }
 
         .container {
-          max-width: 1140px;
-          margin: 0 auto;
-          padding: 0 20px;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            color: var(--primary-color); /* Cor Principal para títulos */
+            color: var(--primary-color);
             margin-bottom: 0.7em;
             font-weight: 600;
             line-height: 1.3;
         }
         h1 { font-size: 2.3rem; }
-        h2 { font-size: 1.8rem; }
-        h3 { font-size: 1.4rem; }
-        h4 { font-size: 1.1rem; margin-top: 1em; }
+        h2 { font-size: 1.8rem; } /* Título da secção principal (summary) */
+        h3 { font-size: 1.4rem; } /* Usado para títulos dentro das secções */
+        h4 { font-size: 1.1rem; margin-top: 0; }
 
         p {
             color: var(--text-light);
-            margin-bottom: 1.1em;
+            margin-bottom: 0;
         }
 
         a {
-            color: var(--secondary-color); /* Cor Secundária para links */
+            color: var(--secondary-color);
             text-decoration: none;
             transition: color 0.2s ease;
         }
         a:hover {
-            color: var(--secondary-hover-color); /* Cor Secundária Hover */
+            color: #7e34f5;
             text-decoration: underline;
         }
 
@@ -85,663 +88,1011 @@
 
         strong { font-weight: 600; color: var(--text-color);}
 
-        /* Estilo para as secções */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            border: 1px solid var(--border-color);
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: var(--light-gray);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* === ESTILOS DO CABEÇALHO === */
+        header {
+            width: 100%;
+            padding: 12px 0;
+            background-color: var(--background-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-medium);
+            text-align: center;
+        }
+
+        header .container {
+            display: block;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.7em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 auto; /* Centraliza o logo horizontalmente */
+            display: inline-block; /* Permite que o margin funcione */
+        }
+
+        header .logo span {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        header .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Espaçamento ajustado para menos links */
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        header .nav-links a {
+            color: var(--text-light);
+            font-weight: 500;
+            padding: 8px 15px; /* Padding aumentado */
+            border-radius: 4px;
+            text-decoration: none;
+            transition: color 0.2s ease, background-color 0.2s ease;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+        }
+
+        header .nav-links a:hover {
+            color: var(--primary-color);
+            background-color: var(--light-gray);
+            text-decoration: none;
+        }
+            header nav {
+            display: none; /* Remove a navegação */
+        }
+       /*Retira o menu toogle*/
+       .menu-toggle {
+           display:none
+        }
+        @media (max-width: 768px) {
+    header nav {
+        display: none;
+    }
+}
+
+/* Estilos para telas maiores (opcional, caso queira reverter os estilos) */
+@media (min-width: 769px) {
+    header {
+        text-align: left; /* Retorna o alinhamento do cabeçalho para a esquerda */
+    }
+
+    header .container {
+        display: flex; /* Restaura o flexbox */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header .logo {
+        margin: 0; /* Remove a margem */
+        display: inline-block;
+    }
+
+    header nav {
+        display: block; /* Exibe a navegação */
+    }
+}
+
+        /* === ESTILOS DO CARROSSEL === */
+        /* (Mantidos como antes) */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 75vh;
+            overflow: hidden;
+            background-color: #222;
+        }
+        .carousel { display: flex; width: 300%; height: 100%; transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+        .slide { min-width: 33.3333%; width: 33.3333%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 5%; position: relative; color: white; box-sizing: border-box; }
+        .slide::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; z-index: 1; filter: brightness(0.55); }
+        .slide-content { position: relative; z-index: 2; max-width: 800px; }
+        .slide:nth-child(1)::before { background-image: url('phylo.jpeg'); }
+        .slide:nth-child(2)::before { background-image: url('MOTIFIZIN.png'); }
+        .slide:nth-child(3)::before { background-image: url('pipeline.png'); }
+        .slide h2 { font-size: calc(1.8rem + 1vw); margin-bottom: 20px; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); font-weight: 700; color: white; line-height: 1.2;
+         text-align: center;}
+        .slide p { font-size: calc(0.95rem + 0.2vw); max-width: 90%; margin-bottom: 30px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); color: rgba(255, 255, 255, 0.9);
+        text-align: center;}
+        .slide a.button-link { display: inline-block; padding: 14px 30px; background-color: var(--secondary-color); color: white; text-decoration: none; border-radius: 50px; transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; font-weight: 600; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); border: none; }
+        .slide a.button-link:hover { transform: translateY(-3px) scale(1.03); background-color: #d96d1a; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); text-decoration: none; }
+        .carousel-nav { position: absolute; top: 50%; left: 0; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); z-index: 10; padding: 0 25px; pointer-events: none; }
+        .carousel-nav button { background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.8); border: none; font-size: 2.5rem; padding: 5px 12px; cursor: pointer; transition: background 0.3s ease, color 0.3s ease; border-radius: 50%; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; line-height: 1; pointer-events: all; }
+        .carousel-nav button:hover { background: rgba(0,0,0,0.5); color: white; }
+
+        /* === ESTILOS DO CONTEÚDO PRINCIPAL === */
+        .main-content {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        /* Estilo para as secções originais */
         .section {
-            padding: 50px 0;
+            padding: 30px 0;
             border-bottom: 1px solid var(--border-color);
         }
+
         .section:last-of-type {
             border-bottom: none;
         }
 
         .section-header {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+        }
+        .section-header h3 {
+            font-size: 1.4rem;
         }
 
-        /* === ESTILOS DO CABEÇALHO === */
-        header {
-          width: 100%;
-          padding: 12px 0;
-          background-color: var(--background-color);
-          position: sticky;
-          top: 0;
-          z-index: 1000;
-          border-bottom: 1px solid var(--border-color);
-          box-shadow: var(--shadow-medium);
+        .results-section {
+          margin-bottom: 25px;
+          background-color: #f9f9f9;
+          padding: 20px;
+          border: 1px solid var(--border-color);
+          border-radius: 5px;
         }
 
-        header .container {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
+        .results-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
         }
 
-        header .logo {
-          font-size: 1.7em;
-          font-weight: 700;
-          color: var(--primary-color); /* Cor Principal para logo */
-          text-decoration: none;
-        }
-        header .logo span {
-            color: var(--secondary-color); /* Cor Secundária para span */
-            font-weight: 500;
-        }
-
-        header .nav-links {
-          list-style: none;
-          display: flex;
-          align-items: center;
-          gap: 20px; /* Espaçamento entre links */
-          flex-wrap: wrap;
-          justify-content: flex-end;
-        }
-
-        header .nav-links a {
-          color: var(--text-light);
-          font-weight: 500;
-          padding: 8px 15px;
-          border-radius: 4px;
-          text-decoration: none;
-          transition: color 0.2s ease, background-color 0.2s ease;
-          border-bottom: 2px solid transparent;
-          white-space: nowrap;
-        }
-
-        header .nav-links a:hover {
-          color: var(--primary-color); /* Cor Principal no hover */
-          background-color: var(--light-gray);
-          text-decoration: none;
-        }
-
-         /* Collapsible Styles */
-        .collapsible {
+        /* Estilos para conclusões */
+        .conclusions {
+            margin-top: 20px;
+            padding: 15px;
             background-color: var(--light-gray);
-            color: var(--text-color);
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 1rem;
-            font-weight: 500;
-            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+        }
+
+        .conclusions h4 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
             margin-bottom: 10px;
+        }
+
+        .conclusions p {
+            color: var(--text-light);
+        }
+
+
+        /* === RODAPÉ (Estilo do Primeiro Site) === */
+        footer {
+            background-color: var(--dark);
+            color: rgba(255, 255, 255, 0.7); /* Cor de texto mais suave */
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Layout mais responsivo */
+            gap: 40px; /* Mais espaço */
+        }
+
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 15px; /* Menos espaço */
+            display: inline-block;
+        }
+
+        .footer-logo span {
+            color: var(--primary-color);
+        }
+
+        .footer-about p,
+        .footer-newsletter p {
+            margin-bottom: 20px;
+            font-size: 0.9rem; /* Ligeiramente menor */
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px; /* Espaço entre ícones */
+        }
+
+        .social-links a {
+            width: 38px; /* Menor */
+            height: 38px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+            text-decoration: none; /* Garante que não há sublinhado */
+        }
+        .social-links a svg {
+            width: 18px; /* Tamanho do ícone */
+            height: 18px;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3,
+        .footer-newsletter h3 {
+            font-size: 1.15rem; /* Ajustado */
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: white; /* Cor branca para títulos */
+            font-weight: 600;
+        }
+
+        .footer-links h3::after,
+        .footer-newsletter h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 35px; /* Menor */
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px; /* Mais espaço */
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7); /* Mesmo tom do parágrafo */
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 10px; /* Espaço */
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px 15px; /* Ajustado */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Borda subtil */
+            background-color: rgba(255, 255, 255, 0.05); /* Fundo muito subtil */
+            border-radius: 30px 0 0 30px;
+            font-size: 0.9rem;
+            color: white; /* Texto branco */
+            outline: none;
+        }
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .newsletter-form button {
+            background: var(--primary); /* Sem gradiente */
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-weight: 500;
             transition: background-color 0.3s;
         }
-
-        .collapsible:hover {
-            background-color: var(--light-gray);
+        .newsletter-form button:hover {
+            background-color: var(--secondary);
         }
 
-        .collapsible:after {
-            content: '\f0d7'; /* FontAwesome caret-down icon */
-            font-family: FontAwesome;
-            float: right;
-            margin-left: 5px;
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 40px;
+            padding-top: 25px; /* Mais espaço */
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6); /* Mais suave */
+            font-size: 0.85rem; /* Menor */
+        }
+
+        /* --- Animações --- */
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(-5deg); } /* Adiciona rotação */
+            50% { transform: translateY(-15px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(-5deg); }
+        }
+
+        /* --- Media Queries para Responsividade --- */
+
+        /* Telas Médias (Tablets) */
+        @media (max-width: 992px) {
+            .container { width: 95%; } /* Usa mais espaço */
+            .hero-content { max-width: none; width: 90%; margin: 0 auto; text-align: center; } /* Centraliza texto no hero */
+            .hero .btn { margin-right: 10px; }
+            .info-panels { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } /* Layout responsivo */
+            .footer-content { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        }
+
+         /* Telas Pequenas (Móveis) */
+        @media (max-width: 768px) {
+           body { font-size: 1rem; }
+
+           /* Ajustes Navegação Mobile */
+          /*retira menu em mobile*/
+          .nav-links {
+               position: static;
+               display: flex;
+              flex-direction: column;
+               align-items: center;
+               width: 100%;
+                padding: 0;
+           }
+
+            .nav-links li {
+                margin: 10px 0;
+               text-align: center;
+           }
+
+            .nav-links a {
+                display: block;
+                padding: 8px 15px;
+            }
+ /*altera o slider para swiper em mobile*/
+        .card-grid {
+            display: block;
+            padding: 0;
+        }
+
+        .card {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .swiper-container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .swiper-wrapper {
+            display: flex;
             transition: transform 0.3s ease;
         }
 
-        .collapsible.active:after {
-            transform: rotate(180deg);
+        .swiper-slide {
+            flex: 0 0 100%;
+            width: 100%;
         }
 
-        .content {
-            padding: 0 18px;
-            background-color: white;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            border: 1px solid var(--border-color);
-            border-top: none;
-            margin-bottom: 15px;
-            border-radius: 0 0 4px 4px;
-        }
-       .content pre {
+
+             .footer-content { grid-template-columns: 1fr; gap: 35px; text-align: center; }
+             .footer-about, .footer-links ul, .footer-newsletter form { align-items: center; justify-content: center; text-align: center; }
+            .footer-links h3::after, .footer-newsletter h3::after { left: 50%; transform: translateX(-50%); }
+             .social-links { justify-content: center; }
+             .newsletter-form { flex-direction: column; gap: 10px; max-width: 300px; margin: 0 auto; }
+             .newsletter-form input, .newsletter-form button { border-radius: 20px; width: 100%; text-align: center; }
+         }
+
+         .dropdown {
+             position: relative;
+             display: inline-block;
+         }
+
+         .dropdown-content {
+             display: none;
+             position: absolute;
+             background-color: #f9f9f9;
+             min-width: 160px;
+             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+             z-index: 1;
+         }
+
+         .dropdown-content a {
+             color: black;
+             padding: 12px 16px;
+             text-decoration: none;
+             display: block;
+         }
+
+         .dropdown-content a:hover {
+             background-color: #ffffff;
+         }
+
+         .dropdown:hover .dropdown-content {
+             display: block;
+         }
+
+          /* Collapsible Styles */
+          .collapsible {
+             background-color: var(--light-gray);
+             color: var(--text-color);
+             cursor: pointer;
+             padding: 18px;
+             width: 100%;
+             border: none;
+             text-align: left;
+             outline: none;
+             font-size: 1rem;
+             font-weight: 500;
+             border-radius: 4px;
+             margin-bottom: 10px;
+             transition: background-color 0.3s;
+         }
+
+         .collapsible:hover {
+             background-color: var(--light-gray);
+         }
+
+        .collapsible:after {
+             content: '\f0d7'; /* FontAwesome caret-down icon */
+             font-family: FontAwesome;
+             float: right;
+             margin-left: 5px;
+             transition: transform 0.3s ease;
+         }
+
+        .collapsible:after {
+             transform: rotate(180deg);
+         }
+
+         .content {
+             padding: 0 18px;
+             background-color: white;
+             max-height: 0;
+             overflow: hidden;
+            transition: max-height 0.5s ease-out; /* Adicionada transição */
+             border: 1px solid var(--border-color);
+             border-top: none;
+             margin-bottom: 15px;
+             border-radius: 0 0 4px 4px;
+         }
+         .content pre {
             background-color: #f0f0f0;
             padding: 10px;
             overflow-x: auto;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
+             border: 1px solid var(--border-color);
+             border-radius: 4px;
+         }
+         /* === Estilos dos Cartões === */
+        .results-container {
+            background-image: url('background.jpg'); /* Substitua pela sua imagem */
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          margin-top: 40px; /* Adicionado margem superior */
+          color: var(--white-color);
+           }
+
+         .results-container h2 {
+             font-size: 1.8rem;
+             color: var(--primary-color);
+            margin-bottom: 15px;
         }
 
-        /* === ESTILOS DO RODAPÉ === */
-        footer {
-  background-color: var(--dark);
-  color: rgba(255, 255, 255, 0.7); /* Cor de texto mais suave */
-  padding: 60px 0 30px;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Layout mais responsivo */
-  gap: 40px; /* Mais espaço */
-}
-
-
-    .footer-logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 15px; /* Menos espaço */
-    display: inline-block;
-    }
-
-    .footer-logo span {
-    color: var(--primary-color);
-    }
-
-    .footer-about p,
-    .footer-newsletter p {
-    margin-bottom: 20px;
-    font-size: 0.9rem; /* Ligeiramente menor */
-    }
-
-    .social-links {
+        .card-grid {
     display: flex;
-    gap: 12px; /* Espaço entre ícones */
-    }
-
-    .social-links a {
-    width: 38px; /* Menor */
-    height: 38px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    color: white;
-    transition: all 0.3s;
-    text-decoration: none; /* Garante que não há sublinhado */
-    }
-    .social-links a svg {
-        width: 18px; /* Tamanho do ícone */
-        height: 18px;
-    }
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
 
-    .social-links a:hover {
-    background-color: var(--primary);
-    transform: translateY(-3px);
-    }
-
-    .footer-links h3,
-    .footer-newsletter h3 {
-    font-size: 1.15rem; /* Ajustado */
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
-    color: white; /* Cor branca para títulos */
-    font-weight: 600;
-    }
-
-    .footer-links h3::after,
-    .footer-newsletter h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 35px; /* Menor */
-    height: 2px;
-    background-color: var(--secondary);
-    }
-
-    .footer-links ul {
-    list-style: none;
-    }
-
-    .footer-links li {
-    margin-bottom: 12px; /* Mais espaço */
-    }
-
-    .footer-links a {
-    color: rgba(255, 255, 255, 0.7); /* Mesmo tom do parágrafo */
-    text-decoration: none;
-    transition: all 0.3s;
-    font-size: 0.9rem;
-    }
-
-    .footer-links a:hover {
-    color: var(--secondary);
-    padding-left: 5px;
-    }
-
-    .newsletter-form {
-    display: flex;
-    margin-top: 10px; /* Espaço */
-    }
-
-    .newsletter-form input {
-    flex: 1;
-    padding: 10px 15px; /* Ajustado */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda subtil */
-    background-color: rgba(255, 255, 255, 0.05); /* Fundo muito subtil */
-    border-radius: 30px 0 0 30px;
-    font-size: 0.9rem;
-    color: white; /* Texto branco */
-    outline: none;
-    }
-    .newsletter-form input::placeholder {
-        color: rgba(255, 255, 255, 0.5);
-    }
-
-    .newsletter-form button {
-    background: var(--primary); /* Sem gradiente */
-    color: white;
-    border: none;
-    padding: 0 20px;
-    border-radius: 0 30px 30px 0;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background-color 0.3s;
-    }
-    .newsletter-form button:hover {
-        background-color: var(--secondary);
-    }
-
-    .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 40px;
-    padding-top: 25px; /* Mais espaço */
-    text-align: center;
-    color: rgba(255, 255, 255, 0.6); /* Mais suave */
-    font-size: 0.85rem; /* Menor */
-    }
-
-    /* --- Animações --- */
-    @keyframes fadeInLeft {
-    from { opacity: 0; transform: translateX(-40px); }
-    to { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes float {
-    0% { transform: translateY(0px) rotate(-5deg); } /* Adiciona rotação */
-    50% { transform: translateY(-15px) rotate(5deg); }
-    100% { transform: translateY(0px) rotate(-5deg); }
-    }
-
-    /* --- Media Queries para Responsividade --- */
-
-    /* Telas Médias (Tablets) */
-    @media (max-width: 992px) {
-    .container { width: 95%; } /* Usa mais espaço */
-    .hero-content { max-width: none; width: 90%; margin: 0 auto; text-align: center; } /* Centraliza texto no hero */
-    .hero .btn { margin-right: 10px; }
-    .info-panels { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } /* Layout responsivo */
-    .footer-content { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-    }
-
-    /* Telas Pequenas (Móveis) */
-    @media (max-width: 768px) {
-    body { font-size: 1rem; } /* Base font size para mobile */
-
-  /* Ajustes Navegação Mobile */
-  .menu-toggle { display: block; }
-  .nav-links {
-    position: absolute; /* Mudar para absolute para não empurrar conteúdo */
-    top: 70px; /* Altura do header aprox. */
-    left: 0;
-    background-color: white;
-    width: 100%;
-    height: auto;
-    max-height: 0; /* Começa fechado */
+.card {
+    width: 300px;
+    margin: 1rem;
+    border-radius: 1.25rem;
     overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    transition: max-height 0.4s ease-out, box-shadow 0.3s ease; /* Transição suave */
-    box-shadow: none; /* Sem sombra quando fechado */
-    border-top: 1px solid var(--border-color);
-  }
-  .nav-links.active {
-    max-height: 500px; /* Altura suficiente para os links */
-    padding: 20px 0;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  }
-  .nav-links li {
-    margin: 15px 0;
-    width: 100%;
+    height: 100%; /* Garante que todos os cartões tenham altura total */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card__image {
+    position: relative;
+    background-color: var(--first-color-light);
+    padding-top: 1.5rem;
+    margin-bottom: -.75rem;
+}
+
+.card__data {
+    background-color: var(--container-color);
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
     text-align: center;
-  }
-  .nav-links a {
-      display: block; /* Ocupa toda a largura */
-      padding: 10px 0;
-  }
-  .nav-links a::after { display: none; } /* Remove linha sublinhada no mobile */
-
-
-  .hero { min-height: 80vh; } /* Altura menor no mobile */
-  .hero-content { padding-top: 60px; }
-  .hero h1 { font-size: clamp(2rem, 6vw, 2.5rem); }
-  .hero p { font-size: clamp(0.9rem, 3vw, 1rem); }
-  .hero-image { display: none; } /* Esconde imagem se houver */
-  .hero-shape { width: 250px; height: 250px; bottom: -120px; left: -120px; } /* Menor */
-
-  .section { padding: 60px 0; }
-  .section-header h2 { font-size: clamp(1.8rem, 5vw, 2rem); }
-  .section-header p { font-size: clamp(0.9rem, 2.5vw, 1rem); }
-
-  .visualizer-container { border-radius: 8px; }
-  .viewer-window { height: 450px; } /* Altura ajustada */
-  .info-panels { grid-template-columns: 1fr; gap: 20px; } /* Uma coluna */
-  .info-panel { padding: 25px; }
-
-  #chatbot-container { height: 70vh; max-height: none; min-height: 350px; border-radius: 8px; }
-  #chat-log { padding: 15px; }
-  .message { max-width: 90%; }
-  #chat-input { padding: 12px; }
-  #user-input { padding: 8px 15px; font-size: 0.9rem; }
-  #send-button { padding: 8px 18px; font-size: 0.9rem; }
-  #quick-actions-myc { padding: 10px; }
-  .quick-action-button-myc { font-size: 0.8rem; padding: 6px 12px; }
-
-
-  .footer-content { grid-template-columns: 1fr; gap: 35px; text-align: center; }
-  .footer-about, .footer-links ul, .footer-newsletter form { align-items: center; justify-content: center; text-align: center; }
-  .footer-links h3::after, .footer-newsletter h3::after { left: 50%; transform: translateX(-50%); }
-  .social-links { justify-content: center; }
-  .newsletter-form { flex-direction: column; gap: 10px; max-width: 300px; margin: 0 auto; }
-  .newsletter-form input, .newsletter-form button { border-radius: 20px; width: 100%; text-align: center; }
-}
-.dropdown {
-  position: relative; /* Importante para posicionar o dropdown */
-  display: inline-block; /* Para o dropdown ficar alinhado horizontalmente com os outros itens */
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Alinha o conteúdo ao topo e o botão ao fundo */
+    flex: 1; /* Ocupa todo o espaço vertical restante */
 }
 
-.dropdown-content {
-  display: none; /* Esconde o dropdown inicialmente */
-  position: absolute; /* Posiciona o dropdown em relação ao .dropdown */
-  background-color: #f9f9f9; /* Cor de fundo do dropdown */
-  min-width: 160px; /* Largura mínima do dropdown */
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Sombra para o dropdown */
-  z-index: 1; /* Garante que o dropdown fique acima de outros elementos */
+.card__img {
+    width: 180px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
 }
 
-.dropdown-content a {
-  color: black; /* Cor do texto dos links no dropdown */
-  padding: 12px 16px; /* Espaçamento interno dos links */
-  text-decoration: none; /* Remove o sublinhado dos links */
-  display: block; /* Faz os links ocuparem toda a largura do dropdown */
+.card__shadow {
+    width: 200px;
+    height: 200px;
+    background-color: var(--first-color-alt);
+    border-radius: 50%;
+    position: absolute;
+    top: 3.75rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    filter: blur(45px);
 }
 
-.dropdown-content a:hover {
-  background-color: #ffffff; /* Cor de fundo quando o mouse passa por cima */
+.card__name {
+    font-size: var(--h2-font-size);
+    color: var(--secondary-color);
+    margin-bottom: .75rem;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block; /* Mostra o dropdown quando o mouse passa por cima do .dropdown */
+.card__description {
+    font-weight: 500;
+    margin-bottom: 1.75rem;
 }
-    </style>
-</head>
-<body>
 
-    <!-- === CABEÇALHO === -->
-    <header>
-        <div class="container">
-            <!-- Logo pode ser o mesmo ou um específico para resultados -->
-            <a href="index.html" class="logo">MYC<span>Resultados</span></a>
-            <nav>
-                <!-- === NAVEGAÇÃO ATUALIZADA PARA ESTA PÁGINA === -->
-                <ul class="nav-links">
-                    <li><a href="index.html">Início</a></li> <!-- Link para página principal/índice -->
-                    <li><a href="#pipeline">Pipeline</a></li>
-                    <li><a href="#resultados-finais">Resultados Finais</a></li>
-                    <li><a href="#conclusoes">Conclusões</a></li>
-                </ul>
-                 <!-- === FIM DA NAVEGAÇÃO ATUALIZADA === -->
-            </nav>
-        </div>
-    </header>
+.card__button {
+    display: inline-block;
+    background-color: var(--first-color);
+    padding: .75rem 1.5rem;
+    border-radius: .25rem;
+    color: var(--dark-color);
+    font-weight: 600;
+}
+        /* === Slider Styles === */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 500px; /* Ajuste a altura conforme necessário */
+            overflow: hidden;
+        }
 
-    <!-- === CONTEÚDO PRINCIPAL === -->
-    <div class="main-content">
-        <div class="container">
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out; /* Adiciona transição suave */
+            height: 100%;
+        }
 
-            <!-- === SECÇÃO PIPELINE === -->
-            <section id="pipeline" class="section">
-                <div class="section-header">
-                    <h2>Pipeline de Análise</h2>
-                </div>
-                <div>
-                    <p>Aqui está a descrição dos passos, ferramentas e métodos utilizados para processar os dados e obter os resultados apresentados.  A imagem ilustra o fluxo geral:</p>
+        .slide {
+            flex: 0 0 100%; /* Garante que cada slide ocupe 100% da largura */
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-                    <div style="text-align: center; margin: 20px 0;">
-                        <img src="pipeline.png" alt="Pipeline de Análise" style="max-width: 100%; height: auto; border: 1px solid var(--border-color);">
-                        <p style="font-size: 0.9em; color: var(--text-light); margin-top: 5px;">Workflow da Análise do Gene MYC</p>
-                    </div>
+        .slide-content {
+            max-width: 80%;
+            padding: 20px;
+            border-radius: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
 
-                   <!-- Collapsible section for Process Automation -->
-                    <button class="collapsible">Automação de Processos</button>
-                    <div class="content">
-                        <p>Código da pipeline de bioinformática para automatizar a análise:</p>
-                        <pre>
-                            <code>
-                                #!/bin/bash
-                                # MYC Gene Analysis Pipeline with Installation Section and Python Integration Discussion
+        .slide h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: white;
 
-                                # -----------------------------------------------------------------------------
-                                # INSTALLATION (Example - Adapt to your system and package manager)
-                                # -----------------------------------------------------------------------------
+        }
 
-                                echo "--- INSTALLATION ---"
+        .slide p {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.8);
+        }
 
-                                # Check if conda is installed. If not, provide instructions.
-                                if ! command -v conda &> /dev/null; then
-                                  echo "Conda not found. Please install Conda (e.g., Miniconda or Anaconda) before proceeding."
-                                  echo "Follow instructions at: https://docs.conda.io/en/latest/miniconda.html"
-                                  exit 1
-                                fi
+        /* Adiciona estilos específicos para os slides */
+        #slide1 { background-image: url('imagem1.jpeg'); }
+        #slide2 { background-image: url('imagem2.jpeg'); }
+        #slide3 { background-image: url('imagem3.jpeg'); }
 
-                                # Create a dedicated conda environment
-                                conda create -n myc_env -y
-                                conda activate myc_env
+        /* Estilos de navegação */
+        .slider-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
 
-                                # Install bioinformatics tools using bioconda (if available)
-                                conda install -c conda-forge -y blast-ncbi clustalo iqtree
+        .slider-nav a {
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            margin: 0 5px;
+            text-indent: -9999px; /* Esconde o texto */
+            overflow: hidden;
+            cursor: pointer;
+        }
 
-                                # Alternative: Install RAxML (often needs manual compilation)
-                                # (Instructions to compile RAxML would go here if bioconda isn't used)
-                                # ... Example for Debian-based systems ...
-                                # sudo apt-get update && sudo apt-get install -y build-essential automake libtool
-                                # wget https://github.com/stamatakisa/RAxML/archive/v8.2.12.tar.gz
-                                # tar -zxvf v8.2.12.tar.gz
-                                # cd RAxML-8.2.12
-                                # ./configure
-                                # make -j $(nproc)
-                                # sudo cp raxmlHPC-PTHREADS /usr/local/bin/
+        .slider-nav a.active {
+            background-color: white;
+        }
 
-                                # Verify installation (basic check)
-                                if ! command -v blastp &> /dev/null || ! command -v clustalo &> /dev/null || ! command -v iqtree &> /dev/null; then
-                                  echo "One or more required tools are not installed correctly.  Check the installation steps."
-                                  exit 1
-                                fi
+         /* === RESTO DO SEU CSS EXISTENTE === */
+         /* ... (copie o resto do seu CSS aqui) ... */
+          /* --- Media Queries para Responsividade --- */
 
-                                echo "--- INSTALLATION COMPLETE ---"
-                                echo ""
+         /* Telas Médias (Tablets) */
+         @media (max-width: 992px) {
+            .container { width: 95%; } /* Usa mais espaço */
+            .hero-content { max-width: none; width: 90%; margin: 0 auto; text-align: center; } /* Centraliza texto no hero */
+            .hero .btn { margin-right: 10px; }
+            .info-panels { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } /* Layout responsivo */
+            .footer-content { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+         }
 
-                                # -----------------------------------------------------------------------------
-                                # ANALYSIS
-                                # -----------------------------------------------------------------------------
+         /* Telas Pequenas (Móveis) */
+        @media (max-width: 768px) {
+           body { font-size: 1rem; }
 
-                                echo "--- ANALYSIS ---"
+           /* Ajustes Navegação Mobile */
+          /*retira menu em mobile*/
+          .nav-links {
+               position: static;
+               display: flex;
+              flex-direction: column;
+               align-items: center;
+               width: 100%;
+                padding: 0;
+           }
 
-                                # Set up environment
-                                mkdir -p myc_analysis
-                                cd myc_analysis
+            .nav-links li {
+                margin: 10px 0;
+               text-align: center;
+           }
 
-                                # 2. Get MYC protein sequence (replace with actual accession or FASTA file)
-                                wget -O myc_sequence.fasta "https://www.uniprot.org/uniprotkb/P01106/fasta"
+            .nav-links a {
+                display: block;
+                padding: 8px 15px;
+            }
+ /*altera o slider para swiper em mobile*/
+        .card-grid {
+            display: block;
+            padding: 0;
+        }
 
-                                # 3. BLASTp search
-                                blastp -query myc_sequence.fasta -db nr -out blast_results.txt -evalue 0.01 -num_threads 8 -max_target_seqs 20
+        .card {
+            width: 100%;
+            margin: 10px 0;
+        }
+        .slide-content {
+            text-align: center; /* Centraliza o conteúdo */
+             }
 
-                                # 4. Extract sequence IDs (requires a Python script for robust parsing)
-                                # (See Python section below)
-                                echo "Running Python script to extract sequence IDs..."
-                                python extract_ids.py blast_results.txt > sequence_ids.txt
+        .swiper-container {
+            width: 100%;
+            overflow: hidden;
+        }
 
-                                # 5. Download sequences (replace with a Python script to fetch sequences from NCBI/UniProt)
-                                # Requires a Python script to download sequences from NCBI/UniProt
-                                python download_sequences.py sequence_ids.txt > aligned_sequences.fasta
+        .swiper-wrapper {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
 
-                                # 6. MSA
-                                clustalo -i aligned_sequences.fasta -o myc_msa.fasta --force
+        .swiper-slide {
+            flex: 0 0 100%;
+            width: 100%;
+        }
 
-                                # 7. Tree building (choose either IQ-TREE or RAxML)
-                                iqtree -s myc_msa.fasta -m LG+G4 -bb 1000
-                                # raxmlHPC-PTHREADS -T 8 -f a -x 12345 -p 12345 -m GTRGAMMA -n result -s myc_msa.fasta
 
-                                echo "--- ANALYSIS COMPLETE ---"
-                                echo "Pipeline finished. Check results in myc_analysis directory."
+             .footer-content { grid-template-columns: 1fr; gap: 35px; text-align: center; }
+             .footer-about, .footer-links ul, .footer-newsletter form { align-items: center; justify-content: center; text-align: center; }
+            .footer-links h3::after, .footer-newsletter h3::after { left: 50%; transform: translateX(-50%); }
+             .social-links { justify-content: center; }
+             .newsletter-form { flex-direction: column; gap: 10px; max-width: 300px; margin: 0 auto; }
+             .newsletter-form input, .newsletter-form button { border-radius: 20px; width: 100%; text-align: center; }
+         }
+         /* Collapsible Styles */
+         .collapsible {
+             background-color: var(--light-gray);
+             color: var(--text-color);
+             cursor: pointer;
+             padding: 18px;
+             width: 100%;
+             border: none;
+             text-align: left;
+             outline: none;
+             font-size: 1rem;
+             font-weight: 500;
+             border-radius: 4px;
+             margin-bottom: 10px;
+             transition: background-color 0.3s;
+         }
 
-                            </code>
-                        </pre>
-                    </div>
-                    <!-- End of Collapsible section -->
+         .collapsible:hover {
+             background-color: var(--light-gray);
+         }
 
-                    <!-- Adicionar conteúdo específico do pipeline -->
-                    <ul>
-                        <li>Coleta de dados...</li>
-                        <li>Pré-processamento...</li>
-                        <li>Análise estatística/bioinformática...</li>
-                        <li>Ferramentas utilizadas (ex: BLAST, ClustalW, iqtree)</li>
+        .collapsible:after {
+             content: '\f0d7'; /* FontAwesome caret-down icon */
+             font-family: FontAwesome;
+             float: right;
+             margin-left: 5px;
+             transition: transform 0.3s ease;
+         }
+
+        .collapsible.active:after {
+             transform: rotate(180deg);
+         }
+
+         .content {
+             padding: 0 18px;
+             background-color: white;
+             max-height: 0;
+             overflow: hidden;
+            transition: max-height 0.5s ease-out; /* Adicionada transição */
+             border: 1px solid var(--border-color);
+             border-top: none;
+             margin-bottom: 15px;
+             border-radius: 0 0 4px 4px;
+         }
+         .content pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            overflow-x: auto;
+             border: 1px solid var(--border-color);
+             border-radius: 4px;
+         }
+     </style>
+    </head>
+    <body>
+    
+        <!-- === CABEÇALHO === -->
+        <header>
+            <div class="container">
+                <a href="index.html" class="logo">MYC<span>Info</span></a>
+    
+                <nav>
+                    <!-- === NAVEGAÇÃO ATUALIZADA === -->
+                    <ul class="nav-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="#phylogenetic-tree">Árvore Filogenética</a></li>
+                        <li><a href="#motifs">Motifs</a></li>
+                        <li><a href="#automation-pipeline">Pipeline de Automação</a></li>
                     </ul>
-                    <p><em>(Detalhes sobre o fluxo de trabalho)</em></p>
-                </div>
-            </section>
-  <!-- === SECÇÃO RESULTADOS FINAIS === -->
-        <section id="resultados-finais" class="section">
-        <div class="section-header">
-            <h2>Resultados Finais</h2>
-        </div>
-        <div>
-        <p>Descoberta de Motifs:</p>
-        <!-- Descoberta de Motifs -->
-         <button class="collapsible">Motifs</button>
-          <div class="content">
-            <p>A análise Prosite revelou a seguinte assinatura conservada:</p>
-         <div style="overflow-x: auto; border: 1px solid var(--border-color); border-radius: 5px; padding: 10px; background-color: var(--light-gray);">
-             <pre style="font-family: monospace; white-space: pre-wrap; color: var(--text-color); font-size: 0.9rem; margin: 0;">
-                      <code>  Resultados do ScanProsite:
-    NP_001136266-2
-DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
-    NP_001422710-1 
-DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
-    PNJ76225-1        
-DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSI
-    XP_004047574-1         
-DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
-    NP_001166917-2        
-DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
-    NP_034979-3         
-DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSI
-    ACQ76904-1              
-DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
-    XP_003256251-2          
-DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
-    XP_021798305-1        
-DKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
-    NP_002458-2           
-VKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
-                                </code>
-                            </pre>
-                     </div>
-              </div>
-
-                    <!-- ARVORE FILOGENETICA-->
-
-                        
-
-     <button class="collapsible">ARVORE FILOGENETICA</button>
-       <div class="content">
-        <p>A árvore filogenética demonstra as relações evolutivas entre as sequências MYC analisadas em diferentes espécies.</p>
-        <div style="text-align: center; border: 1px solid var(--border-color); border-radius: 5px; padding: 10px; background-color: var(--light-gray);">
-            <img src="d55c30b8-8160-4f24-ab79-c5b4c536f727.jpeg" alt="Árvore Filogenética MYC" style="max-width: 100%; height: auto;">
-             <p style="font-size: 0.9em; color: var(--text-light); margin-top: 5px;">Representação das relações evolutivas do gene MYC</p>
-                                </div>
+                     <!-- === FIM DA NAVEGAÇÃO ATUALIZADA === -->
+                </nav>
+            </div>
+        </header>
+    
+        <!-- === SLIDER de Cartões === -->
+        <section class="container">
+            <div class="results-container">
+                <h2>Resultados Finais</h2>
+                <div class="card-grid swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="card swiper-slide">
+                            <div class="card__image">
+                                <img src="phylo.jpeg" alt="Árvore Filogenética" class="card__img">
+                                <div class="card__shadow"></div>
+                            </div>
+                            <div class="card__data">
+                                <h3 class="card__name">Árvore Filogenética</h3>
+                                <p class="card__description">Explore as relações evolutivas do gene MYC.</p>
+                                <a href="#phylogenetic-tree" class="card__button">Ver mais</a>
+                            </div>
                         </div>
-
+    
+                        <div class="card swiper-slide">
+                            <div class="card__image">
+                                <img src="MOTIFZIN.png" alt="Descoberta de Motifs" class="card__img">
+                                <div class="card__shadow"></div>
+                            </div>
+                            <div class="card__data">
+                                <h3 class="card__name">Descoberta de Motifs</h3>
+                                <p class="card__description">Identifique padrões conservados no gene MYC.</p>
+                                <a href="#motifs" class="card__button">Ver mais</a>
+                            </div>
+                        </div>
+    
+                        <div class="card swiper-slide">
+                            <div class="card__image">
+                                <img src="pipeline.png" alt="Pipeline de Automação" class="card__img">
+                                <div class="card__shadow"></div>
+                            </div>
+                            <div class="card__data">
+                                <h3 class="card__name">Pipeline de Automação</h3>
+                                <p class="card__description">Pipeline automatizada do gene MYC.</p>
+                                <a href="#automation-pipeline" class="card__button">Ver mais</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
     
+        <!-- === CONTEÚDO PRINCIPAL REESTRUTURADO === -->
+        <div class="main-content">
+            <div class="container">
+    
+              <!-- === SECÇÃO: ÁRVORE FILOGENÉTICA === -->
+              <section id="phylogenetic-tree" class="results-section">
+                  <h2>Árvore Filogenética</h2>
+                  <p>A árvore filogenética demonstra a relação evolutiva do gene MYC com outros genes relacionados em diferentes espécies. Analise a árvore para identificar genes ancestrais e padrões de conservação.</p>
+    
+                  <!-- INSERIR IMAGEM DA ÁRVORE FILOGENÉTICA AQUI -->
+                  <img src="phylo.jpeg" alt="Árvore Filogenética do Gene MYC" style="max-width: 100%; height: auto;">
+    
+                  <!-- Adicione a estrutura colapsável -->
+                  <button class="collapsible">Conclusões da Análise Filogenética</button>
+                  <div class="content"> <!-- Envolve todo o conteúdo das conclusões -->
+                    <div class="conclusions"> <!-- Mantém a div .conclusions interna -->
+                        <h4>Conclusões da Análise Filogenética</h4>
+                        <p>A análise filogenética sugere que o gene MYC é altamente conservado ao longo da evolução, indicando sua importância fundamental para a vida. A presença de genes relacionados em diversas espécies demonstra uma ancestralidade comum e possíveis funções similares.</p>
+    
+                        <p><strong>I. Composição Geral da Árvore Filogenética</strong></p>
+                      <p>Foco em Mamíferos: Todas as espécies listadas na árvore são mamíferos, o que permite examinar a homologia e a conservação da proteína MYC dentro deste grupo.</p>
+                      <p>Grupo Externo: Mus musculus (rato) é o mais distante do resto das espécies, sugerindo que é o grupo externo (outgroup) ou a espécie mais divergentemente relacionada.</p>
+    
+                      <p><strong>II. Relações Evolutivas entre Primatas: Homologia da Proteína MYC</strong></p>
+                      <p>Agrupamento de Primatas: O agrupamento geral de primatas sugere que a proteína MYC dentro deste grupo evoluiu de um ancestral comum, conservando as características desta proteína nos primatas e demonstrando uma relação filogenética mais recente.</p>
+    
+                      <p>Grandes Primatas (Hominidae):</p>
+                      <p>Pan troglodytes (Chimpanzé) e Homo sapiens (Humano) são as espécies mais intimamente relacionadas na árvore, o que está de acordo com o conhecimento atual da evolução dos primatas. A forte semelhança nesses genes sugere que são uma função conservada. Há alto suporte (87) para essa relação.</p>
+                      <p>Gorilla gorilla (Gorila) está mais distantemente relacionado com humanos e chimpanzés, mas ainda forma um clado (grupo) com eles, demonstrando que se relacionam e conservam a proteina do gene MYC mas que já estão mais divergentes.</p>
+    
+                      <p>Outros Primatas:</p>
+                      <p>Pongo abelii (Orangotango de Sumatra), Macaca mulatta (Macaco Rhesus) e Papio anubis (Babuíno Anubis) formam um clado de primatas separado e a uma menor divergencia. A divisão entre orangotango e macaco/babuíno é consistente com a filogenia dos primatas e que esta presente a proteina do gene MYC como homologa aos outros mamilos.</p>
+    
+                      <p>Mamíferos Não Primatas:</p>
+                      <p>Nomascus leucogenys (Gibão) agrupa-se com sequências de primatas, indicando uma conservação superior com membros de espécies primatas. Felis catus (Gato Doméstico) e Sus scrofa (Javali) são as espécies mais distantemente relacionadas a seguir. Isto reflete as suas posições evolutivas como carnívoros e artiodáctilos, respetivamente o gene MYC que é conservado demonstra que a relação filogenetica é evoluitivamente superior, o que faz com que exista uma superioridade e conservação filogenetica entre especies com conservação no gene e proteina MYC</p>
+    
+                      <p><strong>III. Distâncias Genéticas e Divergência Evolutiva: Taxas de Mutação da Proteína MYC</strong></p>
+                      <p>Comprimentos dos Ramos: Os comprimentos dos ramos representam a quantidade estimada de mudança evolutiva (distância genética) entre as espécies. Ramos mais longos indicam mais mudança, a proteina MYC demonstra um alto grau de alterações evolutivas.</p>
+                      <p>O ramo relativamente longo que conduz a Mus musculus indica uma maior quantidade de divergência evolutiva das outras espécies, apresentando que o gene é homologo aos outros mamilos mesmo que a proteina MYC seja menos conservada, face ao grande espaço de tempo para a especiação genética e divergente destes diferentes mamilos.</p>
+    
+                      <p>Valores Numéricos nos Ramos:</p>
+                      <p>Os valores "0.006", "0.015", "0.021", "0.017", "0.023" e "0.050" representam os comprimentos dos ramos, que são uma estimativa da divergência evolutiva e do grau da proteina a demonstrar o gene MYC presente.</p>
+    
+                       <p><strong>IV. Suporte Estatístico (Bootstrap): Confiabilidade da Conservação</strong></p>
+                       <p>Suporte do Nó: Os números nos nós (ex: "35", "63", "55", "100", "99", "79", "87") representam valores de bootstrap. Os valores de bootstrap são uma medida do suporte estatístico para cada ramo na árvore. Valores de bootstrap mais altos (próximos de 100) indicam um suporte mais forte.</p>
+    
+                      <p>Clados Fortemente Apoiados:</p>
+                      <p>O valor de bootstrap de "100" sugere um suporte muito forte para o clado que contém as espécies primatas. Implica que esta relação evolutiva é altamente confiável em relação a conservação da proteina do gene MYC em primatas.</p>
+    
+                       <p>Clados com Suporte Mais Fraco:</p>
+                        <p>O valor baixo de 35 nos macacos indica que não há um suporte forte no gene.</p>
+    
+                        <p><strong>V. Codificação de Cores : Marcadores Visuais da Evolução</strong></p>
+                        <p>PSão usadas cores diferentes, tal que a cor mais escura mostra uma espécie mais antiga (rato) em comparação com os outros mamíferos, demonstrando os diferentes graus de homologa e conservação ao nivel da proteina do gene MYC.</p>
+                    </div>
+                  </div>
+              </section>
+    
+              <!-- === SECÇÃO: MOTIFS === -->
+              <section id="motifs" class="results-section">
+                  <h2>Motifs Conservados</h2>
+                  <p>A análise de motifs revela sequências curtas e conservadas dentro do gene MYC que podem ter significado funcional. Esses motifs podem ser locais de ligação para proteínas reguladoras ou regiões importantes para a estrutura do gene.</p>
+    
+              <!-- INSERIR IMAGEM/TABELA DOS MOTIFS ENCONTRADOS AQUI -->
+              <img src="MOTIFZIN.png" alt="Motifs Conservados no Gene MYC" style="max-width: 100%; height: auto;">
+    
+           <!-- Adicione a estrutura colapsável -->
+           <button class="collapsible">Conclusões da Análise de Motifs</button>
+            <div class="content"> <!-- Envolve todo o conteúdo das conclusões -->
+              <div class="conclusions">
+                 <h4>Conclusões da Análise de Motifs</h4>
+                 <p>A identificação de motifs conservados no gene MYC sugere que essas sequências desempenham um papel crucial em sua função. Esses motifs podem ser alvos potenciais para terapias genéticas ou para o desenvolvimento de novos fármacos.</p>
+                 <p><strong>1. Significado Funcional:</strong> A sequência conservada na proteína MYC é provavelmente crucial para sua função, podendo estar envolvida na ligação ao DNA, interação com outras proteínas (como MAX ou MIZ-1) e sujeita a modificações pós-traducionais que regulam sua atividade.</p>
+    
+                 <p><strong>2. Conservação Evolutiva:</strong> A presença dessa sequência em várias espécies indica uma origem evolutiva comum e uma função essencial conservada da proteína MYC ao longo da evolução.</p>
+    
+                 <p><strong>3. Implicações para a Investigação:</strong> Essa região é um alvo promissor para o desenvolvimento de fármacos, pode ser usada em estudos de mutações com impacto funcional relevante, e serve como base para desenhar experiências focadas em ligações ao DNA.</p>
+              </div>
+            </div>
+      </section>
+    
+      <!-- === SECÇÃO: PIPELINE DE AUTOMAÇÃO === -->
+  <section id="automation-pipeline" class="results-section">
+    <h2>Pipeline de Automação da Análise Genómica</h2>
+    <p> A nossa pipeline feita com base no Biopython permite realizar o blastp,alinhamento multiplo e a construção da árvore filogeneticas</p>
 
-            <!-- === SECÇÃO CONCLUSÕES === -->
-            <section id="conclusoes" class="conclusoes-section section">
-                <div class="section-header">
-                    <h2>Conclusões</h2>
-                </div>
-                <div>
-                    <h3>Análise de Motifs:</h3>
-    
- <strong>1. Significado Funcional:</strong> A sequência conservada na proteína MYC é provavelmente crucial para sua função, podendo estar envolvida na ligação ao DNA, interação com outras proteínas (como MAX ou MIZ-1) e sujeita a modificações pós-traducionais que regulam sua atividade.
-                    <p></p>
-<strong>2. Conservação Evolutiva:</strong> A presença dessa sequência em várias espécies indica uma origem evolutiva comum e uma função essencial conservada da proteína MYC ao longo da evolução.
-                    <p></p>
- <strong>3. Implicações para a Investigação:</strong> Essa região é um alvo promissor para o desenvolvimento de fármacos, pode ser usada em estudos de mutações com impacto funcional relevante, e serve como base para desenhar experiências focadas em ligações ao DNA.
-        </p>
+    <!-- INSERIR DIAGRAMA/DESCRIÇÃO DO PIPELINE AQUI -->
+    <img src="pipeline.png" alt="Diagrama do Pipeline de Automação" style="max-width: 100%; height: auto;">
 
-        <div class="section">
-            <h3>Análise Árvore Filogenética:</h3>
-            
-            <div class="subsection">
-                <p><strong>I. Composição Geral da Árvore Filogenética</strong></p>
-                <p>Foco em Mamíferos: Todas as espécies listadas na árvore são mamíferos, o que permite examinar a homologia e a conservação da proteína MYC dentro deste grupo.</p>
-                <p>Grupo Externo: Mus musculus (rato) é o mais distante do resto das espécies, sugerindo que é o grupo externo (outgroup) ou a espécie mais divergentemente relacionada.</p>
-            </div>
-            
-            <div class="subsection">
-                <p><strong>II. Relações Evolutivas entre Primatas: Homologia da Proteína MYC</strong></p>
-                <p>Agrupamento de Primatas: O agrupamento geral de primatas sugere que a proteína MYC dentro deste grupo evoluiu de um ancestral comum, conservando as características desta proteína nos primatas e demonstrando uma relação filogenética mais recente.</p>
-                
-                <p>Grandes Primatas (Hominidae):</p>
-                <p>Pan troglodytes (Chimpanzé) e Homo sapiens (Humano) são as espécies mais intimamente relacionadas na árvore, o que está de acordo com o conhecimento atual da evolução dos primatas. A forte semelhança nesses genes sugere que são uma função conservada. Há alto suporte (87) para essa relação.</p>
-                <p>Gorilla gorilla (Gorila) está mais distantemente relacionado com humanos e chimpanzés, mas ainda forma um clado (grupo) com eles, demonstrando que se relacionam e conservam a proteina do gene MYC mas que já estão mais divergentes.</p>
-                
-                <p>Outros Primatas:</p>
-                <p>Pongo abelii (Orangotango de Sumatra), Macaca mulatta (Macaco Rhesus) e Papio anubis (Babuíno Anubis) formam um clado de primatas separado e a uma menor divergencia. A divisão entre orangotango e macaco/babuíno é consistente com a filogenia dos primatas e que esta presente a proteina do gene MYC como homologa aos outros mamilos.</p>
-                
-                <p>Mamíferos Não Primatas:</p>
-                <p>Nomascus leucogenys (Gibão) agrupa-se com sequências de primatas, indicando uma conservação superior com membros de espécies primatas. <span class="italic">Felis catus</span> (Gato Doméstico) e Sus scrofa (Javali) são as espécies mais distantemente relacionadas a seguir. Isto reflete as suas posições evolutivas como carnívoros e artiodáctilos, respetivamente o gene MYC que é conservado demonstra que a relação filogenetica é evoluitivamente superior, o que faz com que exista uma superioridade e conservação filogenetica entre especies com conservação no gene e proteina MYC</p>
-            </div>
-            
-            <div class="subsection">
-                <p><strong>III. Distâncias Genéticas e Divergência Evolutiva: Taxas de Mutação da Proteína MYC</strong></p>
-                <p>Comprimentos dos Ramos: Os comprimentos dos ramos representam a quantidade estimada de mudança evolutiva (distância genética) entre as espécies. Ramos mais longos indicam mais mudança, a proteina MYC demonstra um alto grau de alterações evolutivas.</p>
-                <p>O ramo relativamente longo que conduz a Mus musculus indica uma maior quantidade de divergência evolutiva das outras espécies, apresentando que o gene é homologo aos outros mamilos mesmo que a proteina MYC seja menos conservada, face ao grande espaço de tempo para a especiação genética e divergente destes diferentes mamilos.</p>
-                
-                <p>Valores Numéricos nos Ramos:</p>
-                <p>Os valores "0.006", "0.015", "0.021", "0.017", "0.023" e "0.050"  representam os comprimentos dos ramos, que são uma estimativa da divergência evolutiva e do grau da proteina a demonstrar o gene MYC presente.</p>
-                <p>A legenda "0.01" indica a escala, provavelmente para a comparação evolutiva do Gene no geral.</p>
-            </div>
-            
-            <div class="subsection">
-                <p><strong>IV. Suporte Estatístico (Bootstrap): Confiabilidade da Conservação</strong></p>
-                <p>Suporte do Nó: Os números nos nós (ex: "35", "63", "55", "100", "99", "79", "87")  representam valores de bootstrap. Os valores de bootstrap são uma medida do suporte estatístico para cada ramo na árvore. Valores de bootstrap mais altos (próximos de 100) indicam um suporte mais forte.</p>
-                
-                <p>Clados Fortemente Apoiados:</p>
-                <p>O valor de bootstrap de "100" sugere um suporte muito forte para o clado que contém as espécies primatas. Implica que esta relação evolutiva é altamente confiável em relação a conservação da proteina do gene MYC em primatas.</p>
-                
-                <p>Clados com Suporte Mais Fraco:</p>
-                <p>O valor baixo de 35 nos macacos indica que não há um suporte forte no gene.</p>
-            </div>
-            
-            <div class="subsection">
-                <p><strong>V. Codificação de Cores : Marcadores Visuais da Evolução</strong></p>
-                <p>PSão usadas cores diferentes, tal que a cor mais escura mostra uma espécie mais antiga (rato) em comparação com os outros mamíferos, demonstrando os diferentes graus de homologa e conservação ao nivel da proteina do gene MYC.</p>
-            </div>
-        </div>
-    
- </section>
+    <!-- Adicione a estrutura colapsável -->
+    <button class="collapsible">Código da Função BLAST_prot</button>
+     <div class="content"> <!-- Envolve todo o conteúdo das conclusões -->
+       <div class="conclusions">
+           <h4>Código da Função BLAST_prot</h4>
+           <p>Este código Python utiliza a biblioteca Biopython para realizar uma busca BLASTp (protein-protein BLAST) em um banco de dados de proteínas (Swiss-Prot) a partir de um arquivo FASTA contendo a sequência da proteína MYC.</p>
+           <pre>
+            <code>
+from Bio import SeqIO
+from Bio.Blast import NCBIWWW
+from Bio.Blast import NCBIXML
+
+
+def BLAST_prot (protein_name):
+  """
+  Função que realiza o BLASTp para a proteína fornecida a a partir do ficheiro fasta desta
+
+  """
+  protein = SeqIO.read(open(f'{protein_name}_protein.fasta'), format="fasta")
+  result = NCBIWWW.qblast("blastp", "swissprot", protein.seq)
+  with open(f'{protein_name}_protein.xml', "w") as save_file:
+      save_file.write(result.read())
+  # save_file.close()  # Redundante com o 'with'
+  result.close()
+  return f'{protein_name}_protein.xml'  # Return the XML filename
+
+BLAST_prot("myc")
+            </code>
+          </pre>
+       </div>
+     </div>
+</section>
         </div> <!-- Fim .container (conteúdo principal) -->
     </div> <!-- Fim .main-content -->
-
+    
     <!-- === RODAPÉ === -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                     <!-- Logo pode ser o mesmo ou um específico para resultados -->
-                    <a href="index.html" class="footer-logo">MYC<span>Resultados</span></a>
-                     <p>Resultados da análise bioinformática do projeto sobre o gene MYC. O conteúdo é apresentado para fins académicos/informativos.</p> <!-- Texto ajustado -->
+                    <a href="#" class="footer-logo">MYC<span>.info</span></a>
+                    <p>Uma ferramenta interativa para explorar o gene MYC e sua análise genómica. Explore as árvores filogenéticas, motivos conservados e nosso pipeline de automação.</p>
                     <div class="social-links">
                         <a href="https://github.com/amarcos20/biolabs.project" target="_blank" rel="noopener noreferrer" aria-label="Perfil no GitHub">
                             <i class="fa-brands fa-github"></i>
@@ -752,41 +1103,68 @@ VKRRTHNVLERQRRNELKRSFFALRDQIPELENNEKAPKVVILKKATAYILSV
                     </div>
                 </div>
                 <div class="footer-links">
-                    <h3>Navegação Rápida</h3> <!-- Título ajustado -->
-                    <!-- === NAVEGAÇÃO DO RODAPÉ ATUALIZADA === -->
+                    <h3>Links Rápidos</h3>
                     <ul>
                         <li><a href="index.html">Início</a></li>
-                        <li><a href="#pipeline">Pipeline</a></li>
-                        <li><a href="#resultados-finais">Resultados Finais</a></li>
-                        <li><a href="#conclusoes">Conclusões</a></li>
+                        <li><a href="#phylogenetic-tree">Árvore Filogenética</a></li>
+                        <li><a href="#motifs">Motifs</a></li>
+                        <li><a href="#automation-pipeline">Pipeline de Automação</a></li>
+    
                     </ul>
-                    <!-- === FIM DA NAVEGAÇÃO DO RODAPÉ ATUALIZADA === -->
                 </div>
+    
             </div>
             <div class="footer-bottom">
-                <p style="margin-bottom: 5px; font-size: 0.85em;">Desenvolvido por Afonso Marcos,Pedro Afonso, Afonso Silva.</p>
-                © 2025 Resultados MYC. Todos os direitos reservados. <!-- Texto ajustado -->
+                <p>© 2025 MYC.com | Projeto Académico. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
-
-   <script>
-       var coll = document.getElementsByClassName("collapsible");
-       var i;
-
-       for (i = 0; i < coll.length; i++) {
-           coll[i].addEventListener("click", function() {
-               this.classList.toggle("active");
-               var content = this.nextElementSibling;
-               if (content.style.maxHeight){
-                   content.style.maxHeight = null;
-              
-               } else {
-                   content.style.maxHeight = content.scrollHeight + "px";
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // Inicializa o Swiper
+        document.addEventListener('DOMContentLoaded', function () {
+            const swiper = new Swiper('.swiper-container', {
+                slidesPerView: 'auto',
+                spaceBetween: 30,
+                loop: false,
+                centeredSlides: true, // Adiciona esta linha
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 'auto',
+                        spaceBetween: 30,
+                        loop: false,
+                        centeredSlides: false, // Adiciona esta linha
+                        navigation: {
+                            enabled: false,
+                        },
+                    }
                 }
-           });
-       }
-   </script>
+            });
+        });
+    </script>
 
-</body>
-</html>
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                    content.style.maxHeight = null;
+
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+    </body>
+
+    </html>
