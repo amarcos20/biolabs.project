@@ -1,850 +1,882 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>MYC.info - Informações sobre o Gene</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <!DOCTYPE html>
+    <html lang="pt">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>MYC.info - Informações sobre o Gene</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
 
-    <style>
-        /* === CONFIGURAÇÕES GLOBAIS E VARIÁVEIS === */
-        :root {
-            --primary-color: #4e29b4;      /* Azul U.Porto */
-            --secondary-color: #7e34f5;     
-            --dark: #1a1a2e;
-            --text-color: #333333; /* Cinza escuro para texto */
-            --text-light: #666666; /* Cinza mais claro */
-            --background-color: #ffffff; /* Branco */
-            --light-gray: #f8f9fa; /* Cinza muito claro */
-            --border-color: #dee2e6; /* Cinza para bordas */
-            --shadow-light: 0 1px 3px rgba(0,0,0,0.05);
-            --shadow-medium: 0 4px 6px rgba(0,0,0,0.08);
-            --shadow-medium: 0 4px 6px rgba(0,0,0,0.08);
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        <style>
+            /* === CONFIGURAÇÕES GLOBAIS E VARIÁVEIS === */
+            :root {
+                --primary-color: #4e29b4;      /* Azul U.Porto */
+                --secondary-color: #7e34f5;     
+                --dark: #1a1a2e;
+                --text-color: #333333; /* Cinza escuro para texto */
+                --text-light: #666666; /* Cinza mais claro */
+                --background-color: #ffffff; /* Branco */
+                --light-gray: #f8f9fa; /* Cinza muito claro */
+                --border-color: #dee2e6; /* Cinza para bordas */
+                --shadow-light: 0 1px 3px rgba(0,0,0,0.05);
+                --shadow-medium: 0 4px 6px rgba(0,0,0,0.08);
+                --shadow-medium: 0 4px 6px rgba(0,0,0,0.08);
+            }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-        html {
-            scroll-behavior: smooth;
-        }
+            html {
+                scroll-behavior: smooth;
+            }
 
-        body {
-            font-family: 'Poppins', Arial, sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.65;
-            font-size: 16px;
-            overflow-x: hidden;
-        }
+            body {
+                font-family: 'Poppins', Arial, sans-serif;
+                background-color: var(--background-color);
+                color: var(--text-color);
+                line-height: 1.65;
+                font-size: 16px;
+                overflow-x: hidden;
+            }
 
-        .container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+            .container {
+                max-width: 1140px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
 
-        h1, h2, h3, h4, h5, h6 {
-            color: var(--primary-color);
-            margin-bottom: 0.7em;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        h1 { font-size: 2.3rem; }
-        h2 { font-size: 1.8rem; } /* Título da secção principal (summary) */
-        h3 { font-size: 1.4rem; } /* Usado para títulos dentro das secções */
-        h4 { font-size: 1.1rem; margin-top: 0; }
+            h1, h2, h3, h4, h5, h6 {
+                color: var(--primary-color);
+                margin-bottom: 0.7em;
+                font-weight: 600;
+                line-height: 1.3;
+            }
+            h1 { font-size: 2.3rem; }
+            h2 { font-size: 1.8rem; } /* Título da secção principal (summary) */
+            h3 { font-size: 1.4rem; } /* Usado para títulos dentro das secções */
+            h4 { font-size: 1.1rem; margin-top: 0; }
 
-        p {
-            color: var(--text-light);
-            margin-bottom: 0;
-        }
+            p {
+                color: var(--text-light);
+                margin-bottom: 0;
+            }
 
-        a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        a:hover {
-            color: #7e34f5;
-            text-decoration: underline;
-        }
+            a {
+                color: var(--secondary-color);
+                text-decoration: none;
+                transition: color 0.2s ease;
+            }
+            a:hover {
+                color: #7e34f5;
+                text-decoration: underline;
+            }
 
-        ul, ol {
-            padding-left: 25px;
-            margin-bottom: 1em;
-        }
-        li { margin-bottom: 0.5em; }
+            ul, ol {
+                padding-left: 25px;
+                margin-bottom: 1em;
+            }
+            li { margin-bottom: 0.5em; }
 
-        strong { font-weight: 600; color: var(--text-color);}
+            strong { font-weight: 600; color: var(--text-color);}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            border: 1px solid var(--border-color);
-        }
-        th, td {
-            border: 1px solid var(--border-color);
-            padding: 12px 15px;
-            text-align: left;
-            vertical-align: top;
-        }
-        th {
-            background-color: var(--light-gray);
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        /* === ESTILOS DO CABEÇALHO === */
-        header {
-            width: 100%;
-            padding: 12px 0;
-            background-color: var(--background-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: var(--shadow-medium);
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header .logo {
-            font-size: 1.7em;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-        header .logo span {
-            color: var(--secondary-color);
-            font-weight: 500;
-        }
-
-        header .nav-links {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 15px; /* Espaçamento ajustado para menos links */
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-
-        header .nav-links a {
-            color: var(--text-light);
-            font-weight: 500;
-            padding: 8px 15px; /* Padding aumentado */
-            border-radius: 4px;
-            text-decoration: none;
-            transition: color 0.2s ease, background-color 0.2s ease;
-            border-bottom: 2px solid transparent;
-            white-space: nowrap;
-        }
-
-        header .nav-links a:hover {
-            color: var(--primary-color);
-            background-color: var(--light-gray);
-            text-decoration: none;
-        }
-
-        /* === ESTILOS DO CARROSSEL === */
-        /* (Mantidos como antes) */
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            height: 75vh;
-            overflow: hidden;
-            background-color: #222;
-        }
-        .carousel { display: flex; width: 300%; height: 100%; transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
-        .slide { min-width: 33.3333%; width: 33.3333%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 5%; position: relative; color: white; box-sizing: border-box; }
-        .slide::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; z-index: 1; filter: brightness(0.55); }
-        .slide-content { position: relative; z-index: 2; max-width: 800px; }
-        .slide:nth-child(1)::before { background-image: url('imagem1.jpeg'); }
-        .slide:nth-child(2)::before { background-image: url('imagem2.jpeg'); }
-        .slide:nth-child(3)::before { background-image: url('imagem3.jpeg'); }
-        .slide h2 { font-size: calc(1.8rem + 1vw); margin-bottom: 20px; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); font-weight: 700; color: white; line-height: 1.2; }
-        .slide p { font-size: calc(0.95rem + 0.2vw); max-width: 90%; margin-bottom: 30px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); color: rgba(255, 255, 255, 0.9); }
-        .slide a.button-link { display: inline-block; padding: 14px 30px; background-color: var(--secondary-color); color: white; text-decoration: none; border-radius: 50px; transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; font-weight: 600; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); border: none; }
-        .slide a.button-link:hover { transform: translateY(-3px) scale(1.03); background-color: #d96d1a; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); text-decoration: none; }
-        .carousel-nav { position: absolute; top: 50%; left: 0; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); z-index: 10; padding: 0 25px; pointer-events: none; }
-        .carousel-nav button { background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.8); border: none; font-size: 2.5rem; padding: 5px 12px; cursor: pointer; transition: background 0.3s ease, color 0.3s ease; border-radius: 50%; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; line-height: 1; pointer-events: all; }
-        .carousel-nav button:hover { background: rgba(0,0,0,0.5); color: white; }
-
-        /* === ESTILOS DO CONTEÚDO PRINCIPAL === */
-        .main-content {
-            padding-top: 50px;
-            padding-bottom: 50px;
-        }
-
-        /* Estilo para as secções originais (dentro dos details) */
-        .section {
-            padding: 30px 0; /* Padding reduzido pois está dentro de details */
-            border-bottom: 1px solid var(--border-color);
-        }
-        /* Remover borda da última secção dentro de um details */
-        details > .section:last-of-type {
-            border-bottom: none;
-            padding-bottom: 10px; /* Menos padding no fundo */
-        }
-
-        .section-header {
-            margin-bottom: 20px; /* Reduzido */
-        }
-        .section-header h3 { /* Ajustar se necessário */
-            font-size: 1.4rem;
-        }
-
-
-        /* === ESTILOS PARA DETAILS/SUMMARY (Caixas Colapsáveis) === */
-        details {
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            margin-bottom: 25px; /* Espaço entre as caixas principais */
-            background-color: #fff; /* Fundo branco para destaque */
-            overflow: hidden; /* Para conter bordas arredondadas */
-        }
-
-        summary {
-            padding: 15px 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1.5rem; /* Tamanho do título principal da caixa */
-            color: var(--primary-color);
-            background-color: var(--light-gray);
-            border-bottom: 1px solid var(--border-color);
-            list-style: none; /* Remove o marcador padrão */
-            position: relative;
-            transition: background-color 0.2s ease;
-        }
-        summary:hover {
-            background-color: #e9ecef; /* Cinza um pouco mais escuro no hover */
-        }
-
-        /* Adiciona um ícone (seta) e o anima */
-        summary::after {
-            content: '\25BC'; /* Código unicode para seta para baixo */
-            font-size: 0.9em;
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%) rotate(0deg);
-            transition: transform 0.3s ease;
-            color: var(--secondary-color);
-        }
-
-        details[open] > summary::after {
-            transform: translateY(-50%) rotate(180deg); /* Gira a seta quando aberto */
-        }
-
-        /* Remove o marcador padrão no Webkit/Blink (Chrome, Safari) */
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        /* Conteúdo dentro do details (as secções originais) */
-        .details-content {
-            padding: 0px 20px 10px 20px; /* Padding interno para o conteúdo */
-        }
-
-
-        /* Estilo para lista de detalhes (mantido) */
-        .details-list { list-style: none; padding-left: 0; }
-        .details-list li { margin-bottom: 10px; }
-        .details-list strong { color: var(--primary-color); min-width: 150px; display: inline-block; }
-
-        /* === RODAPÉ (Estilo do Primeiro Site) === */
-        footer {
-            background-color: var(--dark);
-            color: rgba(255, 255, 255, 0.7); /* Cor de texto mais suave */
-            padding: 60px 0 30px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Layout mais responsivo */
-            gap: 40px; /* Mais espaço */
-        }
-
-
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-            margin-bottom: 15px; /* Menos espaço */
-            display: inline-block;
-        }
-
-        .footer-logo span {
-            color: var(--primary-color);
-        }
-
-        .footer-about p,
-        .footer-newsletter p {
-            margin-bottom: 20px;
-            font-size: 0.9rem; /* Ligeiramente menor */
-        }
-
-        .social-links {
-            display: flex;
-            gap: 12px; /* Espaço entre ícones */
-        }
-
-        .social-links a {
-            width: 38px; /* Menor */
-            height: 38px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s;
-            text-decoration: none; /* Garante que não há sublinhado */
-        }
-        .social-links a svg {
-            width: 18px; /* Tamanho do ícone */
-            height: 18px;
-        }
-
-        .social-links a:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .footer-links h3,
-        .footer-newsletter h3 {
-            font-size: 1.15rem; /* Ajustado */
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-            color: white; /* Cor branca para títulos */
-            font-weight: 600;
-        }
-
-        .footer-links h3::after,
-        .footer-newsletter h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 35px; /* Menor */
-            height: 2px;
-            background-color: var(--secondary);
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px; /* Mais espaço */
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7); /* Mesmo tom do parágrafo */
-            text-decoration: none;
-            transition: all 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-            padding-left: 5px;
-        }
-
-        .newsletter-form {
-            display: flex;
-            margin-top: 10px; /* Espaço */
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 10px 15px; /* Ajustado */
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Borda subtil */
-            background-color: rgba(255, 255, 255, 0.05); /* Fundo muito subtil */
-            border-radius: 30px 0 0 30px;
-            font-size: 0.9rem;
-            color: white; /* Texto branco */
-            outline: none;
-        }
-        .newsletter-form input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .newsletter-form button {
-            background: var(--primary); /* Sem gradiente */
-            color: white;
-            border: none;
-            padding: 0 20px;
-            border-radius: 0 30px 30px 0;
-            cursor: pointer;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        .newsletter-form button:hover {
-            background-color: var(--secondary);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 40px;
-            padding-top: 25px; /* Mais espaço */
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6); /* Mais suave */
-            font-size: 0.85rem; /* Menor */
-        }
-
-        /* --- Animações --- */
-        @keyframes fadeInLeft {
-            from { opacity: 0; transform: translateX(-40px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(-5deg); } /* Adiciona rotação */
-            50% { transform: translateY(-15px) rotate(5deg); }
-            100% { transform: translateY(0px) rotate(-5deg); }
-        }
-
-        /* --- Media Queries para Responsividade --- */
-
-        /* Telas Médias (Tablets) */
-        @media (max-width: 992px) {
-            .container { width: 95%; } /* Usa mais espaço */
-            .hero-content { max-width: none; width: 90%; margin: 0 auto; text-align: center; } /* Centraliza texto no hero */
-            .hero .btn { margin-right: 10px; }
-            .info-panels { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } /* Layout responsivo */
-            .footer-content { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        }
-
-        /* Telas Pequenas (Móveis) */
-        @media (max-width: 768px) {
-            body { font-size: 1rem; } /* Base font size para mobile */
-
-            /* Ajustes Navegação Mobile */
-            .menu-toggle { display: block; }
-
-            .nav-links {
-                position: absolute;
-                top: 70px;
-                left: 0;
-                background-color: white;
+            table {
                 width: 100%;
-                height: auto;
-                max-height: 0;
-                overflow: hidden;
-                flex-direction: column;
-                align-items: center;
-                transition: max-height 0.4s ease-out, box-shadow 0.3s ease;
-                box-shadow: none;
-                border-top: 1px solid var(--border-color);
+                border-collapse: collapse;
+                margin: 25px 0;
+                border: 1px solid var(--border-color);
+            }
+            th, td {
+                border: 1px solid var(--border-color);
+                padding: 12px 15px;
+                text-align: left;
+                vertical-align: top;
+            }
+            th {
+                background-color: var(--light-gray);
+                font-weight: 600;
+                color: var(--primary-color);
             }
 
-            .nav-links.active {
-                max-height: 500px;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links li {
-                margin: 15px 0;
+            /* === ESTILOS DO CABEÇALHO === */
+            header {
                 width: 100%;
-                text-align: center;
+                padding: 12px 0;
+                background-color: var(--background-color);
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: var(--shadow-medium);
             }
 
-            .nav-links a {
-                display: block;
-                padding: 10px 0;
-            }
-
-            .nav-links a::after { display: none; }
-
-            /* Estilos para centralizar o logo no mobile */
             header .container {
-                flex-direction: column; /* Empilha o logo e a navegação */
-                align-items: center;    /* Centraliza os itens horizontalmente */
-                text-align: center;     /* Garante que o texto do logo esteja centralizado */
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
 
             header .logo {
-                margin-bottom: 10px;    /* Adiciona espaço abaixo do logo */
+                font-size: 1.7em;
+                font-weight: 700;
+                color: var(--primary-color);
+                text-decoration: none;
+            }
+            header .logo span {
+                color: var(--secondary-color);
+                font-weight: 500;
             }
 
             header .nav-links {
-                position: static;       /* Remove o posicionamento absoluto */
-                width: 100%;            /* Garante que a navegação ocupe a largura total */
-                border-top: 1px solid var(--border-color); /* Mantém a borda superior */
+                list-style: none;
+                display: flex;
+                align-items: center;
+                gap: 15px; /* Espaçamento ajustado para menos links */
+                flex-wrap: wrap;
+                justify-content: flex-end;
             }
 
-            .hero { min-height: 80vh; }
-            .hero-content { padding-top: 60px; }
-            .hero h1 { font-size: clamp(2rem, 6vw, 2.5rem); }
-            .hero p { font-size: clamp(0.9rem, 3vw, 1rem); }
-            .hero-image { display: none; }
-            .hero-shape { width: 250px; height: 250px; bottom: -120px; left: -120px; }
+            header .nav-links a {
+                color: var(--text-light);
+                font-weight: 500;
+                padding: 8px 15px; /* Padding aumentado */
+                border-radius: 4px;
+                text-decoration: none;
+                transition: color 0.2s ease, background-color 0.2s ease;
+                border-bottom: 2px solid transparent;
+                white-space: nowrap;
+            }
 
-            .section { padding: 60px 0; }
-            .section-header h2 { font-size: clamp(1.8rem, 5vw, 2rem); }
-            .section-header p { font-size: clamp(0.9rem, 2.5vw, 1rem); }
+            header .nav-links a:hover {
+                color: var(--primary-color);
+                background-color: var(--light-gray);
+                text-decoration: none;
+            }
 
-            .visualizer-container { border-radius: 8px; }
-            .viewer-window { height: 450px; }
-            .info-panels { grid-template-columns: 1fr; gap: 20px; }
-            .info-panel { padding: 25px; }
+            /* === ESTILOS DO CARROSSEL === */
+            /* (Mantidos como antes) */
+            .carousel-container {
+                position: relative;
+                width: 100%;
+                height: 75vh;
+                overflow: hidden;
+                background-color: #222;
+            }
+            .carousel { display: flex; width: 300%; height: 100%; transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+            .slide { min-width: 33.3333%; width: 33.3333%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 5%; position: relative; color: white; box-sizing: border-box; }
+            .slide::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; z-index: 1; filter: brightness(0.55); }
+            .slide-content { position: relative; z-index: 2; max-width: 800px; }
+            .slide:nth-child(1)::before { background-image: url('imagem1.jpeg'); }
+            .slide:nth-child(2)::before { background-image: url('imagem2.jpeg'); }
+            .slide:nth-child(3)::before { background-image: url('imagem3.jpeg'); }
+            .slide h2 { font-size: calc(1.8rem + 1vw); margin-bottom: 20px; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); font-weight: 700; color: white; line-height: 1.2; }
+            .slide p { font-size: calc(0.95rem + 0.2vw); max-width: 90%; margin-bottom: 30px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); color: rgba(255, 255, 255, 0.9); }
+            .slide a.button-link { display: inline-block; padding: 14px 30px; background-color: var(--secondary-color); color: white; text-decoration: none; border-radius: 50px; transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; font-weight: 600; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); border: none; }
+            .slide a.button-link:hover { transform: translateY(-3px) scale(1.03); background-color: #d96d1a; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); text-decoration: none; }
+            .carousel-nav { position: absolute; top: 50%; left: 0; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); z-index: 10; padding: 0 25px; pointer-events: none; }
+            .carousel-nav button { background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.8); border: none; font-size: 2.5rem; padding: 5px 12px; cursor: pointer; transition: background 0.3s ease, color 0.3s ease; border-radius: 50%; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; line-height: 1; pointer-events: all; }
+            .carousel-nav button:hover { background: rgba(0,0,0,0.5); color: white; }
 
-            #chatbot-container { height: 70vh; max-height: none; min-height: 350px; border-radius: 8px; }
-            #chat-log { padding: 15px; }
-            .message { max-width: 90%; }
-            #chat-input { padding: 12px; }
-            #user-input { padding: 8px 15px; font-size: 0.9rem; }
-            #send-button { padding: 8px 18px; font-size: 0.9rem; }
-            #quick-actions-myc { padding: 10px; }
-            .quick-action-button-myc { font-size: 0.8rem; padding: 6px 12px; }
+            /* === ESTILOS DO CONTEÚDO PRINCIPAL === */
+            .main-content {
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
 
+            /* Estilo para as secções originais (dentro dos details) */
+            .section {
+                padding: 30px 0; /* Padding reduzido pois está dentro de details */
+                border-bottom: 1px solid var(--border-color);
+            }
+            /* Remover borda da última secção dentro de um details */
+            details > .section:last-of-type {
+                border-bottom: none;
+                padding-bottom: 10px; /* Menos padding no fundo */
+            }
 
-            .footer-content { grid-template-columns: 1fr; gap: 35px; text-align: center; }
-            .footer-about, .footer-links ul, .footer-newsletter form { align-items: center; justify-content: center; text-align: center; }
-            .footer-links h3::after, .footer-newsletter h3::after { left: 50%; transform: translateX(-50%); }
-            .social-links { justify-content: center; }
-            .newsletter-form { flex-direction: column; gap: 10px; max-width: 300px; margin: 0 auto; }
-            .newsletter-form input, .newsletter-form button { border-radius: 20px; width: 100%; text-align: center; }
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #ffffff;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-    </style>
-</head>
-<body>
-
-    <!-- === CABEÇALHO === -->
-    <header>
-        <div class="container">
-            <a href="index.html" class="logo">MYC<span>Info</span></a>
-
-            <nav>
-                <!-- === NAVEGAÇÃO ATUALIZADA === -->
-                <ul class="nav-links">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="#group-info">Informação Essencial</a></li>
-                    <li><a href="#group-relevance">Relevância Clínica</a></li>
-                    <li><a href="#group-data">Dados Técnicos</a></li>
-                </ul>
-                 <!-- === FIM DA NAVEGAÇÃO ATUALIZADA === -->
-            </nav>
-        </div>
-    </header>
-
-    <!-- === CARROSSEL === -->
-    <!-- (Mantido como antes) -->
-    <div class="carousel-container" id="section-studies">
-        <div class="carousel-nav">
-            <button id="prevSlide" aria-label="Slide Anterior">←</button>
-            <button id="nextSlide" aria-label="Próximo Slide">→</button>
-        </div>
-        <div class="carousel">
-             <div class="slide">
-                <div class="slide-content">
-                    <h2>Estudo 1: Papel do MYC no Cancro</h2>
-                    <p>Investigação sobre como o MYC regula a proliferação celular em tumores sólidos.</p>
-                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1234567/" target="_blank" rel="noopener noreferrer" class="button-link">Ler Estudo</a>
-                </div>
-            </div>
-             <div class="slide">
-                 <div class="slide-content">
-                    <h2>Estudo 2: Regulação da Transcrição de MYC</h2>
-                    <p>Uma revisão sobre os complexos mecanismos que controlam a expressão do gene MYC, um fator chave em muitos cancros.</p>
-                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694405/" target="_blank" rel="noopener noreferrer" class="button-link">Ler Revisão</a>
-                </div>
-            </div>
-            <div class="slide">
-                 <div class="slide-content">
-                    <h2>Estudo 3: MYC e Metabolismo Celular</h2>
-                    <p>Relação entre MYC e o controlo do metabolismo em células cancerígenas.</p>
-                    <a href="https://www.sciencedirect.com/science/article/pii/S0006291X21009876" target="_blank" rel="noopener noreferrer" class="button-link">Ler Estudo</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- === CONTEÚDO PRINCIPAL REESTRUTURADO === -->
-    <div class="main-content">
-        <div class="container">
-
-            <!-- === GRUPO 1: INFORMAÇÃO ESSENCIAL === -->
-            <details id="group-info" open> <!-- 'open' faz começar aberto -->
-                <summary>Informação Essencial</summary>
-                <div class="details-content">
-                    <!-- Secção Resumo (id mantido para possíveis links internos) -->
-                    <section id="summary" class="section">
-                        <div class="section-header">
-                            <h3>Resumo do Gene MYC</h3> <!-- Mudado para H3 -->
-                        </div>
-                        <div>
-                            <p>O gene MYC fornece instruções para produzir uma proteína chamada c-Myc. Esta proteína é um fator de transcrição, o que significa que se liga a regiões específicas do DNA e ajuda a controlar a atividade dos genes. A proteína c-Myc desempenha um papel crítico no crescimento celular, divisão (proliferação) e morte celular programada (apoptose). Está também envolvida na produção de ribossomas, que são estruturas celulares que produzem proteínas.</p>
-                            <p>O gene MYC é um <strong>proto-oncogene</strong>, o que significa que tem o potencial de se tornar um oncogene, um gene que pode causar cancro, se sofrer mutação ou for expresso de forma anormal. Normalmente, o MYC é rigorosamente regulado, mas quando desregulado, pode impulsionar o crescimento e a divisão celular descontrolados, levando à formação de tumores.</p>
-                        </div>
-                    </section>
-
-                    <!-- Secção Função -->
-                    <section id="function" class="section">
-                        <div class="section-header">
-                            <h3>Função do Gene MYC</h3> <!-- Mudado para H3 -->
-                        </div>
-                        <div>
-                            <p>A proteína c-Myc influencia vários processos celulares importantes:</p>
-                            <ul>
-                                <li><strong>Progressão do Ciclo Celular:</strong> Promove a transição da fase G1 para a fase S do ciclo celular, levando à divisão celular.</li>
-                                <li><strong>Apoptose:</strong> Pode induzir apoptose, particularmente na ausência de fatores de crescimento ou sinais de sobrevivência.</li>
-                                <li><strong>Metabolismo:</strong> Regula genes envolvidos no metabolismo da glicose, metabolismo da glutamina e outras vias metabólicas.</li>
-                                <li><strong>Biogénese dos Ribossomas:</strong> Aumenta a produção de ribossomas, melhorando a capacidade da célula de sintetizar proteínas.</li>
-                            </ul>
-                            <p>Devido aos seus amplos efeitos, a desregulação do MYC pode ter consequências profundas no comportamento celular e contribuir para o desenvolvimento do cancro.</p>
-                        </div>
-                    </section>
-                </div> <!-- Fim .details-content -->
-            </details>
-            <!-- === FIM DO GRUPO 1 === -->
+            .section-header {
+                margin-bottom: 20px; /* Reduzido */
+            }
+            .section-header h3 { /* Ajustar se necessário */
+                font-size: 1.4rem;
+            }
 
 
-            <!-- === GRUPO 2: RELEVÂNCIA CLÍNICA E INVESTIGAÇÃO === -->
-            <details id="group-relevance">
-                <summary>Relevância Clínica e Investigação</summary>
-                 <div class="details-content">
-                    <!-- Secção Condições Relacionadas -->
-                    <section id="related_conditions" class="section">
-                        <div class="section-header">
-                            <h3>Condições Relacionadas com Mutações no Gene MYC</h3> <!-- Mudado para H3 -->
-                        </div>
-                        <div>
-                            <p>Alterações no gene MYC estão associadas a uma variedade de cancros, incluindo:</p>
-                            <ul>
-                                <li><strong>Linfoma de Burkitt:</strong> Frequentemente causado por uma translocação que coloca o gene MYC sob o controlo de um promotor highly ativo, levando à sua sobre-expressão.</li>
-                                <li><strong>Cancro da Mama:</strong> A amplificação e sobre-expressão do MYC são frequentemente observadas no cancro da mama, contribuindo para a proliferação celular e crescimento do tumor.</li>
-                                <li><strong>Cancro do Pulmão:</strong> A desregulação do MYC está implicada no desenvolvimento e progressão do cancro do pulmão.</li>
-                                <li><strong>Outros Cancros:</strong> Alterações no MYC também são observadas no cancro do cólon, cancro do ovário e outros tipos de cancro.</li>
-                            </ul>
-                            <p>Estas alterações podem incluir amplificação génica (aumento do número de cópias do gene), translocações (rearranjos da localização do gene) e aumento da expressão da proteína MYC.</p>
-                        </div>
-                    </section>
+            /* === ESTILOS PARA DETAILS/SUMMARY (Caixas Colapsáveis) === */
+            details {
+                border: 1px solid var(--border-color);
+                border-radius: 5px;
+                margin-bottom: 25px; /* Espaço entre as caixas principais */
+                background-color: #fff; /* Fundo branco para destaque */
+                overflow: hidden; /* Para conter bordas arredondadas */
+            }
 
-                    <!-- Secção Importância e Investigação -->
-                    <section id="importance" class="section">
-                        <div class="section-header">
-                            <h3>Importância e Investigação</h3> <!-- Mudado para H3 -->
-                        </div>
-                        <div>
-                             <p>Um vasto corpo de evidências mostra que os genes e proteínas Myc são altamente relevantes para o tratamento de tumores.</p>
-                             <p>Exceto para os genes de resposta precoce, o Myc regula positivamente a expressão génica de forma universal. Além disso, essa regulação positiva não é linear. Genes cuja expressão já está significativamente aumentada na ausência de Myc são fortemente impulsionados na presença de Myc, enquanto genes cuja expressão é baixa na ausência de Myc recebem apenas um pequeno impulso quando o Myc está presente.</p>
-                             <p>No processo de transformação experimental de células normais em células cancerígenas, o gene MYC pode cooperar com o gene RAS.</p>
-                             <p>A amplificação do gene MYC foi encontrada num número significativo de casos de cancro epitelial do ovário. Nos conjuntos de dados do TCGA, a amplificação do Myc ocorre em vários tipos de cancro, incluindo cancros da mama, colorretal, pancreático, gástrico e uterino.</p>
-                             <p>A expressão do Myc é altamente dependente da função do BRD4 em alguns cancros. Inibidores de BET têm sido usados com sucesso para bloquear a função do Myc em modelos pré-clínicos de cancro e estão atualmente a ser avaliados em ensaios clínicos.</p>
-                             <p>A inativação da enzima ativadora de SUMO (SAE1/SAE2) na presença de hiperativação do Myc resulta em catástrofe mitótica e morte celular em células cancerígenas. Assim, inibidores da SUMOilação podem ser um possível tratamento para o cancro.</p>
-                             <p>A expressão do MYC é controlada por uma ampla variedade de RNAs não codificantes, incluindo miRNA, lncRNA e circRNA. Alguns desses RNAs demonstraram ser específicos para certos tipos de tecidos e tumores humanos. Alterações na expressão de tais RNAs podem potencialmente ser usadas para desenvolver terapia tumoral direcionada.</p>
-                        </div>
-                    </section>
+            summary {
+                padding: 15px 20px;
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 1.5rem; /* Tamanho do título principal da caixa */
+                color: var(--primary-color);
+                background-color: var(--light-gray);
+                border-bottom: 1px solid var(--border-color);
+                list-style: none; /* Remove o marcador padrão */
+                position: relative;
+                transition: background-color 0.2s ease;
+            }
+            summary:hover {
+                background-color: #e9ecef; /* Cinza um pouco mais escuro no hover */
+            }
 
-                     <!-- Secção Outros Nomes -->
-                    <section id="other_names" class="section">
-                        <div class="section-header">
-                            <h3>Outros Nomes para o Gene MYC</h3> <!-- Mudado para H3 -->
-                        </div>
-                        <div>
-                            <ul>
-                                <li>c-Myc</li>
-                                <li>v-myc avian myelocytomatosis viral oncogene homolog</li>
-                                <li>MYC proto-oncogene, bHLH transcription factor</li>
-                                <li>Myc proto-oncogene protein</li>
-                                <li>bHLHe39</li>
-                            </ul>
-                        </div>
-                    </section>
-                 </div> <!-- Fim .details-content -->
-            </details>
-            <!-- === FIM DO GRUPO 2 === -->
+            /* Adiciona um ícone (seta) e o anima */
+            summary::after {
+                content: '\25BC'; /* Código unicode para seta para baixo */
+                font-size: 0.9em;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%) rotate(0deg);
+                transition: transform 0.3s ease;
+                color: var(--secondary-color);
+            }
+
+            details[open] > summary::after {
+                transform: translateY(-50%) rotate(180deg); /* Gira a seta quando aberto */
+            }
+
+            /* Remove o marcador padrão no Webkit/Blink (Chrome, Safari) */
+            summary::-webkit-details-marker {
+                display: none;
+            }
+
+            /* Conteúdo dentro do details (as secções originais) */
+            .details-content {
+                padding: 0px 20px 10px 20px; /* Padding interno para o conteúdo */
+            }
 
 
-            <!-- === GRUPO 3: DADOS TÉCNICOS E RECURSOS === -->
-            <details id="group-data">
-                <summary>Dados Técnicos e Recursos</summary>
-                 <div class="details-content">
-                    <!-- Secção Detalhes Adicionais -->
-                    <section id="details" class="section">
-                        <div class="section-header">
-                            <h3>Detalhes Adicionais</h3> <!-- Mudado para H3 -->
-                        </div>
-                        <div>
-                            <ul class="details-list">
-                                <li><strong>Localização Genómica:</strong> 8q24.21</li>
-                                <li><strong>Número de Exões:</strong> 3 (no transcrito de referência principal)</li>
-                                <li><strong>Data de Descoberta:</strong> O oncogene viral v-myc, precursor do entendimento do MYC humano, foi identificado em 1979 em estudos sobre tumores aviários. (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3345192/" target="_blank" rel="noopener noreferrer">Referência Histórica</a>)</li>
-                                <li><strong>Isoformas Principais (Proteína):</strong>
-                                    <ul>
-                                        <li>Isoforma 1 (NP_002458.2): 454 aminoácidos</li>
-                                        <li>Isoforma 2 (NP_001341799.1): 453 aminoácidos</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Identificador NCBI Gene:</strong> 4609</li>
-                            </ul>
-                        </div>
-                    </section>
+            /* Estilo para lista de detalhes (mantido) */
+            .details-list { list-style: none; padding-left: 0; }
+            .details-list li { margin-bottom: 10px; }
+            .details-list strong { color: var(--primary-color); min-width: 150px; display: inline-block; }
 
-                    <!-- Secção Acesso às Sequências -->
-                    <section id="sequences" class="section">
-                        <div class="section-header">
-                            <h3>Acesso às Sequências e Dados Genómicos</h3> <!-- Mudado para H3 -->
-                        </div>
-                        <div>
-                            <p>As sequências completas de DNA (mRNA, genómico) e proteína para as diferentes isoformas do gene MYC, juntamente com informações sobre a estrutura do gene, variações, expressão, interações e outros dados genómicos detalhados, estão disponíveis na base de dados oficial do NCBI (National Center for Biotechnology Information).</p>
-                            <p>Recomendamos consultar a fonte primária para obter os dados mais atualizados e abrangentes:</p>
-                            <p style="margin-top: 1.5em; text-align: center;">
-                                <a href="https://www.ncbi.nlm.nih.gov/gene/4609" target="_blank" rel="noopener noreferrer" style="font-weight: 600; font-size: 1.1em; padding: 10px 20px; background-color: var(--secondary-color); color: white; border-radius: 5px; text-decoration: none;">
-                                    Ver Gene MYC no NCBI Gene (ID: 4609)
-                                </a>
-                            </p>
-                        </div>
-                    </section>
+            /* === RODAPÉ (Estilo do Primeiro Site) === */
+            footer {
+                background-color: var(--dark);
+                color: rgba(255, 255, 255, 0.7); /* Cor de texto mais suave */
+                padding: 60px 0 30px;
+            }
 
-                    <!-- Secção Referências -->
-                    <section id="references" class="section">
-                        <div class="section-header">
-                            <h3>Referências e Leitura Adicional</h3> <!-- Mudado para H3 -->
-                        </div>
-                        <div>
-                            <p>Para mais informações técnicas e científicas, consulte as seguintes bases de dados:</p>
-                            <ul>
-                                <li>NCBI Gene: <a href="https://www.ncbi.nlm.nih.gov/gene/4609" target="_blank" rel="noopener noreferrer">Gene ID: 4609</a> <strong>(Fonte principal para sequências e dados genómicos)</strong></li>
-                                <li>UniProtKB: <a href="https://www.uniprot.org/uniprot/P01106" target="_blank" rel="noopener noreferrer">P01106 (MYC_HUMAN)</a> (Informação sobre a proteína)</li>
-                                <li>Human Protein Atlas: <a href="https://www.proteinatlas.org/ENSG00000136997-MYC" target="_blank" rel="noopener noreferrer">ENSG00000136997 (MYC)</a> (Expressão em tecidos)</li>
-                                <li>OMIM: <a href="https://omim.org/entry/190080" target="_blank" rel="noopener noreferrer">Entry 190080</a> (Informação clínica e genética)</li>
-                                <li>GenBank (Exemplo mRNA Isoforma 1): <a href="https://www.ncbi.nlm.nih.gov/nuccore/NM_002467.6" target="_blank" rel="noopener noreferrer">NM_002467.6</a></li>
-                                <li>GenBank (Exemplo mRNA Isoforma 2): <a href="https://www.ncbi.nlm.nih.gov/nuccore/NM_001354870.1" target="_blank" rel="noopener noreferrer">NM_001354870.1</a></li>
-                            </ul>
-                        </div>
-                    </section>
-                </div> <!-- Fim .details-content -->
-            </details>
-            <!-- === FIM DO GRUPO 3 === -->
+            .footer-content {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Layout mais responsivo */
+                gap: 40px; /* Mais espaço */
+            }
 
-        </div> <!-- Fim .container (conteúdo principal) -->
-    </div> <!-- Fim .main-content -->
 
-    <!-- === RODAPÉ === -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <a href="#" class="footer-logo">MYC<span>.info</span></a> <!-- Ajustado o nome aqui -->
-                    <p>Uma ferramenta interativa para explorar o gene MYC, sua estrutura proteica e obter informações através do chatbot MYC2YOU.</p>
-                    <div class="social-links">
-                        <a href="https://github.com/amarcos20/biolabs.project" target="_blank" rel="noopener noreferrer" aria-label="Perfil no GitHub">
-                            <i class="fa-brands fa-github"></i> <!-- Ícone GitHub -->
-                        </a>
-                        <a href="https://www.linkedin.com/in/afonso-marcos-8ba00b32a" target="_blank" rel="noopener noreferrer" aria-label="Perfil no LinkedIn">
-                            <i class="fa-brands fa-linkedin"></i> <!-- Ícone LinkedIn -->
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h3>Links Rápidos</h3>
-                    <ul>
+            .footer-logo {
+                font-size: 1.8rem;
+                font-weight: 700;
+                color: white;
+                text-decoration: none;
+                margin-bottom: 15px; /* Menos espaço */
+                display: inline-block;
+            }
+
+            .footer-logo span {
+                color: var(--primary-color);
+            }
+
+            .footer-about p,
+            .footer-newsletter p {
+                margin-bottom: 20px;
+                font-size: 0.9rem; /* Ligeiramente menor */
+            }
+
+            .social-links {
+                display: flex;
+                gap: 12px; /* Espaço entre ícones */
+            }
+
+            .social-links a {
+                width: 38px; /* Menor */
+                height: 38px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                transition: all 0.3s;
+                text-decoration: none; /* Garante que não há sublinhado */
+            }
+            .social-links a svg {
+                width: 18px; /* Tamanho do ícone */
+                height: 18px;
+            }
+
+            .social-links a:hover {
+                background-color: var(--primary);
+                transform: translateY(-3px);
+            }
+
+            .footer-links h3,
+            .footer-newsletter h3 {
+                font-size: 1.15rem; /* Ajustado */
+                margin-bottom: 20px;
+                position: relative;
+                padding-bottom: 10px;
+                color: white; /* Cor branca para títulos */
+                font-weight: 600;
+            }
+
+            .footer-links h3::after,
+            .footer-newsletter h3::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 35px; /* Menor */
+                height: 2px;
+                background-color: var(--secondary);
+            }
+
+            .footer-links ul {
+                list-style: none;
+            }
+
+            .footer-links li {
+                margin-bottom: 12px; /* Mais espaço */
+            }
+
+            .footer-links a {
+                color: rgba(255, 255, 255, 0.7); /* Mesmo tom do parágrafo */
+                text-decoration: none;
+                transition: all 0.3s;
+                font-size: 0.9rem;
+            }
+
+            .footer-links a:hover {
+                color: var(--secondary);
+                padding-left: 5px;
+            }
+
+            .newsletter-form {
+                display: flex;
+                margin-top: 10px; /* Espaço */
+            }
+
+            .newsletter-form input {
+                flex: 1;
+                padding: 10px 15px; /* Ajustado */
+                border: 1px solid rgba(255, 255, 255, 0.2); /* Borda subtil */
+                background-color: rgba(255, 255, 255, 0.05); /* Fundo muito subtil */
+                border-radius: 30px 0 0 30px;
+                font-size: 0.9rem;
+                color: white; /* Texto branco */
+                outline: none;
+            }
+            .newsletter-form input::placeholder {
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            .newsletter-form button {
+                background: var(--primary); /* Sem gradiente */
+                color: white;
+                border: none;
+                padding: 0 20px;
+                border-radius: 0 30px 30px 0;
+                cursor: pointer;
+                font-weight: 500;
+                transition: background-color 0.3s;
+            }
+            .newsletter-form button:hover {
+                background-color: var(--secondary);
+            }
+
+            .footer-bottom {
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                margin-top: 40px;
+                padding-top: 25px; /* Mais espaço */
+                text-align: center;
+                color: rgba(255, 255, 255, 0.6); /* Mais suave */
+                font-size: 0.85rem; /* Menor */
+            }
+
+            /* --- Animações --- */
+            @keyframes fadeInLeft {
+                from { opacity: 0; transform: translateX(-40px); }
+                to { opacity: 1; transform: translateX(0); }
+            }
+
+            @keyframes float {
+                0% { transform: translateY(0px) rotate(-5deg); } /* Adiciona rotação */
+                50% { transform: translateY(-15px) rotate(5deg); }
+                100% { transform: translateY(0px) rotate(-5deg); }
+            }
+
+            /* --- Media Queries para Responsividade --- */
+
+            /* Telas Médias (Tablets) */
+            @media (max-width: 992px) {
+                .container { width: 95%; } /* Usa mais espaço */
+                .hero-content { max-width: none; width: 90%; margin: 0 auto; text-align: center; } /* Centraliza texto no hero */
+                .hero .btn { margin-right: 10px; }
+                .info-panels { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } /* Layout responsivo */
+                .footer-content { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+            }
+
+            /* Telas Pequenas (Móveis) */
+            @media (max-width: 768px) {
+                body { font-size: 1rem; } /* Base font size para mobile */
+
+                /* Ajustes Navegação Mobile */
+                .menu-toggle { display: block; }
+
+                .nav-links {
+                    position: absolute;
+                    top: 70px;
+                    left: 0;
+                    background-color: white;
+                    width: 100%;
+                    height: auto;
+                    max-height: 0;
+                    overflow: hidden;
+                    flex-direction: column;
+                    align-items: center;
+                    transition: max-height 0.4s ease-out, box-shadow 0.3s ease;
+                    box-shadow: none;
+                    border-top: 1px solid var(--border-color);
+                }
+
+                .nav-links.active {
+                    max-height: 500px;
+                    padding: 20px 0;
+                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                }
+
+                .nav-links li {
+                    margin: 15px 0;
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .nav-links a {
+                    display: block;
+                    padding: 10px 0;
+                }
+
+                .nav-links a::after { display: none; }
+
+                /* Estilos para centralizar o logo no mobile */
+                header .container {
+                    flex-direction: column; /* Empilha o logo e a navegação */
+                    align-items: center;    /* Centraliza os itens horizontalmente */
+                    text-align: center;     /* Garante que o texto do logo esteja centralizado */
+                }
+
+                header .logo {
+                    margin-bottom: 10px;    /* Adiciona espaço abaixo do logo */
+                }
+
+                header .nav-links {
+                    position: static;       /* Remove o posicionamento absoluto */
+                    width: 100%;            /* Garante que a navegação ocupe a largura total */
+                    border-top: 1px solid var(--border-color); /* Mantém a borda superior */
+                }
+
+                .hero { min-height: 80vh; }
+                .hero-content { padding-top: 60px; }
+                .hero h1 { font-size: clamp(2rem, 6vw, 2.5rem); }
+                .hero p { font-size: clamp(0.9rem, 3vw, 1rem); }
+                .hero-image { display: none; }
+                .hero-shape { width: 250px; height: 250px; bottom: -120px; left: -120px; }
+
+                .section { padding: 60px 0; }
+                .section-header h2 { font-size: clamp(1.8rem, 5vw, 2rem); }
+                .section-header p { font-size: clamp(0.9rem, 2.5vw, 1rem); }
+
+                .visualizer-container { border-radius: 8px; }
+                .viewer-window { height: 450px; }
+                .info-panels { grid-template-columns: 1fr; gap: 20px; }
+                .info-panel { padding: 25px; }
+
+                #chatbot-container { height: 70vh; max-height: none; min-height: 350px; border-radius: 8px; }
+                #chat-log { padding: 15px; }
+                .message { max-width: 90%; }
+                #chat-input { padding: 12px; }
+                #user-input { padding: 8px 15px; font-size: 0.9rem; }
+                #send-button { padding: 8px 18px; font-size: 0.9rem; }
+                #quick-actions-myc { padding: 10px; }
+                .quick-action-button-myc { font-size: 0.8rem; padding: 6px 12px; }
+
+
+                .footer-content { grid-template-columns: 1fr; gap: 35px; text-align: center; }
+                .footer-about, .footer-links ul, .footer-newsletter form { align-items: center; justify-content: center; text-align: center; }
+                .footer-links h3::after, .footer-newsletter h3::after { left: 50%; transform: translateX(-50%); }
+                .social-links { justify-content: center; }
+                .newsletter-form { flex-direction: column; gap: 10px; max-width: 300px; margin: 0 auto; }
+                .newsletter-form input, .newsletter-form button { border-radius: 20px; width: 100%; text-align: center; }
+            }
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #ffffff;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <!-- === CABEÇALHO === -->
+        <header>
+            <div class="container">
+                <a href="index.html" class="logo">MYC<span>Info</span></a>
+
+                <nav>
+                    <!-- === NAVEGAÇÃO ATUALIZADA === -->
+                    <ul class="nav-links">
                         <li><a href="index.html">Início</a></li>
                         <li><a href="#group-info">Informação Essencial</a></li>
                         <li><a href="#group-relevance">Relevância Clínica</a></li>
                         <li><a href="#group-data">Dados Técnicos</a></li>
-                        
                     </ul>
-                </div>
-                
+                    <!-- === FIM DA NAVEGAÇÃO ATUALIZADA === -->
+                </nav>
             </div>
-            <div class="footer-bottom">
-                <p>© 2025 MYC.com | Projeto Académico. Todos os direitos reservados.</p> <!-- Atualizado o ano e texto -->
+        </header>
+
+        <!-- === CARROSSEL === -->
+        <!-- (Mantido como antes) -->
+        <div class="carousel-container" id="section-studies">
+            <div class="carousel-nav">
+                <button id="prevSlide" aria-label="Slide Anterior">←</button>
+                <button id="nextSlide" aria-label="Próximo Slide">→</button>
+            </div>
+            <div class="carousel">
+                <div class="slide">
+                    <div class="slide-content">
+                        <h2>Estudo 1: MYC Desregulado em 70% dos Tumores</h2>
+                        <p>c-Myc como regulador chave da proliferação e metabolismo celular.</p>
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/34942444/" target="_blank" rel="noopener noreferrer" class="button-link">Ler Estudo</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <h2>Estudo 2: Amplificação Transcricional, Oncogénese e o Modelo 'Hand-Over</h2>
+                        <p>Papel do MYC como amplificador universal da transcrição através de interações dinâmicas,.</p>
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/35963793/" target="_blank" rel="noopener noreferrer" class="button-link">Ler Revisão</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <h2>Estudo 3: MYC e Metabolismo Celular</h2>
+                        <p>Relação entre MYC e o controlo do metabolismo em células cancerígenas.</p>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0006291X21009876" target="_blank" rel="noopener noreferrer" class="button-link">Ler Estudo</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
 
-    <!-- === JAVASCRIPT DO CARROSSEL (Mantido como antes) === -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const carousel = document.querySelector('.carousel');
-            const prevButton = document.getElementById('prevSlide');
-            const nextButton = document.getElementById('nextSlide');
-            const slides = document.querySelectorAll('.slide');
-            const totalSlides = slides.length;
+                <!-- === CONTEÚDO PRINCIPAL REESTRUTURADO === -->
+                <div class="main-content">
+                    <div class="container">
+        
+                        <!-- === GRUPO 1: INFORMAÇÃO ESSENCIAL === -->
+                        <details id="group-info" open> <!-- 'open' faz começar aberto -->
+                            <summary>Informação Essencial</summary>
+                            <div class="details-content">
+                                <!-- Secção Resumo -->
+                                <section id="summary" class="section">
+                                    <div class="section-header">
+                                        <h3>Resumo do Gene MYC</h3>
+                                    </div>
+                                    <div>
+                                        <p>O gene MYC fornece instruções para produzir uma proteína chamada c-Myc. Esta proteína é um fator de transcrição, o que significa que se liga a regiões específicas do DNA e ajuda a controlar a atividade dos genes. A proteína c-Myc desempenha um papel crítico no crescimento celular, divisão (proliferação) e morte celular programada (apoptose). Está também envolvida na produção de ribossomas, que são estruturas celulares que produzem proteínas.</p>
+                                        <p>O gene MYC é um <strong>proto-oncogene</strong>, o que significa que tem o potencial de se tornar um oncogene, um gene que pode causar cancro, se sofrer mutação ou for expresso de forma anormal. Normalmente, o MYC é rigorosamente regulado, mas quando desregulado, pode impulsionar o crescimento e a divisão celular descontrolados, levando à formação de tumores.</p>
+                                    </div>
+                                </section>
+        
+                                <!-- Secção Função -->
+                                <section id="function" class="section">
+                                    <div class="section-header">
+                                        <h3>Função do Gene MYC</h3>
+                                    </div>
+                                    <div>
+                                        <p>A proteína c-Myc influencia vários processos celulares importantes:</p>
+                                        <ul>
+                                            <li><strong>Progressão do Ciclo Celular:</strong> Promove a transição da fase G1 para a fase S do ciclo celular, levando à divisão celular.</li>
+                                            <li><strong>Apoptose:</strong> Pode induzir apoptose, particularmente na ausência de fatores de crescimento ou sinais de sobrevivência.</li>
+                                            <li><strong>Metabolismo:</strong> Regula genes envolvidos no metabolismo da glicose, metabolismo da glutamina e outras vias metabólicas.</li>
+                                            <li><strong>Biogénese dos Ribossomas:</strong> Aumenta a produção de ribossomas, melhorando a capacidade da célula de sintetizar proteínas.</li>
+                                        </ul>
+                                        <p>Devido aos seus amplos efeitos, a desregulação do MYC pode ter consequências profundas no comportamento celular e contribuir para o desenvolvimento do cancro.</p>
+                                    </div>
+                                </section>
+                            </div> <!-- Fim .details-content de group-info -->
+                        </details>
+                        <!-- === FIM DO GRUPO 1 === -->
+        
+        
+                        <!-- === GRUPO 2: RELEVÂNCIA CLÍNICA E INVESTIGAÇÃO === -->
+                        <details id="group-relevance">
+                            <summary>Relevância Clínica e Investigação</summary>
+                            <div class="details-content">
+                                <!-- Secção Condições Relacionadas -->
+                                <section id="related_conditions" class="section">
+                                    <div class="section-header">
+                                        <h3>Condições Relacionadas com Mutações no Gene MYC</h3>
+                                    </div>
+                                    <div>
+                                        <p>Alterações no gene MYC estão associadas a uma variedade de cancros, incluindo:</p>
+                                        <ul>
+                                            <li><strong>Linfoma de Burkitt:</strong> Frequentemente causado por uma translocação que coloca o gene MYC sob o controlo de um promotor altamente ativo, levando à sua sobre-expressão.</li>
+                                            <li><strong>Cancro da Mama:</strong> A amplificação e sobre-expressão do MYC são frequentemente observadas no cancro da mama, contribuindo para a proliferação celular e crescimento do tumor.</li>
+                                            <li><strong>Cancro do Pulmão:</strong> A desregulação do MYC está implicada no desenvolvimento e progressão do cancro do pulmão.</li>
+                                            <li><strong>Outros Cancros:</strong> Alterações no MYC também são observadas no cancro do cólon, cancro do ovário e outros tipos de cancro.</li>
+                                        </ul>
+                                        <p>Estas alterações podem incluir amplificação génica (aumento do número de cópias do gene), translocações (rearranjos da localização do gene) e aumento da expressão da proteína MYC.</p>
+                                    </div>
+                                </section>
+        
+                                <!-- Secção Importância e Investigação -->
+                                <section id="importance" class="section">
+                                    <div class="section-header">
+                                        <h3>Importância e Investigação</h3>
+                                    </div>
+                                    <div>
+                                        <p>Um vasto corpo de evidências mostra que os genes e proteínas Myc são altamente relevantes para o tratamento de tumores.</p>
+                                        <p>Exceto para os genes de resposta precoce, o Myc regula positivamente a expressão génica de forma universal. Além disso, essa regulação positiva não é linear. Genes cuja expressão já está significativamente aumentada na ausência de Myc são fortemente impulsionados na presença de Myc, enquanto genes cuja expressão é baixa na ausência de Myc recebem apenas um pequeno impulso quando o Myc está presente.</p>
+                                        <p>No processo de transformação experimental de células normais em células cancerígenas, o gene MYC pode cooperar com o gene RAS.</p>
+                                        <p>A amplificação do gene MYC foi encontrada num número significativo de casos de cancro epitelial do ovário. Nos conjuntos de dados do TCGA, a amplificação do Myc ocorre em vários tipos de cancro, incluindo cancros da mama, colorretal, pancreático, gástrico e uterino.</p>
+                                        <p>A expressão do Myc é altamente dependente da função do BRD4 em alguns cancros. Inibidores de BET têm sido usados com sucesso para bloquear a função do Myc em modelos pré-clínicos de cancro e estão atualmente a ser avaliados em ensaios clínicos.</p>
+                                        <p>A inativação da enzima ativadora de SUMO (SAE1/SAE2) na presença de hiperativação do Myc resulta em catástrofe mitótica e morte celular em células cancerígenas. Assim, inibidores da SUMOilação podem ser um possível tratamento para o cancro.</p>
+                                        <p>A expressão do MYC é controlada por uma ampla variedade de RNAs não codificantes, incluindo miRNA, lncRNA e circRNA. Alguns desses RNAs demonstraram ser específicos para certos tipos de tecidos e tumores humanos. Alterações na expressão de tais RNAs podem potencialmente ser usadas para desenvolver terapia tumoral direcionada.</p>
+                                    </div>
+                                </section>
+        
+                                <!-- Nova Secção: Estudos e Direções Futuras (Movida para aqui) -->
+                                <section id="studies_future_directions" class="section">
+                                    <div class="section-header">
+                                        <h3>Estudos e Direções Futuras</h3>
+                                    </div>
+                                    <div>
+                                        <p>A investigação sobre o gene MYC e o seu papel no cancro é uma área ativa e crucial para o desenvolvimento de novas terapias. Vários estudos recentes têm focado na compreensão dos mecanismos de ação do MYC e na identificação de estratégias para o combater.</p>
+        
+                                        <h4>Principais Descobertas da Investigação:</h4>
+                                        <ul>
+                                            <li><strong>Mecanismos de Ação:</strong> Estudos como o <strong>[Terceiro estudo mencionado]</strong> demonstram que o MYC impulsiona a formação de tumores reativando programas genéticos embrionários, promovendo a biogénese ribosomal (produção de ribossomas) e a síntese proteica, e apagando a identidade tecidular (dediferenciação). Embora os seus efeitos sejam tecido-específicos, partilham uma assinatura genética conservada em diferentes cancros.</li>
+                                            <li><strong>Desafio e Novas Estratégias de Targeting:</strong> Dada a estrutura do MYC, o targeting direto tem sido historicamente difícil ("undruggable"). No entanto, estudos como o <a href="https://pubmed.ncbi.nlm.nih.gov/34942444/" target="_blank" rel="noopener noreferrer">[Primeiro estudo mencionado]</a> (PMID: 34942444) e o <a href="https://pubmed.ncbi.nlm.nih.gov/35963793/" target="_blank" rel="noopener noreferrer">[Segundo estudo mencionado]</a> (PMID: 35963793) destacam os avanços recentes no targeting <em>indireto</em>.</li>
+                                            <li><strong>Abordagens Indiretas Promissoras:</strong> Novas ferramentas e estratégias visam perturbar a regulação, tradução ou estabilidade da proteína MYC (por exemplo, usando Omomyc ou PROTACs - Proteolysis Targeting Chimeras). Estas abordagens têm mostrado a capacidade de reduzir o crescimento tumoral enquanto poupam as células normais, representando uma mudança significativa para o targeting clínico do MYC.</li>
+                                        </ul>
+        
+                                        <h4>Exemplo de Direção Futura (Estudo Hipotético):</h4>
+                                        <p>Uma área de investigação em curso (ilustrada pelo estudo hipotético) explora como a sobre-expressão de MYC altera a biogénese ribosomal e as taxas de síntese proteica em diferentes tipos de células cancerosas (ex: pulmão, cólon, linfoma). A hipótese é que o MYC aumenta a produção de ribossomas e a maquinaria de tradução de forma tecido-específica, o que se correlaciona com a agressividade do tumor e a sua elevada procura metabólica. Isto sugere que o targeting da biogénese ribosomal pode ser uma forma seletiva de atingir cancros impulsionados pelo MYC.</p>
+        
+                                        <p>Estes estudos sublinham a complexidade do MYC, a importância de compreender o seu comportamento no contexto específico de cada cancro, e o potencial das abordagens indiretas para desenvolver terapias eficazes contra tumores onde o MYC está desregulado.</p>
+                                    </div>
+                                </section>
+                                <!-- Fim da Secção: Estudos e Direções Futuras -->
+        
+                                 <!-- Secção Outros Nomes (Mantida no grupo de relevância) -->
+                                <section id="other_names" class="section">
+                                    <div class="section-header">
+                                        <h3>Outros Nomes para o Gene MYC</h3>
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <li>c-Myc</li>
+                                            <li>v-myc avian myelocytomatosis viral oncogene homolog</li>
+                                            <li>MYC proto-oncogene, bHLH transcription factor</li>
+                                            <li>Myc proto-oncogene protein</li>
+                                            <li>bHLHe39</li>
+                                        </ul>
+                                    </div>
+                                </section>
+                                <!-- Fim da Secção Outros Nomes -->
+        
+                            </div> <!-- Fim .details-content de group-relevance -->
+                        </details>
+                        <!-- === FIM DO GRUPO 2 === -->
+        
+        
+                        <!-- === GRUPO 3: DADOS TÉCNICOS E RECURSOS === -->
+                        <details id="group-data">
+                            <summary>Dados Técnicos e Recursos</summary>
+                            <div class="details-content">
+                                <!-- Secção Detalhes Adicionais -->
+                                <section id="details" class="section">
+                                    <div class="section-header">
+                                        <h3>Detalhes Adicionais</h3>
+                                    </div>
+                                    <div>
+                                        <ul class="details-list">
+                                            <li><strong>Localização Genómica:</strong> 8q24.21</li>
+                                            <li><strong>Número de Exões:</strong> 3 (no transcrito de referência principal)</li>
+                                            <li><strong>Data de Descoberta:</strong> O oncogene viral v-myc, precursor do entendimento do MYC humano, foi identificado em 1979 em estudos sobre tumores aviários. (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3345192/" target="_blank" rel="noopener noreferrer">Referência Histórica</a>)</li>
+                                            <li><strong>Isoformas Principais (Proteína):</strong>
+                                                <ul>
+                                                    <li>Isoforma 1 (NP_002458.2): 454 aminoácidos</li>
+                                                    <li>Isoforma 2 (NP_001341799.1): 453 aminoácidos</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>Identificador NCBI Gene:</strong> 4609</li>
+                                        </ul>
+                                    </div>
+                                </section>
+        
+                                <!-- Secção Acesso às Sequências -->
+                                <section id="sequences" class="section">
+                                    <div class="section-header">
+                                        <h3>Acesso às Sequências e Dados Genómicos</h3>
+                                    </div>
+                                    <div>
+                                        <p>As sequências completas de DNA (mRNA, genómico) e proteína para as diferentes isoformas do gene MYC, juntamente com informações sobre a estrutura do gene, variações, expressão, interações e outros dados genómicos detalhados, estão disponíveis na base de dados oficial do NCBI (National Center for Biotechnology Information).</p>
+                                        <p>Recomendamos consultar a fonte primária para obter os dados mais atualizados e abrangentes:</p>
+                                        <p style="margin-top: 1.5em; text-align: center;">
+                                            <a href="https://www.ncbi.nlm.nih.gov/gene/4609" target="_blank" rel="noopener noreferrer" style="font-weight: 600; font-size: 1.1em; padding: 10px 20px; background-color: var(--secondary-color); color: white; border-radius: 5px; text-decoration: none;">
+                                                Ver Gene MYC no NCBI Gene (ID: 4609)
+                                            </a>
+                                        </p>
+                                    </div>
+                                </section>
+        
+                                <!-- Secção Referências -->
+                                <section id="references" class="section">
+                                    <div class="section-header">
+                                        <h3>Referências e Leitura Adicional</h3>
+                                    </div>
+                                    <div>
+                                        <p>Para mais informações técnicas e científicas, consulte as seguintes bases de dados:</p>
+                                        <ul>
+                                            <li>NCBI Gene: <a href="https://www.ncbi.nlm.nih.gov/gene/4609" target="_blank" rel="noopener noreferrer">Gene ID: 4609</a> <strong>(Fonte principal para sequências e dados genómicos)</strong></li>
+                                            <li>UniProtKB: <a href="https://www.uniprot.org/uniprot/P01106" target="_blank" rel="noopener noreferrer">P01106 (MYC_HUMAN)</a> (Informação sobre a proteína)</li>
+                                            <li>Human Protein Atlas: <a href="https://www.proteinatlas.org/ENSG00000136997-MYC" target="_blank" rel="noopener noreferrer">ENSG00000136997 (MYC)</a> (Expressão em tecidos)</li>
+                                            <li>OMIM: <a href="https://omim.org/entry/190080" target="_blank" rel="noopener noreferrer">Entry 190080</a> (Informação clínica e genética)</li>
+                                            <li>GenBank (Exemplo mRNA Isoforma 1): <a href="https://www.ncbi.nlm.nih.gov/nuccore/NM_002467.6" target="_blank" rel="noopener noreferrer">NM_002467.6</a></li>
+                                            <li>GenBank (Exemplo mRNA Isoforma 2): <a href="https://www.ncbi.nlm.nih.gov/nuccore/NM_001354870.1" target="_blank" rel="noopener noreferrer">NM_001354870.1</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div> <!-- Fim .details-content de group-data -->
+                        </details>
+                        <!-- === FIM DO GRUPO 3 === -->
+        
+                    </div> <!-- Fim .container (conteúdo principal) -->
+                </div> <!-- Fim .main-content -->
 
-            if (!carousel || !prevButton || !nextButton || totalSlides === 0) {
-                console.error("Erro: Elementos do carrossel não encontrados ou número de slides é zero.");
-                if(document.querySelector('.carousel-nav')) {
-                   document.querySelector('.carousel-nav').style.display = 'none';
+            </div> <!-- Fecha a div class="details-content" que engloba as secções -->
+            </details>
+                <!-- === FIM DO GRUPO 3 === -->
+
+            </div> <!-- Fim .container (conteúdo principal) -->
+        </div> <!-- Fim .main-content -->
+
+        <!-- === RODAPÉ === -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-about">
+                        <a href="#" class="footer-logo">MYC<span>.info</span></a> <!-- Ajustado o nome aqui -->
+                        <p>Uma ferramenta interativa para explorar o gene MYC, sua estrutura proteica e obter informações através do chatbot MYC2YOU.</p>
+                        <div class="social-links">
+                            <a href="https://github.com/amarcos20/biolabs.project" target="_blank" rel="noopener noreferrer" aria-label="Perfil no GitHub">
+                                <i class="fa-brands fa-github"></i> <!-- Ícone GitHub -->
+                            </a>
+                            <a href="https://www.linkedin.com/in/afonso-marcos-8ba00b32a" target="_blank" rel="noopener noreferrer" aria-label="Perfil no LinkedIn">
+                                <i class="fa-brands fa-linkedin"></i> <!-- Ícone LinkedIn -->
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Links Rápidos</h3>
+                        <ul>
+                            <li><a href="index.html">Início</a></li>
+                            <li><a href="#group-info">Informação Essencial</a></li>
+                            <li><a href="#group-relevance">Relevância Clínica</a></li>
+                            <li><a href="#group-data">Dados Técnicos</a></li>
+                            
+                        </ul>
+                    </div>
+                    
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2025 MYC.com | Projeto Académico. Todos os direitos reservados.</p> <!-- Atualizado o ano e texto -->
+                </div>
+            </div>
+        </footer>
+
+        <!-- === JAVASCRIPT DO CARROSSEL (Mantido como antes) === -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const carousel = document.querySelector('.carousel');
+                const prevButton = document.getElementById('prevSlide');
+                const nextButton = document.getElementById('nextSlide');
+                const slides = document.querySelectorAll('.slide');
+                const totalSlides = slides.length;
+
+                if (!carousel || !prevButton || !nextButton || totalSlides === 0) {
+                    console.error("Erro: Elementos do carrossel não encontrados ou número de slides é zero.");
+                    if(document.querySelector('.carousel-nav')) {
+                    document.querySelector('.carousel-nav').style.display = 'none';
+                    }
+                    return;
                 }
-                return;
-            }
 
-            let currentSlide = 0;
-            const slideWidthPercentage = 100 / totalSlides;
+                let currentSlide = 0;
+                const slideWidthPercentage = 100 / totalSlides;
 
-            function updateCarouselPosition() {
-                const newTransformValue = -(currentSlide * slideWidthPercentage);
-                carousel.style.transform = `translateX(${newTransformValue}%)`;
-            }
+                function updateCarouselPosition() {
+                    const newTransformValue = -(currentSlide * slideWidthPercentage);
+                    carousel.style.transform = `translateX(${newTransformValue}%)`;
+                }
 
-             carousel.style.width = `${totalSlides * 100}%`;
-             slides.forEach(slide => {
-                slide.style.minWidth = `${slideWidthPercentage}%`;
-                slide.style.width = `${slideWidthPercentage}%`;
-             });
+                carousel.style.width = `${totalSlides * 100}%`;
+                slides.forEach(slide => {
+                    slide.style.minWidth = `${slideWidthPercentage}%`;
+                    slide.style.width = `${slideWidthPercentage}%`;
+                });
 
-            nextButton.addEventListener('click', () => {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                updateCarouselPosition();
+                nextButton.addEventListener('click', () => {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    updateCarouselPosition();
+                });
+
+                prevButton.addEventListener('click', () => {
+                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                    updateCarouselPosition();
+                });
+
+                console.log("Carrossel inicializado com", totalSlides, "slides.");
             });
-
-            prevButton.addEventListener('click', () => {
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                updateCarouselPosition();
-            });
-
-            console.log("Carrossel inicializado com", totalSlides, "slides.");
-        });
-    </script>
+        </script>
