@@ -1045,41 +1045,21 @@
     
       <!-- === SECÇÃO: PIPELINE DE AUTOMAÇÃO === -->
   <section id="automation-pipeline" class="results-section">
-    <h2>Pipeline de Automação da Análise Genómica</h2>
+    <h2>Pipeline de Automação do workflow utilizado </h2>
     <p> A nossa pipeline feita com base no Biopython permite realizar o blastp,alinhamento multiplo e a construção da árvore filogeneticas</p>
 
     <!-- INSERIR DIAGRAMA/DESCRIÇÃO DO PIPELINE AQUI -->
     <img src="pipeline.png" alt="Diagrama do Pipeline de Automação" style="max-width: 100%; height: auto;">
 
     <!-- Adicione a estrutura colapsável -->
-    <button class="collapsible">Código da Função BLAST_prot</button>
+    <button class="collapsible">Código com Biopython da pipeline</button>
      <div class="content"> <!-- Envolve todo o conteúdo das conclusões -->
        <div class="conclusions">
-           <h4>Código da Função BLAST_prot</h4>
-           <p>Este código Python utiliza a biblioteca Biopython para realizar uma busca BLASTp (protein-protein BLAST) em um banco de dados de proteínas (Swiss-Prot) a partir de um arquivo FASTA contendo a sequência da proteína MYC.</p>
-           <pre>
-            <code>
-from Bio import SeqIO
-from Bio.Blast import NCBIWWW
-from Bio.Blast import NCBIXML
-
-
-def BLAST_prot (protein_name):
-  """
-  Função que realiza o BLASTp para a proteína fornecida a a partir do ficheiro fasta desta
-
-  """
-  protein = SeqIO.read(open(f'{protein_name}_protein.fasta'), format="fasta")
-  result = NCBIWWW.qblast("blastp", "swissprot", protein.seq)
-  with open(f'{protein_name}_protein.xml', "w") as save_file:
-      save_file.write(result.read())
-  # save_file.close()  # Redundante com o 'with'
-  result.close()
-  return f'{protein_name}_protein.xml'  # Return the XML filename
-
-BLAST_prot("myc")
-            </code>
-          </pre>
+           <h4>Pipeline de automação</h4>
+           <p>Este código Python utiliza a biblioteca Biopython para realizar uma busca BLASTp, alinhamento multiplo de sequencias e construção da árvore filogenetico tudo atravez do ficheiro fasta da sequencia do teu gene.</p>
+        
+            <a href="pipeline.ipynb" download>Transferir ficheiro pipeline.ipynb</a>
+          
        </div>
      </div>
 </section>
