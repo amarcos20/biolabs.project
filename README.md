@@ -1,56 +1,66 @@
-Relatório: Estudo e Análise do Gene MYC
-site: https://amarcos20.github.io/biolabs.project/
+Report: Study and Analysis of the MYC Gene
+Website: https://amarcos20.github.io/biolabs.project
 
-## Autores
+Authors
+Afonso Marcos (Student ID: 202404088)
 
-*   Afonso Marcos (Número de Estudante: 202404088)
-*   Pedro Afonso (Número de Estudante: 202404125)
-*   Afonso Silva (Número de Estudante: 202406661)
+Pedro Afonso (Student ID: 202404125)
 
----
+Afonso Silva (Student ID: 202406661)
 
-## 1. Introdução
+1. Introduction
+Brief overview of the importance of genes in biology and disease.
 
-*   Breve contextualização sobre a importância dos genes na biologia e nas doenças.
-*   Apresentação do gene MYC: o que é, a sua relevância, particularmente como um oncogene.
-*   Objetivo do presente relatório: detalhar o conhecimento atual sobre o gene MYC, o seu papel em processos biológicos e patológicos, e possivelmente apresentar resultados de alguma análise específica realizada no âmbito do projeto.
+Presentation of the MYC gene: what it is, its relevance, particularly as an oncogene.
 
-## 2. O Gene MYC: Estrutura, Função e Regulação
+Objective of this report: to detail the current knowledge about the MYC gene, its role in biological and pathological processes, and possibly present results from specific analyses conducted within the scope of the project.
 
-*   Localização cromossómica e estrutura do gene.
-*   Descrição da proteína MYC que codifica.
-*   Funções normais da proteína MYC (ex: regulação da transcrição, ciclo celular, crescimento).
-*   Mecanismos de regulação da expressão e atividade do MYC.
+2. The MYC Gene: Structure, Function, and Regulation
+Chromosomal location and gene structure.
 
-## 3. Papel do MYC em Processos Biológicos
+Description of the MYC protein it encodes.
 
-*   MYC no desenvolvimento embrionário.
-*   MYC na proliferação e diferenciação celular.
-*   Outros papéis (se relevante para o vosso estudo).
+Normal functions of the MYC protein (e.g., transcription regulation, cell cycle, growth).
 
-## 4. MYC e Doença: Ênfase no Cancro
+Mechanisms regulating MYC expression and activity.
 
-*   MYC como um proto-oncogene e como se torna um oncogene.
-*   Mecanismos de desregulação do MYC no cancro (amplificação, translocação, mutações).
-*   Tipos de cancro frequentemente associados à desregulação do MYC (ex: Linfoma de Burkitt, cancros da mama, cólon, pulmão, etc.).
-*   Vias de sinalização a montante e a jusante de MYC no contexto do cancro.
+3. Role of MYC in Biological Processes
+MYC in embryonic development.
 
-## 5. Análise ou Estudo Específico (Se aplicável ao vosso projeto Biolabs)
+MYC in cell proliferation and differentiation.
 
-*   Descrição de qualquer análise de dados, modelagem, revisão bibliográfica aprofundada ou experimento que tenha sido realizado focado no gene MYC.
-*   Detalhar a metodologia utilizada (dataset, ferramentas, modelos, etc.).
-*   Apresentar os resultados obtidos (pode referenciar figuras e tabelas).
+Other roles .
 
-## 6. Discussão
+4. MYC and Disease: Emphasis on Cancer
+MYC as a proto-oncogene and how it becomes an oncogene.
 
-*   Interpretação dos resultados obtidos (se houver) no contexto do conhecimento existente sobre o MYC.
-*   Discussão do papel do MYC como alvo terapêutico no cancro.
-*   Desafios na terapêutica direcionada ao MYC.
-*   Considerações sobre as limitações do vosso estudo/projeto.
-*   Sugestões para futuras investigações.
+Mechanisms of MYC deregulation in cancer (amplification, translocation, mutations).
 
-## 7. Conclusão
+Types of cancer frequently associated with MYC deregulation (e.g., Burkitt lymphoma, breast, colon, lung cancers, etc.).
 
-*   Resumo dos pontos mais importantes abordados no relatório.
-*   Principais descobertas ou conclusões do vosso estudo/análise.
-*   Reflexão final sobre a importância do gene MYC.
+Upstream and downstream signaling pathways of MYC in the context of cancer.
+
+5. Specific Analysis or Study 
+Description of any data analysis, modeling, in-depth literature review, or experiment conducted focusing on the MYC gene.
+
+Detail the methodology used (dataset, tools, models, etc.).
+
+Present the results obtained (may reference figures and tables).
+
+6. Discussion
+Interpretation of the results obtained (if any) in the context of existing knowledge about MYC.
+
+Discussion of MYC’s role as a therapeutic target in cancer.
+
+Challenges in MYC-targeted therapy.
+
+Considerations regarding the limitations of your study/project.
+
+Suggestions for future research.
+
+7. Conclusion
+Summary of the key points addressed in the report.
+
+Main findings or conclusions from your study/analysis.
+
+Final reflection on the importance of the MYC gene.
